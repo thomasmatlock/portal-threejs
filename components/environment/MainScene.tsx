@@ -107,8 +107,8 @@ export default function Main() {
 						position={[0, 0, 0]}
 						target={[0, 0, 0]}
 						dampingFactor={0.25}
-						autoRotate={true}
-						autoRotateSpeed={-0.1}
+						// autoRotate={true}
+						// autoRotateSpeed={-0.1}
 					/>
 					<Sparkles
 						count={300}
@@ -122,7 +122,7 @@ export default function Main() {
 					<PerspectiveCamera
 						makeDefault
 						position={[-1, 0, 3]}
-						fov={60} // More realistic FOV for Portal-like experience
+						fov={60}
 						near={0.1}
 						far={150}
 					/>
@@ -130,23 +130,46 @@ export default function Main() {
 					<WheatleyRig />
 					{/* <GladOS scale={0.25} position={[0.5, 1, 0]} /> */}
 					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
-					{/* <directionalLight position={[0, 10, 0]} intensity={0.1} />
-					<directionalLight position={[-10, 0, 0]} intensity={0.1} />
-					<directionalLight position={[10, 0, 0]} intensity={0.1} /> */}
+					{/* Portal-style lighting setup */}
+					{/* Cool blue ambient light */}
+					<ambientLight intensity={0.1} color="#b4c7e0" />
+					{/* Main overhead light - simulates the ceiling panels */}
 					<spotLight
-						intensity={0.5}
-						angle={Math.PI / 2}
-						penumbra={0.15} // this
-						position={[0, 1, 1]}
-						// rotation={[Math.PI * 0.22, 0, 0]}
+						intensity={0.7}
+						angle={Math.PI / 4}
+						penumbra={0.2}
+						position={[0, 5, 0]}
+						color="#f0f5ff"
+						// castShadow
+						shadow-bias={-0.0001}
 					/>
+					{/* Accent light from front - simulates the observation window */}
 					<spotLight
-						intensity={0.5}
-						angle={Math.PI / 2}
-						penumbra={0.15} // this
-						position={[1, 1, 0]}
-						// rotation={[Math.PI * 0.22, 0, 0]}
+						intensity={0.4}
+						angle={Math.PI / 6}
+						penumbra={0.1}
+						position={[0, 1, 5]}
+						color="#80ccff"
+						// castShadow
 					/>
+					{/* Side accent light - gives that asymmetric Portal look */}
+					<spotLight
+						intensity={0.3}
+						angle={Math.PI / 5}
+						penumbra={0.2}
+						position={[4, 2, 1]}
+						color="#c2fcff"
+						// castShadow
+					/>
+					{/* Subtle floor bounce light */}
+					<pointLight
+						intensity={0.1}
+						position={[0, -1, 0]}
+						color="#ff8500"
+						distance={5}
+					/>
+					{/* Add a subtle volumetric effect */}
+					<fog attach="fog" color="#ff8500" near={10} far={30} />
 				</Canvas>
 			</Suspense>
 		</div>

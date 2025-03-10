@@ -155,7 +155,7 @@ export function WheatleyRig() {
 		<group ref={groupRef}>
 			<group ref={bodyRef}>
 				<group ref={lookRef} rotation={[0, Math.PI / 2, 0]}>
-					<Wheatley scale={0.05} position={[0, -1, 0]} />
+					<Wheatley scale={0.025} position={[0, -0.5, 0]} />
 				</group>
 			</group>
 		</group>

@@ -180,7 +180,7 @@ export function WheatleyRig() {
 					distractionState.current.isShakingHead = true;
 					distractionState.current.shakeTimer = 0;
 					distractionState.current.shakeDuration = Math.random() * 0.8 + 0.5; // 0.5-1.3 seconds
-					distractionState.current.shakeIntensity = Math.random() * 0.15 + 0.1; // 0.1-0.25 intensity
+					distractionState.current.shakeIntensity = Math.random() * 0.08 + 0.01; // Reduced from 0.1-0.25 to 0.05-0.13
 					distractionState.current.shakeFrequency = Math.random() * 3 + 5; // 5-8 Hz
 					distractionState.current.shakeDirection = Math.random() > 0.5 ? 1 : -1; // Random direction
 				}

@@ -101,12 +101,6 @@ const GameMenu: React.FC<GameMenuProps> = ({
 			action: () => showComingSoonNotification('Multiplayer mode coming soon!'),
 		},
 
-		// {
-		// 	id: 'extras',
-		// 	label: 'EXTRAS',
-		// 	disabled: true,
-		// 	action: () => showComingSoonNotification('Extras coming soon!'),
-		// },
 		{
 			id: 'options',
 			label: 'OPTIONS',

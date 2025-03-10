@@ -1,5 +1,12 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment, Sparkles } from '@react-three/drei';
+import {
+	OrbitControls,
+	PerspectiveCamera,
+	Environment,
+	Sparkles,
+	CameraShake,
+	Lightformer,
+} from '@react-three/drei';
 import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import dynamic from 'next/dynamic';
@@ -73,7 +80,21 @@ function AudioInitializer() {
 
 	return null;
 }
-
+function Rig() {
+	const [vec] = useState(() => new THREE.Vector3());
+	const { camera, mouse } = useThree();
+	useFrame(() => camera.position.lerp(vec.set(mouse.x * -1, 0, 3), 0.01));
+	return (
+		<CameraShake
+			maxYaw={0.01}
+			maxPitch={0.01}
+			maxRoll={0.01}
+			yawFrequency={0.5}
+			pitchFrequency={0.5}
+			rollFrequency={0.4}
+		/>
+	);
+}
 export default function Main() {
 	return (
 		<div style={{ position: 'fixed', width: '100%', height: '100vh', right: 0 }}>
@@ -110,7 +131,7 @@ export default function Main() {
 						// autoRotate={true}
 						// autoRotateSpeed={-0.1}
 					/>
-
+					<Rig />
 					<PerspectiveCamera
 						makeDefault
 						position={[-1, 0, 3]}
@@ -140,6 +161,7 @@ export default function Main() {
 					{/* Portal-style lighting setup */}
 					{/* Cool blue ambient light */}
 					<ambientLight intensity={0.1} color="#b4c7e0" />
+
 					{/* Main overhead light - simulates the ceiling panels */}
 					{/* <spotLight
 						intensity={0.7}
@@ -150,6 +172,7 @@ export default function Main() {
 						// castShadow
 						shadow-bias={-0.0001}
 					/> */}
+
 					{/* Accent light from front - simulates the observation window */}
 					<spotLight
 						intensity={0.4}

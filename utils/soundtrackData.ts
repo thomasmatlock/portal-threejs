@@ -19,6 +19,21 @@ export const portalSoundtracks: Track[] = [
 		title: 'You Will Be Perfect',
 		file: 'Portal 2 OST Volume 2 - You Will Be Perfect.mp3',
 	},
+	{
+		id: '9999999',
+		title: '9999999',
+		file: 'Portal 2 OST Volume 1 - 9999999.mp3',
+	},
+	{
+		id: 'franken-turrets',
+		title: 'Franken Turrets',
+		file: 'Portal 2 OST Volume 3 - Franken Turrets.mp3',
+	},
+	{
+		id: 'wheatley-science',
+		title: 'Wheatley Science',
+		file: 'Portal 2 OST Volume 3 - Wheatley Science.mp3',
+	},
 ];
 
 // Function to get a random soundtrack

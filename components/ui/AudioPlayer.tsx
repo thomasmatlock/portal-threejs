@@ -12,6 +12,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 }) => {
 	// Use a ref to track if we're on the client side
 	const isClient = useRef(false);
+	const audioContextRef = useRef<AudioContext | null>(null);
+	const hasAttemptedAutoplayRef = useRef(false);
 
 	// Initialize with a fixed index (0) for server rendering
 	// We'll randomize it on the client side after hydration
@@ -24,6 +26,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	const [isMuted, setIsMuted] = useState(false);
 	const [prevVolume, setPrevVolume] = useState(initialVolume);
 	const [userInteracted, setUserInteracted] = useState(false);
+	const [audioLoaded, setAudioLoaded] = useState(false);
 
 	const lastVolumeRef = useRef(initialVolume);
 	const isUserAdjustingRef = useRef(false);
@@ -32,6 +35,54 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	const progressBarRef = useRef<HTMLDivElement>(null);
 
 	const currentTrack = tracks[currentTrackIndex];
+
+	// Initialize audio context on mount
+	useEffect(() => {
+		// Create AudioContext only on client side
+		if (typeof window !== 'undefined' && !audioContextRef.current) {
+			try {
+				const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+				if (AudioContext) {
+					audioContextRef.current = new AudioContext();
+				}
+			} catch (error) {
+				console.error('Failed to create AudioContext:', error);
+			}
+		}
+
+		// Attempt autoplay on mount
+		if (autoplay && !hasAttemptedAutoplayRef.current) {
+			console.log('Attempting autoplay on component mount...');
+			// We'll set this flag to true to avoid multiple attempts
+			hasAttemptedAutoplayRef.current = true;
+
+			// We need to wait a bit for the audio element to be ready
+			setTimeout(() => {
+				if (audioRef.current) {
+					audioRef.current
+						.play()
+						.then(() => {
+							console.log('Autoplay successful on mount');
+							setIsPlaying(true);
+						})
+						.catch((error) => {
+							console.log(
+								'Autoplay prevented on mount, waiting for user interaction:',
+								error
+							);
+							// We'll rely on user interaction to start playback
+						});
+				}
+			}, 500);
+		}
+
+		return () => {
+			// Clean up audio context on unmount
+			if (audioContextRef.current) {
+				audioContextRef.current.close().catch(console.error);
+			}
+		};
+	}, [autoplay]);
 
 	// Set up randomization after hydration
 	useEffect(() => {
@@ -43,13 +94,47 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		}
 	}, [randomizeTrack]);
 
-	// Initialize volume on mount
+	// Initialize volume on mount and handle audio loading
 	useEffect(() => {
 		if (audioRef.current) {
+			// Set initial volume
 			audioRef.current.volume = initialVolume / 100;
 			lastVolumeRef.current = initialVolume;
+
+			// Add event listener for when audio is ready to play
+			const handleCanPlay = () => {
+				setAudioLoaded(true);
+				// Try autoplay if enabled
+				if (autoplay && !hasAttemptedAutoplayRef.current) {
+					hasAttemptedAutoplayRef.current = true;
+					handlePlayPause();
+				}
+			};
+
+			// Add event listeners for play and pause events to ensure state is synchronized
+			const handlePlay = () => {
+				console.log('Audio play event fired');
+				setIsPlaying(true);
+			};
+
+			const handlePause = () => {
+				console.log('Audio pause event fired');
+				setIsPlaying(false);
+			};
+
+			audioRef.current.addEventListener('canplay', handleCanPlay);
+			audioRef.current.addEventListener('play', handlePlay);
+			audioRef.current.addEventListener('pause', handlePause);
+
+			return () => {
+				if (audioRef.current) {
+					audioRef.current.removeEventListener('canplay', handleCanPlay);
+					audioRef.current.removeEventListener('play', handlePlay);
+					audioRef.current.removeEventListener('pause', handlePause);
+				}
+			};
 		}
-	}, []);
+	}, [currentTrackIndex]);
 
 	// Handle initialVolume prop changes
 	useEffect(() => {
@@ -68,11 +153,24 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		const handleUserInteraction = () => {
 			if (!userInteracted) {
 				setUserInteracted(true);
-				if (autoplay && audioRef.current) {
-					audioRef.current.play().catch((error) => {
-						console.error('Autoplay prevented:', error);
-					});
-					setIsPlaying(true);
+
+				// Resume audio context if it was suspended
+				if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+					audioContextRef.current.resume().catch(console.error);
+				}
+
+				// Try to play if autoplay is enabled and audio is loaded
+				if (autoplay && audioRef.current && audioLoaded && !isPlaying) {
+					console.log('User interacted, attempting autoplay...');
+					audioRef.current
+						.play()
+						.then(() => {
+							console.log('Autoplay successful after user interaction');
+							setIsPlaying(true);
+						})
+						.catch((error) => {
+							console.error('Autoplay prevented after user interaction:', error);
+						});
 				}
 			}
 		};
@@ -90,17 +188,24 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 			window.removeEventListener('touchstart', handleUserInteraction);
 			window.removeEventListener('scroll', handleUserInteraction);
 		};
-	}, [userInteracted, autoplay]);
+	}, [userInteracted, autoplay, audioLoaded, isPlaying]);
 
+	// Add back the autoplay after user interaction effect
 	useEffect(() => {
 		// Handle autoplay after user interaction
-		if (userInteracted && autoplay && audioRef.current && !isPlaying) {
-			audioRef.current.play().catch((error) => {
-				console.error('Autoplay prevented:', error);
-			});
-			setIsPlaying(true);
+		if (userInteracted && autoplay && audioRef.current && audioLoaded && !isPlaying) {
+			console.log('Attempting autoplay after user interaction state change...');
+			audioRef.current
+				.play()
+				.then(() => {
+					console.log('Autoplay successful after state change');
+					setIsPlaying(true);
+				})
+				.catch((error) => {
+					console.error('Autoplay prevented after state change:', error);
+				});
 		}
-	}, [userInteracted, autoplay, isPlaying]);
+	}, [userInteracted, autoplay, audioLoaded, isPlaying]);
 
 	// Update audio element when volume state changes
 	useEffect(() => {
@@ -116,15 +221,38 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	};
 
 	const handlePlayPause = (): void => {
+		console.log('Play/Pause button clicked, current state:', {
+			isPlaying,
+			audioLoaded,
+			audioElement: audioRef.current ? 'exists' : 'null',
+			audioContextState: audioContextRef.current
+				? audioContextRef.current.state
+				: 'no context',
+		});
+
 		if (audioRef.current) {
+			// Resume audio context if it was suspended
+			if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+				audioContextRef.current.resume().catch(console.error);
+			}
+
+			// Simply toggle play/pause without manually setting state
+			// The event listeners will handle state updates
 			if (isPlaying) {
+				console.log('Pausing audio...');
 				audioRef.current.pause();
+				// State will be updated by the pause event listener
 			} else {
+				console.log('Attempting to play audio...');
 				audioRef.current.play().catch((error) => {
 					console.error('Play prevented:', error);
+					// If play was prevented due to autoplay policy, we need user interaction
+					setUserInteracted(false);
 				});
+				// State will be updated by the play event listener if successful
 			}
-			setIsPlaying(!isPlaying);
+		} else {
+			console.error('Audio element reference is null');
 		}
 	};
 
@@ -132,15 +260,28 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		const newIndex = currentTrackIndex === 0 ? tracks.length - 1 : currentTrackIndex - 1;
 		setCurrentTrackIndex(newIndex);
 		setProgress(0);
+		setAudioLoaded(false);
 
 		// If currently playing, play the new track
 		if (isPlaying && audioRef.current) {
 			// We need to wait for the new audio source to load
 			setTimeout(() => {
-				audioRef.current?.play().catch((error) => {
-					console.error('Play prevented:', error);
-					setIsPlaying(false);
-				});
+				if (audioRef.current) {
+					// Resume audio context if it was suspended
+					if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+						audioContextRef.current.resume().catch(console.error);
+					}
+
+					audioRef.current
+						.play()
+						.then(() => {
+							setIsPlaying(true);
+						})
+						.catch((error) => {
+							console.error('Play prevented:', error);
+							setIsPlaying(false);
+						});
+				}
 			}, 100);
 		}
 	};
@@ -149,15 +290,28 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		const newIndex = (currentTrackIndex + 1) % tracks.length;
 		setCurrentTrackIndex(newIndex);
 		setProgress(0);
+		setAudioLoaded(false);
 
 		// If currently playing, play the new track
 		if (isPlaying && audioRef.current) {
 			// We need to wait for the new audio source to load
 			setTimeout(() => {
-				audioRef.current?.play().catch((error) => {
-					console.error('Play prevented:', error);
-					setIsPlaying(false);
-				});
+				if (audioRef.current) {
+					// Resume audio context if it was suspended
+					if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+						audioContextRef.current.resume().catch(console.error);
+					}
+
+					audioRef.current
+						.play()
+						.then(() => {
+							setIsPlaying(true);
+						})
+						.catch((error) => {
+							console.error('Play prevented:', error);
+							setIsPlaying(false);
+						});
+				}
 			}, 100);
 		}
 	};
@@ -246,6 +400,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 				onTimeUpdate={handleTimeUpdate}
 				onEnded={handleTrackEnded}
 				onLoadedMetadata={handleTimeUpdate}
+				onPlay={() => console.log('onPlay event fired')}
+				onPause={() => console.log('onPause event fired')}
+				onError={(e) => console.error('Audio error:', e)}
+				preload="auto"
+				crossOrigin="anonymous"
 			/>
 
 			<div className={styles.playerControls}>
@@ -260,7 +419,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
 					<button
 						className={styles.playPauseButton}
-						onClick={handlePlayPause}
+						onClick={(e) => {
+							e.stopPropagation();
+							console.log('Play/Pause button direct click handler');
+							handlePlayPause();
+						}}
 						aria-label={isPlaying ? 'Pause' : 'Play'}
 					>
 						{isPlaying ? '⏸' : '▶'}

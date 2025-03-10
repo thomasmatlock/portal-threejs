@@ -1,121 +1,75 @@
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
-import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import dynamic from 'next/dynamic';
-
-// Add this type declaration at the top of your file
-declare global {
-	interface Window {
-		webkitAudioContext: typeof AudioContext;
-	}
-}
-
-// Create a context for audio control
-export const AudioPlayerContext = React.createContext({
-	playAudio: () => {},
-	isPlaying: false,
-});
-
-const Turret = dynamic(() => import('../models/Turret').then((mod) => mod.Model), {
-	ssr: false,
-});
-
-// Create a component to handle audio initialization
-function AudioInitializer() {
-	const { gl } = useThree();
-	const [initialized, setInitialized] = useState(false);
-
-	useEffect(() => {
-		const canvas = gl.domElement;
-
-		const handleInteraction = () => {
-			if (!initialized) {
-				// Initialize audio context with proper typing
-				const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-				const audioContext = new AudioContextClass();
-				const silentBuffer = audioContext.createBuffer(1, 1, 22050);
-				const source = audioContext.createBufferSource();
-				source.buffer = silentBuffer;
-				source.connect(audioContext.destination);
-				source.start();
-
-				// Dispatch event for AudioPlayer
-				window.dispatchEvent(new CustomEvent('audioUnlocked'));
-
-				setInitialized(true);
-			}
-		};
-
-		canvas.addEventListener('click', handleInteraction);
-		canvas.addEventListener('touchstart', handleInteraction);
-
-		return () => {
-			canvas.removeEventListener('click', handleInteraction);
-			canvas.removeEventListener('touchstart', handleInteraction);
-		};
-	}, [gl, initialized]);
-
-	return null;
-}
-
+import styles from '../styles/App.module.scss';
+import { useState, useContext } from 'react';
+import MainScene from '../components/environment/MainScene';
+import InputContext from '@/context/inputContext';
+import GameCanvas from '@/components/GameCanvas';
+import GameMenu from '@/components/ui/MainMenu';
 export default function Main() {
+	const { setInteracted } = useContext(InputContext);
+	const [showGame, setShowGame] = useState(false);
+
+	const handleStartGame = () => {
+		console.log('Starting new game...');
+		setShowGame(true);
+	};
+
+	const handleContinueGame = () => {
+		console.log('Continuing game...');
+		setShowGame(true);
+	};
+
+	const handleLoadGame = () => {
+		console.log('Loading game...');
+		// Here you would show a load game dialog
+		setTimeout(() => {
+			setShowGame(true);
+		}, 1000);
+	};
+
+	const handleOptions = () => {
+		console.log('Opening options...');
+		// Options are now handled in the submenu
+	};
+
+	const handleExit = () => {
+		console.log('Exiting game...');
+		// In a real game, this might redirect to a different page or close the app
+		if (typeof window !== 'undefined') {
+			window.alert('In a real game, this would exit the application.');
+		}
+	};
 	return (
-		<div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-			<Suspense fallback={null}>
-				<Canvas
-					style={{ position: 'absolute', top: 0, left: 0 }}
-					shadows
-					dpr={[1, 2]}
-					gl={{
-						powerPreference: 'high-performance',
-						antialias: true,
-						logarithmicDepthBuffer: true,
-						stencil: false,
-						toneMapping: THREE.ACESFilmicToneMapping,
-						toneMappingExposure: 1.0,
-					}}
-					onCreated={({ gl }) => {
-						gl.toneMapping = THREE.ACESFilmicToneMapping;
-					}}
-				>
-					<AudioInitializer />
-					<color args={['#000']} attach="background" />
+		<div>
+			<div
+				className={styles['app']}
+				onClick={() => {
+					setInteracted(true);
+				}}
+			>
+				{showGame && (
+					<div className={styles.reticles}>
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+					</div>
+				)}
+				{!showGame && (
+					<>
+						{/* <MainScene /> */}
+						<GameMenu
+							onStartGame={handleStartGame}
+							onSettings={handleOptions}
+							onExit={handleExit}
+							onLoadGame={handleLoadGame}
+							onContinueGame={handleContinueGame}
+						/>
+					</>
+				)}
 
-					{/* <MacbookM4_ktx2 /> */}
-					<OrbitControls
-						enableZoom={true}
-						enablePan={true}
-						enableRotate={true}
-						minDistance={0}
-						maxDistance={10}
-						makeDefault
-						position={[0, 0, 0]}
-						target={[0, 0.1, 0]}
-						dampingFactor={0.25}
-						autoRotate={true}
-						autoRotateSpeed={-0.25}
-					/>
-
-					<PerspectiveCamera
-						makeDefault
-						position={[-1, 0, 1]}
-						fov={27} // desktop is wider, mobile is narrower
-						near={0.1} // Closer near plane
-						far={150} // Further far plane
-					/>
-					<Turret scale={5} position={[0, 0, 0]} />
-					{/* <directionalLight position={[5, 10, 0]} intensity={1} /> */}
-					<spotLight
-						intensity={1}
-						// angle={Math.PI / 2}
-						penumbra={0.15} // this
-						position={[0, 0.5, 1]}
-						rotation={[Math.PI * 0.22, 0, 0]}
-						userData={{ name: 'point' }}
-					/>
-				</Canvas>
-			</Suspense>
+				{showGame && <GameCanvas />}
+			</div>
 		</div>
 	);
 }

@@ -27,7 +27,7 @@ export function WheatleyRig() {
 		let rotationY;
 		if (mouse.x < 0) {
 			// Left side - increase rotation by 30%
-			rotationY = Math.sign(mouse.x) * Math.pow(Math.abs(mouse.x), 0.8) * 0.9;
+			rotationY = Math.sign(mouse.x) * Math.pow(Math.abs(mouse.x), 0.8) * 1;
 		} else {
 			// Right side - normal rotation
 			rotationY = Math.sign(mouse.x) * Math.pow(Math.abs(mouse.x), 0.8) * 0.7;

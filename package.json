@@ -25,7 +25,7 @@
         "@radix-ui/react-toast": "^1.2.2",
         "@radix-ui/react-toolbar": "^1.1.0",
         "@react-three/drei": "^9.88.2",
-        "@react-three/fiber": "^8.9.2",
+        "@react-three/fiber": "^9.1.0",
         "@react-three/postprocessing": "^2.16.3",
         "@react-three/rapier": "^2.0.0",
         "@rive-app/react-canvas": "^4.16.4",

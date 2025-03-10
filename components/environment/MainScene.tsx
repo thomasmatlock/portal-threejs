@@ -131,7 +131,7 @@ export default function Main() {
 						noise={1.5}
 					/>
 					<WheatleyRig />
-					<PBodyRig />
+					{/* <PBodyRig /> */}
 					<AtlasRig />
 					{/* <GladOSRig /> */}
 					{/* <GladOS scale={0.15} position={[0.5, 1, 0]} />

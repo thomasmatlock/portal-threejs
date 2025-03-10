@@ -19,7 +19,8 @@ export function PBodyRig() {
 	useEffect(() => {
 		// Show PBody when hovering over multiplayer option
 		if (hoveredMenuOption === 'multiplayer') {
-			setScale(0.015); // Show at normal scale
+			// setScale(0.015); // Show at normal scale
+			setScale(0); // Show at normal scale
 		} else {
 			setScale(0); // Hide when not hovering multiplayer
 		}

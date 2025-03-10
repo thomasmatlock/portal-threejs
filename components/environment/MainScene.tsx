@@ -100,7 +100,7 @@ export default function Main() {
 					<OrbitControls
 						enableZoom={true}
 						enablePan={true}
-						enableRotate={true}
+						enableRotate={false}
 						minDistance={0}
 						maxDistance={10}
 						makeDefault

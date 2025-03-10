@@ -1,35 +1,31 @@
 import dynamic from 'next/dynamic';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useUIContext } from '../../context/uiContext';
+import UserContext from '@/context/userContext';
 
 const Atlas = dynamic(() => import('../Atlas').then((mod) => mod.Model), {
 	ssr: false,
 });
 
 export function AtlasRig() {
+	const { mobile } = useContext(UserContext);
 	const atlasRef = useRef<THREE.Group>(null);
 	const [scale, setScale] = useState(0); // Start hidden at scale 0
 
 	// Get UI context for menu interactions
-	const { hoveredMenuOption, currentMenu } = useUIContext();
+	const { currentMenu } = useUIContext();
 
 	// React to menu option changes
 	useEffect(() => {
-		// Hide Atlas when hovering over options or when in options menu
-		if (
-			hoveredMenuOption === 'options' ||
-			currentMenu === 'options' ||
-			currentMenu === 'video' ||
-			currentMenu === 'audio' ||
-			currentMenu === 'keyboard'
-		) {
-			setScale(0); // Hide
+		// Show Atlas only when in singleplayer menu
+		if (currentMenu === 'singleplayer') {
+			setScale(0.2); // Show at normal scale
 		} else {
-			setScale(0.15); // Show at normal scale
+			setScale(0); // Hide when not in singleplayer menu
 		}
-	}, [hoveredMenuOption, currentMenu]);
+	}, [currentMenu]);
 
 	// Handle smooth scaling
 	useFrame((state, delta) => {
@@ -53,7 +49,7 @@ export function AtlasRig() {
 	}, []);
 
 	return (
-		<group ref={atlasRef} position={[0, -0.5, 0]} scale={[0, 0, 0]}>
+		<group ref={atlasRef} position={mobile ? [0, -0.5, 0] : [1, -0.75, 0]} scale={[0, 0, 0]}>
 			<Atlas />
 		</group>
 	);

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import styles from './AudioPlayer.module.scss';
 import { AudioPlayerProps, Track } from './GameMenu.props';
 import { getRandomSoundtrackIndex } from '../../utils/soundtrackData';
+import InputContext from '../../context/inputContext';
 
 const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	tracks,
@@ -10,10 +11,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	randomizeTrack = true,
 	onVolumeChange,
 }) => {
+	// Use the shared InputContext instead of local state
+	const { interacted, setInteracted } = useContext(InputContext);
+
 	// Use a ref to track if we're on the client side
 	const isClient = useRef(false);
 	const audioContextRef = useRef<AudioContext | null>(null);
 	const hasAttemptedAutoplayRef = useRef(false);
+	const manuallyPausedRef = useRef(false);
 
 	// Initialize with a fixed index (0) for server rendering
 	// We'll randomize it on the client side after hydration
@@ -25,7 +30,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	const [duration, setDuration] = useState(0);
 	const [isMuted, setIsMuted] = useState(false);
 	const [prevVolume, setPrevVolume] = useState(initialVolume);
-	const [userInteracted, setUserInteracted] = useState(false);
 	const [audioLoaded, setAudioLoaded] = useState(false);
 
 	const lastVolumeRef = useRef(initialVolume);
@@ -103,6 +107,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 
 			// Add event listener for when audio is ready to play
 			const handleCanPlay = () => {
+				console.log('AUDIO CAN PLAY EVENT');
 				setAudioLoaded(true);
 				// Try autoplay if enabled
 				if (autoplay && !hasAttemptedAutoplayRef.current) {
@@ -111,26 +116,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 				}
 			};
 
-			// Add event listeners for play and pause events to ensure state is synchronized
-			const handlePlay = () => {
-				console.log('Audio play event fired');
-				setIsPlaying(true);
-			};
-
-			const handlePause = () => {
-				console.log('Audio pause event fired');
-				setIsPlaying(false);
-			};
-
 			audioRef.current.addEventListener('canplay', handleCanPlay);
-			audioRef.current.addEventListener('play', handlePlay);
-			audioRef.current.addEventListener('pause', handlePause);
 
 			return () => {
 				if (audioRef.current) {
 					audioRef.current.removeEventListener('canplay', handleCanPlay);
-					audioRef.current.removeEventListener('play', handlePlay);
-					audioRef.current.removeEventListener('pause', handlePause);
 				}
 			};
 		}
@@ -148,64 +138,36 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		}
 	}, [initialVolume]);
 
-	// Listen for user interaction with the page
+	// Listen for user interaction via the InputContext
 	useEffect(() => {
-		const handleUserInteraction = () => {
-			if (!userInteracted) {
-				setUserInteracted(true);
+		// When interacted changes to true, try to play audio
+		// BUT ONLY if not manually paused
+		if (
+			interacted &&
+			autoplay &&
+			audioRef.current &&
+			audioLoaded &&
+			!isPlaying &&
+			!manuallyPausedRef.current
+		) {
+			console.log('User interacted (from context), attempting autoplay...');
 
-				// Resume audio context if it was suspended
-				if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-					audioContextRef.current.resume().catch(console.error);
-				}
-
-				// Try to play if autoplay is enabled and audio is loaded
-				if (autoplay && audioRef.current && audioLoaded && !isPlaying) {
-					console.log('User interacted, attempting autoplay...');
-					audioRef.current
-						.play()
-						.then(() => {
-							console.log('Autoplay successful after user interaction');
-							setIsPlaying(true);
-						})
-						.catch((error) => {
-							console.error('Autoplay prevented after user interaction:', error);
-						});
-				}
+			// Resume audio context if it was suspended
+			if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+				audioContextRef.current.resume().catch(console.error);
 			}
-		};
 
-		// Add event listeners for common user interactions
-		window.addEventListener('click', handleUserInteraction);
-		window.addEventListener('keydown', handleUserInteraction);
-		window.addEventListener('touchstart', handleUserInteraction);
-		window.addEventListener('scroll', handleUserInteraction);
-
-		return () => {
-			// Clean up event listeners
-			window.removeEventListener('click', handleUserInteraction);
-			window.removeEventListener('keydown', handleUserInteraction);
-			window.removeEventListener('touchstart', handleUserInteraction);
-			window.removeEventListener('scroll', handleUserInteraction);
-		};
-	}, [userInteracted, autoplay, audioLoaded, isPlaying]);
-
-	// Add back the autoplay after user interaction effect
-	useEffect(() => {
-		// Handle autoplay after user interaction
-		if (userInteracted && autoplay && audioRef.current && audioLoaded && !isPlaying) {
-			console.log('Attempting autoplay after user interaction state change...');
 			audioRef.current
 				.play()
 				.then(() => {
-					console.log('Autoplay successful after state change');
+					console.log('Autoplay successful after user interaction');
 					setIsPlaying(true);
 				})
 				.catch((error) => {
-					console.error('Autoplay prevented after state change:', error);
+					console.error('Autoplay prevented after user interaction:', error);
 				});
 		}
-	}, [userInteracted, autoplay, audioLoaded, isPlaying]);
+	}, [interacted, autoplay, audioLoaded, isPlaying]);
 
 	// Update audio element when volume state changes
 	useEffect(() => {
@@ -221,42 +183,64 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	};
 
 	const handlePlayPause = (): void => {
-		console.log('Play/Pause button clicked, current state:', {
-			isPlaying,
-			audioLoaded,
-			audioElement: audioRef.current ? 'exists' : 'null',
-			audioContextState: audioContextRef.current
-				? audioContextRef.current.state
-				: 'no context',
-		});
+		// Mark as interacted
+		if (!interacted) {
+			setInteracted(true);
+		}
 
-		if (audioRef.current) {
-			// Resume audio context if it was suspended
-			if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-				audioContextRef.current.resume().catch(console.error);
-			}
-
-			// Simply toggle play/pause without manually setting state
-			// The event listeners will handle state updates
-			if (isPlaying) {
-				console.log('Pausing audio...');
-				audioRef.current.pause();
-				// State will be updated by the pause event listener
-			} else {
-				console.log('Attempting to play audio...');
-				audioRef.current.play().catch((error) => {
-					console.error('Play prevented:', error);
-					// If play was prevented due to autoplay policy, we need user interaction
-					setUserInteracted(false);
-				});
-				// State will be updated by the play event listener if successful
-			}
-		} else {
+		// Simple, direct approach
+		if (!audioRef.current) {
 			console.error('Audio element reference is null');
+			return;
+		}
+
+		console.log('PLAY/PAUSE BUTTON CLICKED - Current state:', isPlaying ? 'PLAYING' : 'PAUSED');
+
+		// DIRECT DOM MANIPULATION - no fancy stuff
+		try {
+			if (isPlaying) {
+				// PAUSE
+				console.log('ATTEMPTING TO PAUSE');
+				audioRef.current.pause();
+				console.log('PAUSE COMMAND SENT');
+				// Set the manually paused flag to prevent autoplay from fighting with us
+				manuallyPausedRef.current = true;
+				// Force state update
+				setIsPlaying(false);
+			} else {
+				// PLAY
+				console.log('ATTEMPTING TO PLAY');
+				// Clear the manually paused flag
+				manuallyPausedRef.current = false;
+				const playPromise = audioRef.current.play();
+
+				if (playPromise !== undefined) {
+					playPromise
+						.then(() => {
+							console.log('PLAY SUCCESSFUL');
+							setIsPlaying(true);
+						})
+						.catch((error) => {
+							console.error('PLAY FAILED:', error);
+							setIsPlaying(false);
+						});
+				} else {
+					console.log('PLAY COMMAND SENT (no promise)');
+					// Force state update in case the event listener doesn't fire
+					setIsPlaying(true);
+				}
+			}
+		} catch (error) {
+			console.error('ERROR IN PLAY/PAUSE:', error);
 		}
 	};
 
 	const handlePrevTrack = (): void => {
+		// Ensure we mark as interacted when navigation buttons are clicked
+		if (!interacted) {
+			setInteracted(true);
+		}
+
 		const newIndex = currentTrackIndex === 0 ? tracks.length - 1 : currentTrackIndex - 1;
 		setCurrentTrackIndex(newIndex);
 		setProgress(0);
@@ -287,6 +271,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	};
 
 	const handleNextTrack = (): void => {
+		// Ensure we mark as interacted when navigation buttons are clicked
+		if (!interacted) {
+			setInteracted(true);
+		}
+
 		const newIndex = (currentTrackIndex + 1) % tracks.length;
 		setCurrentTrackIndex(newIndex);
 		setProgress(0);
@@ -326,6 +315,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	};
 
 	const handleProgressBarClick = (e: React.MouseEvent<HTMLDivElement>): void => {
+		// Ensure we mark as interacted when progress bar is clicked
+		if (!interacted) {
+			setInteracted(true);
+		}
+
 		if (progressBarRef.current && audioRef.current) {
 			const rect = progressBarRef.current.getBoundingClientRect();
 			const clickPosition = e.clientX - rect.left;
@@ -338,6 +332,11 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	};
 
 	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+		// Ensure we mark as interacted when volume is changed
+		if (!interacted) {
+			setInteracted(true);
+		}
+
 		isUserAdjustingRef.current = true;
 		const newVolume = parseInt(e.target.value, 10);
 
@@ -400,9 +399,15 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 				onTimeUpdate={handleTimeUpdate}
 				onEnded={handleTrackEnded}
 				onLoadedMetadata={handleTimeUpdate}
-				onPlay={() => console.log('onPlay event fired')}
-				onPause={() => console.log('onPause event fired')}
-				onError={(e) => console.error('Audio error:', e)}
+				onPlay={() => {
+					console.log('AUDIO ELEMENT PLAY EVENT');
+					setIsPlaying(true);
+				}}
+				onPause={() => {
+					console.log('AUDIO ELEMENT PAUSE EVENT');
+					setIsPlaying(false);
+				}}
+				onError={(e) => console.error('AUDIO ERROR:', e)}
 				preload="auto"
 				crossOrigin="anonymous"
 			/>
@@ -420,8 +425,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 					<button
 						className={styles.playPauseButton}
 						onClick={(e) => {
+							e.preventDefault();
 							e.stopPropagation();
-							console.log('Play/Pause button direct click handler');
+							console.log('DIRECT PLAY/PAUSE BUTTON CLICK');
 							handlePlayPause();
 						}}
 						aria-label={isPlaying ? 'Pause' : 'Play'}

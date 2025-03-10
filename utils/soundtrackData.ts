@@ -39,6 +39,11 @@ export const portalSoundtracks: Track[] = [
 		title: "Don't Do It",
 		file: "Portal 2 OST Volume 2 - Don't Do It.mp3",
 	},
+	{
+		id: 'concentration-enhancing-menu-initialiser',
+		title: 'Concentration Enhancing Menu Initialiser',
+		file: 'Portal 2 OST Volume 1 - Concentration Enhancing Menu Initialiser.mp3',
+	},
 ];
 
 // Function to get a random soundtrack

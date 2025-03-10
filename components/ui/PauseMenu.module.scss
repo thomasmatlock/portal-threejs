@@ -1,0 +1,152 @@
+@import './MenuAnimations.module.scss';
+
+// Breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
+.pauseMenuOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba($aperture-dark, 0.85);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	opacity: 0;
+	transition: opacity 0.3s ease, background-image 1s ease-in-out;
+	backdrop-filter: blur(5px);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	will-change: background-image;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			to bottom,
+			rgba($aperture-dark, 0.7) 0%,
+			rgba(0, 0, 0, 0.9) 100%
+		);
+		z-index: -1;
+	}
+
+	&.visible {
+		opacity: 1;
+	}
+}
+
+.pauseMenuContainer {
+	background-color: rgba($aperture-gray, 0.7);
+	border-radius: 4px;
+	padding: 30px;
+	width: 400px;
+	max-width: 90%;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	animation: slideIn 0.3s ease forwards;
+	border: 1px solid rgba($aperture-blue, 0.3);
+
+	@media (max-width: $breakpoint-mobile) {
+		padding: 20px;
+	}
+}
+
+.pauseTitle {
+	color: $aperture-blue;
+	font-size: 28px;
+	margin: 0 0 20px 0;
+	text-align: center;
+	letter-spacing: 2px;
+	font-weight: 500;
+	text-shadow: 0 0 10px rgba($aperture-blue, 0.5);
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 24px;
+		margin-bottom: 15px;
+	}
+}
+
+.menuOptions {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 20px;
+}
+
+.menuOption {
+	padding: 12px 20px;
+	font-size: 16px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 3px;
+	color: $aperture-white;
+
+	span {
+		position: relative;
+		z-index: 2;
+		transition: transform 0.2s ease, color 0.2s ease;
+	}
+
+	&:hover:not(.selected) {
+		background-color: rgba($aperture-selected-gray, 0.5);
+
+		span {
+			transform: translateX(5px);
+		}
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		padding: 10px 15px;
+		font-size: 14px;
+	}
+}
+
+.selected {
+	background-color: $aperture-selected-gray;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	animation: pulse 2s infinite;
+
+	span {
+		color: $aperture-blue;
+		transform: translateX(5px);
+	}
+}
+
+.optionValue {
+	font-size: 14px;
+	color: $aperture-light-gray;
+	padding: 2px 8px;
+	border-radius: 2px;
+	background-color: rgba($aperture-dark, 0.3);
+	transition: all 0.2s ease;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 12px;
+		padding: 2px 6px;
+	}
+}
+
+.pauseHint {
+	text-align: center;
+	font-size: 12px;
+	color: $aperture-light-gray;
+	margin-top: 20px;
+	letter-spacing: 1px;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 11px;
+		margin-top: 15px;
+	}
+}

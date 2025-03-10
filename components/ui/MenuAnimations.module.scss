@@ -1,0 +1,161 @@
+// Portal 2 color palette
+$aperture-blue: #00a6e2;
+$aperture-orange: #ff6d00;
+$aperture-white: #f0f0f0;
+$aperture-dark: #1a1a1a;
+$aperture-gray: #333333;
+$aperture-light-gray: #666666;
+$aperture-selected-gray: #444444;
+
+// Shared animations for menu components
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideOutLeft {
+	from {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateX(-30px);
+		opacity: 0;
+	}
+}
+
+@keyframes slideInRight {
+	from {
+		transform: translateX(30px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba($aperture-blue, 0.2);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba($aperture-blue, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba($aperture-blue, 0);
+	}
+}
+
+@keyframes logoGlow {
+	0% {
+		text-shadow: 0 0 5px rgba($aperture-blue, 0.5);
+	}
+	50% {
+		text-shadow: 0 0 20px rgba($aperture-blue, 0.8);
+	}
+	100% {
+		text-shadow: 0 0 5px rgba($aperture-blue, 0.5);
+	}
+}
+
+@keyframes notificationFade {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	10% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	90% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes backgroundFade {
+	0% {
+		opacity: 0.8;
+	}
+	45% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	55% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 0.8;
+	}
+}
+
+// Animation classes that can be imported and used
+.fadeIn {
+	animation: fadeIn 0.3s ease forwards;
+}
+
+.fadeOut {
+	animation: fadeOut 0.3s ease forwards;
+}
+
+.slideIn {
+	animation: slideIn 0.3s ease forwards;
+}
+
+.slideOutLeft {
+	animation: slideOutLeft 0.3s ease forwards;
+}
+
+.slideInRight {
+	animation: slideInRight 0.3s ease forwards;
+}
+
+.pulse {
+	animation: pulse 2s infinite;
+}
+
+.logoGlow {
+	animation: logoGlow 3s infinite;
+}
+
+.notificationFade {
+	animation: notificationFade 3s forwards;
+}
+
+// Mixin for creating transitions
+@mixin transition($properties...) {
+	transition-property: $properties;
+	transition-duration: 0.3s;
+	transition-timing-function: ease;
+}

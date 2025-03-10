@@ -1,17 +1,70 @@
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
 import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import dynamic from 'next/dynamic';
 
+// Add this type declaration at the top of your file
+declare global {
+	interface Window {
+		webkitAudioContext: typeof AudioContext;
+	}
+}
+
+// Create a context for audio control
+export const AudioPlayerContext = React.createContext({
+	playAudio: () => {},
+	isPlaying: false,
+});
+
 const Turret = dynamic(() => import('../models/Turret').then((mod) => mod.Model), {
 	ssr: false,
 });
+
+// Create a component to handle audio initialization
+function AudioInitializer() {
+	const { gl } = useThree();
+	const [initialized, setInitialized] = useState(false);
+
+	useEffect(() => {
+		const canvas = gl.domElement;
+
+		const handleInteraction = () => {
+			if (!initialized) {
+				// Initialize audio context with proper typing
+				const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+				const audioContext = new AudioContextClass();
+				const silentBuffer = audioContext.createBuffer(1, 1, 22050);
+				const source = audioContext.createBufferSource();
+				source.buffer = silentBuffer;
+				source.connect(audioContext.destination);
+				source.start();
+
+				// Dispatch event for AudioPlayer
+				window.dispatchEvent(new CustomEvent('audioUnlocked'));
+
+				setInitialized(true);
+			}
+		};
+
+		canvas.addEventListener('click', handleInteraction);
+		canvas.addEventListener('touchstart', handleInteraction);
+
+		return () => {
+			canvas.removeEventListener('click', handleInteraction);
+			canvas.removeEventListener('touchstart', handleInteraction);
+		};
+	}, [gl, initialized]);
+
+	return null;
+}
+
 export default function Main() {
 	return (
-		<>
+		<div style={{ position: 'relative', width: '100%', height: '100vh' }}>
 			<Suspense fallback={null}>
 				<Canvas
+					style={{ position: 'absolute', top: 0, left: 0 }}
 					shadows
 					dpr={[1, 2]}
 					gl={{
@@ -26,6 +79,7 @@ export default function Main() {
 						gl.toneMapping = THREE.ACESFilmicToneMapping;
 					}}
 				>
+					<AudioInitializer />
 					<color args={['#000']} attach="background" />
 
 					{/* <MacbookM4_ktx2 /> */}
@@ -62,6 +116,6 @@ export default function Main() {
 					/>
 				</Canvas>
 			</Suspense>
-		</>
+		</div>
 	);
 }

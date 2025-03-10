@@ -34,6 +34,11 @@ export const portalSoundtracks: Track[] = [
 		title: 'Wheatley Science',
 		file: 'Portal 2 OST Volume 3 - Wheatley Science.mp3',
 	},
+	{
+		id: 'dont-do-it',
+		title: "Don't Do It",
+		file: "Portal 2 OST Volume 2 - Don't Do It.mp3",
+	},
 ];
 
 // Function to get a random soundtrack

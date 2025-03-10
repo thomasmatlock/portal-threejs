@@ -37,7 +37,7 @@ export function AtlasRig() {
 		const currentScale = atlasRef.current.scale.x;
 
 		// Smoothly interpolate to target scale
-		const newScale = THREE.MathUtils.lerp(currentScale, scale, delta * 5);
+		const newScale = THREE.MathUtils.lerp(currentScale, scale, delta * 10);
 
 		// Apply uniform scaling
 		atlasRef.current.scale.set(newScale, newScale, newScale);
@@ -62,7 +62,7 @@ export function AtlasRig() {
 			atlasRef.current.position.y = -0.5 + hoverY; // Higher position on mobile + hover
 			atlasRef.current.position.x = 0 + hoverX; // Centered on mobile
 		} else {
-			atlasRef.current.position.y = -1.0 + hoverY; // Lower position on desktop + hover
+			atlasRef.current.position.y = -0.85 + hoverY; // Slightly higher position on desktop + hover
 			atlasRef.current.position.x = 0.75 + hoverX; // Right side on desktop
 		}
 
@@ -72,6 +72,16 @@ export function AtlasRig() {
 		atlasRef.current.rotation.x = Math.sin(time * 0.2) * 0.05; // Slight forward/back tilt
 		atlasRef.current.rotation.y = Math.sin(time * 0.1) * 0.05; // Very slight turning
 		atlasRef.current.rotation.z = Math.sin(time * 0.3) * 0.03; // Subtle side tilt
+
+		// Add a partial rotation back and forth
+		const rotationCycle = 15; // Complete cycle every 15 seconds
+		const rotationAmount = Math.PI * 0.3; // Rotate about 54 degrees (0.3 * 180)
+
+		// Calculate partial rotation using sine wave
+		const partialRotation = Math.sin((time * (2 * Math.PI)) / rotationCycle) * rotationAmount;
+
+		// Apply the partial rotation to the Y axis (turning left and right)
+		atlasRef.current.rotation.y = partialRotation + Math.sin(time * 0.1) * 0.05;
 	});
 
 	// Set initial scale to 0

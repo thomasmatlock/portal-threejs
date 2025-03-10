@@ -26,6 +26,9 @@ const GladOS = dynamic(() => import('../../models/GladOS').then((mod) => mod.Mod
 const Atlas = dynamic(() => import('../../models/Atlas').then((mod) => mod.Model), {
 	ssr: false,
 });
+const Wheatley = dynamic(() => import('../../models/Wheatley').then((mod) => mod.Model), {
+	ssr: false,
+});
 
 // Create a component to handle audio initialization
 function AudioInitializer() {
@@ -118,7 +121,8 @@ export default function Main() {
 						far={150}
 					/>
 					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
-					<GladOS scale={0.25} position={[0.5, 1, 0]} />
+					<Wheatley scale={0.05} position={[0, 0, 0]} />
+					{/* <GladOS scale={0.25} position={[0.5, 1, 0]} /> */}
 					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
 					<directionalLight position={[0, 10, 0]} intensity={0.1} />
 					<directionalLight position={[-10, 0, 0]} intensity={0.1} />

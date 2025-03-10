@@ -47,6 +47,15 @@ export default function Home() {
 				<link rel="icon" href="/portal.svg" />
 			</Head>
 			<div className={styles['app']}>
+				{showGame && (
+					<div className={styles.reticles}>
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+						<div className={styles.reticle} />
+					</div>
+				)}
 				{!showGame && (
 					<>
 						<Main />

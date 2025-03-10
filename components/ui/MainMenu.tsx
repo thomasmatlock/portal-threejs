@@ -111,21 +111,21 @@ const GameMenu: React.FC<GameMenuProps> = ({
 							id: 'master_volume',
 							label: 'MASTER VOLUME',
 							value: masterVolume,
-							options: [0, 20, 40, 60, 80, 100],
+							options: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 							action: () => incrementOption('master_volume'),
 						},
 						{
 							id: 'music_volume',
 							label: 'MUSIC VOLUME',
 							value: musicVolume,
-							options: [0, 20, 40, 60, 80, 100],
+							options: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 							action: () => incrementOption('music_volume'),
 						},
 						{
 							id: 'sfx_volume',
 							label: 'SOUND EFFECTS',
 							value: sfxVolume,
-							options: [0, 20, 40, 60, 80, 100],
+							options: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 							action: () => incrementOption('sfx_volume'),
 						},
 
@@ -270,27 +270,27 @@ const GameMenu: React.FC<GameMenuProps> = ({
 				setEffectsQuality(effectsOptions[prevEffectsIndex]);
 				break;
 			case 'master_volume':
-				const masterOptions = [0, 20, 40, 60, 80, 100];
+				const masterOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentMasterIndex = masterOptions.indexOf(masterVolume);
 				const prevMasterIndex =
 					(currentMasterIndex - 1 + masterOptions.length) % masterOptions.length;
 				setMasterVolume(masterOptions[prevMasterIndex]);
 				break;
 			case 'music_volume':
-				const musicOptions = [0, 20, 40, 60, 80, 100];
+				const musicOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentMusicIndex = musicOptions.indexOf(musicVolume);
 				const prevMusicIndex =
 					(currentMusicIndex - 1 + musicOptions.length) % musicOptions.length;
 				setMusicVolume(musicOptions[prevMusicIndex]);
 				break;
 			case 'sfx_volume':
-				const sfxOptions = [0, 20, 40, 60, 80, 100];
+				const sfxOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentSfxIndex = sfxOptions.indexOf(sfxVolume);
 				const prevSfxIndex = (currentSfxIndex - 1 + sfxOptions.length) % sfxOptions.length;
 				setSfxVolume(sfxOptions[prevSfxIndex]);
 				break;
 			case 'voice_volume':
-				const voiceOptions = [0, 20, 40, 60, 80, 100];
+				const voiceOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentVoiceIndex = voiceOptions.indexOf(voiceVolume);
 				const prevVoiceIndex =
 					(currentVoiceIndex - 1 + voiceOptions.length) % voiceOptions.length;
@@ -349,25 +349,25 @@ const GameMenu: React.FC<GameMenuProps> = ({
 				setEffectsQuality(effectsOptions[nextEffectsIndex]);
 				break;
 			case 'master_volume':
-				const masterOptions = [0, 20, 40, 60, 80, 100];
+				const masterOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentMasterIndex = masterOptions.indexOf(masterVolume);
 				const nextMasterIndex = (currentMasterIndex + 1) % masterOptions.length;
 				setMasterVolume(masterOptions[nextMasterIndex]);
 				break;
 			case 'music_volume':
-				const musicOptions = [0, 20, 40, 60, 80, 100];
+				const musicOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentMusicIndex = musicOptions.indexOf(musicVolume);
 				const nextMusicIndex = (currentMusicIndex + 1) % musicOptions.length;
 				setMusicVolume(musicOptions[nextMusicIndex]);
 				break;
 			case 'sfx_volume':
-				const sfxOptions = [0, 20, 40, 60, 80, 100];
+				const sfxOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentSfxIndex = sfxOptions.indexOf(sfxVolume);
 				const nextSfxIndex = (currentSfxIndex + 1) % sfxOptions.length;
 				setSfxVolume(sfxOptions[nextSfxIndex]);
 				break;
 			case 'voice_volume':
-				const voiceOptions = [0, 20, 40, 60, 80, 100];
+				const voiceOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 				const currentVoiceIndex = voiceOptions.indexOf(voiceVolume);
 				const nextVoiceIndex = (currentVoiceIndex + 1) % voiceOptions.length;
 				setVoiceVolume(voiceOptions[nextVoiceIndex]);
@@ -397,7 +397,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 	// Add a handler for volume changes from the audio player
 	const handleMusicVolumeChange = (volume: number) => {
 		// Find the closest valid option value
-		const musicOptions = [0, 20, 40, 60, 80, 100];
+		const musicOptions = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 		const closestOption = musicOptions.reduce((prev, curr) => {
 			return Math.abs(curr - volume) < Math.abs(prev - volume) ? curr : prev;
 		});
@@ -518,21 +518,21 @@ const GameMenu: React.FC<GameMenuProps> = ({
 					id: 'master_volume',
 					label: 'MASTER VOLUME',
 					value: masterVolume,
-					options: [0, 20, 40, 60, 80, 100],
+					options: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 					action: () => incrementOption('master_volume'),
 				},
 				{
 					id: 'music_volume',
 					label: 'MUSIC VOLUME',
 					value: musicVolume,
-					options: [0, 20, 40, 60, 80, 100],
+					options: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 					action: () => incrementOption('music_volume'),
 				},
 				{
 					id: 'sfx_volume',
 					label: 'SFX VOLUME',
 					value: sfxVolume,
-					options: [0, 20, 40, 60, 80, 100],
+					options: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
 					action: () => incrementOption('sfx_volume'),
 				},
 

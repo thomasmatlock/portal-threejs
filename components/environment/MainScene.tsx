@@ -101,20 +101,28 @@ export default function Main() {
 						autoRotate={true}
 						autoRotateSpeed={-0.1}
 					/>
-					<Sparkles count={200} size={2} speed={0.1} scale={20} />
+					<Sparkles
+						count={300}
+						size={1}
+						scale={10}
+						speed={0.2}
+						opacity={0.3}
+						color="#aaa9ad"
+						noise={1.5}
+					/>
 					<PerspectiveCamera
 						makeDefault
-						position={[-1, 0, 5]}
-						fov={70} // desktop is wider, mobile is narrower
-						near={0.1} // Closer near plane
-						far={150} // Further far plane
+						position={[-1, 0, 3]}
+						fov={60} // More realistic FOV for Portal-like experience
+						near={0.1}
+						far={150}
 					/>
 					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
-					<GladOS scale={0.25} position={[0.5, 0.5, 0]} />
+					<GladOS scale={0.25} position={[0.5, 1, 0]} />
 					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
-					{/* <directionalLight position={[0, 10, 0]} intensity={0.1} /> */}
-					{/* <directionalLight position={[-10, 0, 0]} intensity={0.1} /> */}
-					{/* <directionalLight position={[10, 0, 0]} intensity={0.1} /> */}
+					<directionalLight position={[0, 10, 0]} intensity={0.1} />
+					<directionalLight position={[-10, 0, 0]} intensity={0.1} />
+					<directionalLight position={[10, 0, 0]} intensity={0.1} />
 					<spotLight
 						intensity={0.5}
 						angle={Math.PI / 2}

@@ -19,18 +19,18 @@ import pointerEventHandlers from './shared/pointerEventHandlers';
 
 type GLTFResult = GLTF & {
 	nodes: {
-		Object_2: THREE.Mesh;
-		Object_3: THREE.Mesh;
-		Object_4: THREE.Mesh;
-		Object_5: THREE.Mesh;
-		Object_6: THREE.Mesh;
+		GLADoS_1: THREE.Mesh;
+		GLADoS_2: THREE.Mesh;
+		GLADoS_3: THREE.Mesh;
+		GLADoS_4: THREE.Mesh;
+		GLADoS_5: THREE.Mesh;
 	};
 	materials: {
-		acmat_0: THREE.MeshStandardMaterial;
-		acmat_1: THREE.MeshStandardMaterial;
-		acmat_2: THREE.MeshStandardMaterial;
-		acmat_3: THREE.MeshStandardMaterial;
-		acmat_4: THREE.MeshStandardMaterial;
+		['acmat_0.001']: THREE.MeshStandardMaterial;
+		['acmat_1.001']: THREE.MeshStandardMaterial;
+		['acmat_2.001']: THREE.MeshStandardMaterial;
+		['acmat_3.001']: THREE.MeshStandardMaterial;
+		['acmat_4.001']: THREE.MeshStandardMaterial;
 	};
 };
 
@@ -43,116 +43,105 @@ export function Model(
 	const scroll = useScroll();
 	const { clock, controls, camera, scene } = useThree();
 	const { nodes, materials } = useGLTF('/../../models/meshes/GladOS/GladOS.gltf') as GLTFResult;
-
 	return (
 		<group {...props} dispose={null}>
-			<Detailed distances={props.distances || [0, 4, 8, 12]}>
-				<group
-					rotation={[-Math.PI / 2, 0, 0]}
-					userData={{ name: 'GLADoS.obj.cleaner.materialmerger.gles' }}
-				>
-					<mesh
-						castShadow
-						receiveShadow
-						geometry={nodes.Object_2.geometry}
-						material={materials.acmat_0}
-						userData={{ name: 'Object_2' }}
-						onClick={pointerEventHandlers.handleClick}
-						onContextMenu={pointerEventHandlers.handleContextMenu}
-						onDoubleClick={pointerEventHandlers.handleDoubleClick}
-						onWheel={pointerEventHandlers.handleWheel}
-						onPointerUp={pointerEventHandlers.handlePointerUp}
-						onPointerDown={pointerEventHandlers.handlePointerDown}
-						onPointerOver={pointerEventHandlers.handlePointerOver}
-						onPointerOut={pointerEventHandlers.handlePointerOut}
-						onPointerEnter={pointerEventHandlers.handlePointerEnter}
-						onPointerLeave={pointerEventHandlers.handlePointerLeave}
-						onPointerMove={pointerEventHandlers.handlePointerMove}
-						onPointerMissed={pointerEventHandlers.handlePointerMissed}
-						onUpdate={pointerEventHandlers.handleUpdate}
-					/>
-					<mesh
-						castShadow
-						receiveShadow
-						geometry={nodes.Object_3.geometry}
-						material={materials.acmat_1}
-						userData={{ name: 'Object_3' }}
-						onClick={pointerEventHandlers.handleClick}
-						onContextMenu={pointerEventHandlers.handleContextMenu}
-						onDoubleClick={pointerEventHandlers.handleDoubleClick}
-						onWheel={pointerEventHandlers.handleWheel}
-						onPointerUp={pointerEventHandlers.handlePointerUp}
-						onPointerDown={pointerEventHandlers.handlePointerDown}
-						onPointerOver={pointerEventHandlers.handlePointerOver}
-						onPointerOut={pointerEventHandlers.handlePointerOut}
-						onPointerEnter={pointerEventHandlers.handlePointerEnter}
-						onPointerLeave={pointerEventHandlers.handlePointerLeave}
-						onPointerMove={pointerEventHandlers.handlePointerMove}
-						onPointerMissed={pointerEventHandlers.handlePointerMissed}
-						onUpdate={pointerEventHandlers.handleUpdate}
-					/>
-					<mesh
-						castShadow
-						receiveShadow
-						geometry={nodes.Object_4.geometry}
-						material={materials.acmat_2}
-						userData={{ name: 'Object_4' }}
-						onClick={pointerEventHandlers.handleClick}
-						onContextMenu={pointerEventHandlers.handleContextMenu}
-						onDoubleClick={pointerEventHandlers.handleDoubleClick}
-						onWheel={pointerEventHandlers.handleWheel}
-						onPointerUp={pointerEventHandlers.handlePointerUp}
-						onPointerDown={pointerEventHandlers.handlePointerDown}
-						onPointerOver={pointerEventHandlers.handlePointerOver}
-						onPointerOut={pointerEventHandlers.handlePointerOut}
-						onPointerEnter={pointerEventHandlers.handlePointerEnter}
-						onPointerLeave={pointerEventHandlers.handlePointerLeave}
-						onPointerMove={pointerEventHandlers.handlePointerMove}
-						onPointerMissed={pointerEventHandlers.handlePointerMissed}
-						onUpdate={pointerEventHandlers.handleUpdate}
-					/>
-					<mesh
-						castShadow
-						receiveShadow
-						geometry={nodes.Object_5.geometry}
-						material={materials.acmat_3}
-						userData={{ name: 'Object_5' }}
-						onClick={pointerEventHandlers.handleClick}
-						onContextMenu={pointerEventHandlers.handleContextMenu}
-						onDoubleClick={pointerEventHandlers.handleDoubleClick}
-						onWheel={pointerEventHandlers.handleWheel}
-						onPointerUp={pointerEventHandlers.handlePointerUp}
-						onPointerDown={pointerEventHandlers.handlePointerDown}
-						onPointerOver={pointerEventHandlers.handlePointerOver}
-						onPointerOut={pointerEventHandlers.handlePointerOut}
-						onPointerEnter={pointerEventHandlers.handlePointerEnter}
-						onPointerLeave={pointerEventHandlers.handlePointerLeave}
-						onPointerMove={pointerEventHandlers.handlePointerMove}
-						onPointerMissed={pointerEventHandlers.handlePointerMissed}
-						onUpdate={pointerEventHandlers.handleUpdate}
-					/>
-					<mesh
-						castShadow
-						receiveShadow
-						geometry={nodes.Object_6.geometry}
-						material={materials.acmat_4}
-						userData={{ name: 'Object_6' }}
-						onClick={pointerEventHandlers.handleClick}
-						onContextMenu={pointerEventHandlers.handleContextMenu}
-						onDoubleClick={pointerEventHandlers.handleDoubleClick}
-						onWheel={pointerEventHandlers.handleWheel}
-						onPointerUp={pointerEventHandlers.handlePointerUp}
-						onPointerDown={pointerEventHandlers.handlePointerDown}
-						onPointerOver={pointerEventHandlers.handlePointerOver}
-						onPointerOut={pointerEventHandlers.handlePointerOut}
-						onPointerEnter={pointerEventHandlers.handlePointerEnter}
-						onPointerLeave={pointerEventHandlers.handlePointerLeave}
-						onPointerMove={pointerEventHandlers.handlePointerMove}
-						onPointerMissed={pointerEventHandlers.handlePointerMissed}
-						onUpdate={pointerEventHandlers.handleUpdate}
-					/>
-				</group>
-			</Detailed>
+			<group rotation={[Math.PI / 2, 0, 0]} userData={{ name: 'GLADoS' }}>
+				<mesh
+					castShadow
+					receiveShadow
+					geometry={nodes.GLADoS_1.geometry}
+					material={materials['acmat_0.001']}
+					onClick={pointerEventHandlers.handleClick}
+					onContextMenu={pointerEventHandlers.handleContextMenu}
+					onDoubleClick={pointerEventHandlers.handleDoubleClick}
+					onWheel={pointerEventHandlers.handleWheel}
+					onPointerUp={pointerEventHandlers.handlePointerUp}
+					onPointerDown={pointerEventHandlers.handlePointerDown}
+					onPointerOver={pointerEventHandlers.handlePointerOver}
+					onPointerOut={pointerEventHandlers.handlePointerOut}
+					onPointerEnter={pointerEventHandlers.handlePointerEnter}
+					onPointerLeave={pointerEventHandlers.handlePointerLeave}
+					onPointerMove={pointerEventHandlers.handlePointerMove}
+					onPointerMissed={pointerEventHandlers.handlePointerMissed}
+					onUpdate={pointerEventHandlers.handleUpdate}
+				/>
+				<mesh
+					castShadow
+					receiveShadow
+					geometry={nodes.GLADoS_2.geometry}
+					material={materials['acmat_1.001']}
+					onClick={pointerEventHandlers.handleClick}
+					onContextMenu={pointerEventHandlers.handleContextMenu}
+					onDoubleClick={pointerEventHandlers.handleDoubleClick}
+					onWheel={pointerEventHandlers.handleWheel}
+					onPointerUp={pointerEventHandlers.handlePointerUp}
+					onPointerDown={pointerEventHandlers.handlePointerDown}
+					onPointerOver={pointerEventHandlers.handlePointerOver}
+					onPointerOut={pointerEventHandlers.handlePointerOut}
+					onPointerEnter={pointerEventHandlers.handlePointerEnter}
+					onPointerLeave={pointerEventHandlers.handlePointerLeave}
+					onPointerMove={pointerEventHandlers.handlePointerMove}
+					onPointerMissed={pointerEventHandlers.handlePointerMissed}
+					onUpdate={pointerEventHandlers.handleUpdate}
+				/>
+				<mesh
+					castShadow
+					receiveShadow
+					geometry={nodes.GLADoS_3.geometry}
+					material={materials['acmat_2.001']}
+					onClick={pointerEventHandlers.handleClick}
+					onContextMenu={pointerEventHandlers.handleContextMenu}
+					onDoubleClick={pointerEventHandlers.handleDoubleClick}
+					onWheel={pointerEventHandlers.handleWheel}
+					onPointerUp={pointerEventHandlers.handlePointerUp}
+					onPointerDown={pointerEventHandlers.handlePointerDown}
+					onPointerOver={pointerEventHandlers.handlePointerOver}
+					onPointerOut={pointerEventHandlers.handlePointerOut}
+					onPointerEnter={pointerEventHandlers.handlePointerEnter}
+					onPointerLeave={pointerEventHandlers.handlePointerLeave}
+					onPointerMove={pointerEventHandlers.handlePointerMove}
+					onPointerMissed={pointerEventHandlers.handlePointerMissed}
+					onUpdate={pointerEventHandlers.handleUpdate}
+				/>
+				<mesh
+					castShadow
+					receiveShadow
+					geometry={nodes.GLADoS_4.geometry}
+					material={materials['acmat_3.001']}
+					onClick={pointerEventHandlers.handleClick}
+					onContextMenu={pointerEventHandlers.handleContextMenu}
+					onDoubleClick={pointerEventHandlers.handleDoubleClick}
+					onWheel={pointerEventHandlers.handleWheel}
+					onPointerUp={pointerEventHandlers.handlePointerUp}
+					onPointerDown={pointerEventHandlers.handlePointerDown}
+					onPointerOver={pointerEventHandlers.handlePointerOver}
+					onPointerOut={pointerEventHandlers.handlePointerOut}
+					onPointerEnter={pointerEventHandlers.handlePointerEnter}
+					onPointerLeave={pointerEventHandlers.handlePointerLeave}
+					onPointerMove={pointerEventHandlers.handlePointerMove}
+					onPointerMissed={pointerEventHandlers.handlePointerMissed}
+					onUpdate={pointerEventHandlers.handleUpdate}
+				/>
+				<mesh
+					castShadow
+					receiveShadow
+					geometry={nodes.GLADoS_5.geometry}
+					material={materials['acmat_4.001']}
+					onClick={pointerEventHandlers.handleClick}
+					onContextMenu={pointerEventHandlers.handleContextMenu}
+					onDoubleClick={pointerEventHandlers.handleDoubleClick}
+					onWheel={pointerEventHandlers.handleWheel}
+					onPointerUp={pointerEventHandlers.handlePointerUp}
+					onPointerDown={pointerEventHandlers.handlePointerDown}
+					onPointerOver={pointerEventHandlers.handlePointerOver}
+					onPointerOut={pointerEventHandlers.handlePointerOut}
+					onPointerEnter={pointerEventHandlers.handlePointerEnter}
+					onPointerLeave={pointerEventHandlers.handlePointerLeave}
+					onPointerMove={pointerEventHandlers.handlePointerMove}
+					onPointerMissed={pointerEventHandlers.handlePointerMissed}
+					onUpdate={pointerEventHandlers.handleUpdate}
+				/>
+			</group>
 		</group>
 	);
 }

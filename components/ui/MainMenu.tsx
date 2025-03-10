@@ -40,7 +40,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 	const [showComingSoon, setShowComingSoon] = useState<boolean>(false);
 	const [comingSoonMessage, setComingSoonMessage] = useState<string>('');
 	const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
-	// const { currentBackground } = useBackgroundRotation();
+	const { currentBackground } = useBackgroundRotation();
 
 	// Video settings
 	const [antiAliasing, setAntiAliasing] = useState<string>('Off');
@@ -675,13 +675,13 @@ const GameMenu: React.FC<GameMenuProps> = ({
 			ref={containerRef}
 			className={`${styles.menuContainer} ${menuVisible ? styles.visible : styles.hidden}`}
 		>
-			{/* <div
+			<div
 				className={styles.parallaxBackground}
 				style={{
 					transform: `translate(${parallaxOffset.x}px, ${parallaxOffset.y}px)`,
 					backgroundImage: `url(${currentBackground})`,
 				}}
-			/> */}
+			/>
 
 			{/* {renderBreadcrumb()} */}
 

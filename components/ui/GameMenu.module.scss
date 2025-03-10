@@ -29,11 +29,7 @@ $breakpoint-mobile: 480px;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		// background: linear-gradient(
-		// 	to bottom,
-		// 	rgba($aperture-dark, 0.7) 0%,
-		// 	rgba(0, 0, 0, 0.9) 100%
-		// );
+		background: linear-gradient(to right, rgba($aperture-dark, 1) 0%, rgba(0, 0, 0, 0) 60%);
 		z-index: -1;
 		// click through
 		pointer-events: none;

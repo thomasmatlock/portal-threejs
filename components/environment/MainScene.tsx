@@ -61,7 +61,7 @@ function AudioInitializer() {
 
 export default function Main() {
 	return (
-		<div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+		<div style={{ position: 'fixed', width: '70%', height: '100vh', right: 0 }}>
 			<Suspense fallback={null}>
 				<Canvas
 					style={{ position: 'absolute', top: 0, left: 0 }}

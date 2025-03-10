@@ -133,7 +133,7 @@ export default function Main() {
 					<WheatleyRig />
 					<PBodyRig />
 					<AtlasRig />
-					<GladOSRig />
+					{/* <GladOSRig /> */}
 					{/* <GladOS scale={0.15} position={[0.5, 1, 0]} />
 					<Atlas scale={0.15} position={[0, -0.5, 0]} />
 					<PBody scale={0.015} position={[0.75, -0.5, 0]} /> */}

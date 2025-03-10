@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { easing } from 'maath';
@@ -24,6 +24,17 @@ export function WheatleyRig() {
 		bobPhase: Math.random() * Math.PI * 2,
 	});
 
+	// Twitching parameters
+	const twitchState = useRef({
+		twitching: false,
+		duration: 0,
+		elapsed: 0,
+		intensity: 0,
+		recoveryRate: 0,
+		originalRotation: new THREE.Euler(),
+		targetRotation: new THREE.Euler(),
+	});
+
 	// Set initial rotation to face camera
 	useEffect(() => {
 		if (lookRef.current) {
@@ -44,6 +55,56 @@ export function WheatleyRig() {
 
 		// Apply floating motion to body
 		easing.damp3(bodyRef.current.position, [floatX, floatY, 0], 0.3, delta);
+
+		// Handle twitching behavior
+		if (twitchState.current.twitching) {
+			// Update elapsed time
+			twitchState.current.elapsed += delta;
+
+			// If we're still in the twitch duration
+			if (twitchState.current.elapsed < twitchState.current.duration) {
+				// Apply random micro-movements to simulate nervousness
+				if (Math.random() < 0.3) {
+					const microTwitch =
+						(Math.random() - 0.5) * 0.02 * twitchState.current.intensity;
+					lookRef.current.rotation.z += microTwitch;
+				}
+			} else {
+				// Gradually recover from the twitch
+				const recovery = twitchState.current.recoveryRate * delta;
+				lookRef.current.rotation.z = THREE.MathUtils.lerp(
+					lookRef.current.rotation.z,
+					twitchState.current.originalRotation.z,
+					recovery
+				);
+
+				// Check if we've recovered enough to end the twitch
+				if (
+					Math.abs(lookRef.current.rotation.z - twitchState.current.originalRotation.z) <
+					0.01
+				) {
+					twitchState.current.twitching = false;
+				}
+			}
+		} else {
+			// Randomly start a new twitch
+			if (Math.random() < 0.002) {
+				// Less frequent but longer twitches
+				// Save original rotation
+				twitchState.current.originalRotation.copy(lookRef.current.rotation);
+
+				// Set twitch parameters
+				twitchState.current.twitching = true;
+				twitchState.current.elapsed = 0;
+				twitchState.current.duration = Math.random() * 0.8 + 0.4; // 0.4 to 1.2 seconds
+				twitchState.current.intensity = Math.random() * 0.5 + 0.5; // 0.5 to 1.0 intensity
+				twitchState.current.recoveryRate = Math.random() * 2 + 1; // 1 to 3 recovery rate
+
+				// Apply initial twitch
+				const initialTwitch = (Math.random() - 0.5) * 0.2 * twitchState.current.intensity;
+				lookRef.current.rotation.z += initialTwitch;
+			}
+		}
 
 		// Random looking around behavior
 		if (!idleState.current.looking) {
@@ -76,7 +137,7 @@ export function WheatleyRig() {
 			// Smoothly rotate to look at target
 			easing.dampE(
 				lookRef.current.rotation,
-				[targetRotation.x, targetRotation.y, 0],
+				[targetRotation.x, targetRotation.y, lookRef.current.rotation.z], // Preserve Z for twitches
 				lookSpeed.current,
 				delta
 			);
@@ -87,12 +148,6 @@ export function WheatleyRig() {
 				idleState.current.waitTime = Math.random() * 2 + 0.5;
 				idleTimer.current = 0;
 			}
-		}
-
-		// Add a slight nervous twitch occasionally
-		if (Math.random() < 0.005) {
-			const twitchAmount = (Math.random() - 0.5) * 0.1;
-			lookRef.current.rotation.z += twitchAmount;
 		}
 	});
 

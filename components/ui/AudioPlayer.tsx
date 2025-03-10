@@ -217,6 +217,27 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		handleNextTrack();
 	};
 
+	useEffect(() => {
+		const handleAudioUnlock = () => {
+			if (audioRef.current && !isPlaying) {
+				audioRef.current
+					.play()
+					.then(() => {
+						setIsPlaying(true);
+					})
+					.catch((error) => {
+						console.error('Failed to play audio:', error);
+					});
+			}
+		};
+
+		window.addEventListener('audioUnlocked', handleAudioUnlock);
+
+		return () => {
+			window.removeEventListener('audioUnlocked', handleAudioUnlock);
+		};
+	}, [isPlaying]);
+
 	return (
 		<div className={styles.audioPlayer}>
 			<audio

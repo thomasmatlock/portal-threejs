@@ -63,6 +63,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 	const [showAudioPlayer, setShowAudioPlayer] = useState<boolean>(true);
 
 	const containerRef = useRef<HTMLDivElement>(null);
+	const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
 
 	// Function to get menu options without the back button
 	const getMenuOptionsWithoutBack = (options: MenuOption[]): MenuOption[] => {
@@ -475,103 +476,26 @@ const GameMenu: React.FC<GameMenuProps> = ({
 		return mainMenuOptions;
 	};
 
-	// Render breadcrumb navigation
-	// const renderBreadcrumb = () => {
-	// 	if (currentMenu === 'main') return null;
+	// Add this effect to listen for the audio unlock event
+	useEffect(() => {
+		const handleAudioUnlock = () => {
+			if (showAudioPlayer) {
+				// Find the audio element in the AudioPlayer component
+				const audioElement = document.querySelector('audio');
+				if (audioElement && audioElement.paused) {
+					audioElement.play().catch((error) => {
+						console.error('Failed to play audio:', error);
+					});
+				}
+			}
+		};
 
-	// 	const breadcrumbs = [];
+		window.addEventListener('audioUnlocked', handleAudioUnlock);
 
-	// 	// Always add main menu
-	// 	breadcrumbs.push(
-	// 		<span
-	// 			key="main"
-	// 			className={styles.breadcrumbItem}
-	// 			onClick={() => navigateToMenu('main')}
-	// 		>
-	// 			MAIN MENU
-	// 		</span>
-	// 	);
-
-	// 	// Add options if we're in options or a sub-option menu
-	// 	if (
-	// 		currentMenu === 'options' ||
-	// 		currentMenu === 'video' ||
-	// 		currentMenu === 'audio' ||
-	// 		currentMenu === 'keyboard'
-	// 	) {
-	// 		breadcrumbs.push(
-	// 			<span key="separator1" className={styles.separator}>
-	// 				&gt;
-	// 			</span>
-	// 		);
-
-	// 		if (currentMenu === 'options') {
-	// 			breadcrumbs.push(
-	// 				<span key="options" className={styles.current}>
-	// 					OPTIONS
-	// 				</span>
-	// 			);
-	// 		} else {
-	// 			breadcrumbs.push(
-	// 				<span
-	// 					key="options"
-	// 					className={styles.breadcrumbItem}
-	// 					onClick={() => navigateToMenu('options')}
-	// 				>
-	// 					OPTIONS
-	// 				</span>
-	// 			);
-	// 		}
-	// 	}
-
-	// 	// Add video/audio/keyboard if we're in those menus
-	// 	if (currentMenu === 'video' || currentMenu === 'audio' || currentMenu === 'keyboard') {
-	// 		breadcrumbs.push(
-	// 			<span key="separator2" className={styles.separator}>
-	// 				&gt;
-	// 			</span>
-	// 		);
-	// 		breadcrumbs.push(
-	// 			<span key={currentMenu} className={styles.current}>
-	// 				{currentMenu === 'video'
-	// 					? 'VIDEO'
-	// 					: currentMenu === 'audio'
-	// 					? 'AUDIO'
-	// 					: 'KEYBOARD & MOUSE'}
-	// 			</span>
-	// 		);
-	// 	}
-
-	// 	// Add singleplayer if we're in that menu
-	// 	if (currentMenu === 'singleplayer') {
-	// 		breadcrumbs.push(
-	// 			<span key="separator1" className={styles.separator}>
-	// 				&gt;
-	// 			</span>
-	// 		);
-	// 		breadcrumbs.push(
-	// 			<span key="singleplayer" className={styles.current}>
-	// 				SINGLE PLAYER
-	// 			</span>
-	// 		);
-	// 	}
-
-	// 	// Add extras if we're in that menu
-	// 	if (currentMenu === 'extras') {
-	// 		breadcrumbs.push(
-	// 			<span key="separator1" className={styles.separator}>
-	// 				&gt;
-	// 			</span>
-	// 		);
-	// 		breadcrumbs.push(
-	// 			<span key="extras" className={styles.current}>
-	// 				EXTRAS
-	// 			</span>
-	// 		);
-	// 	}
-
-	// 	return <div className={styles.breadcrumb}>{breadcrumbs}</div>;
-	// };
+		return () => {
+			window.removeEventListener('audioUnlocked', handleAudioUnlock);
+		};
+	}, [showAudioPlayer]);
 
 	// Check if we're in a submenu
 	const isSubmenu = currentMenu !== 'main';

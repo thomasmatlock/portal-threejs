@@ -10,7 +10,6 @@ const Wheatley = dynamic(() => import('./Wheatley').then((mod) => mod.Model), {
 export function WheatleyRig() {
 	// Simple refs
 	const wheatleyRef = useRef<THREE.Group>(null);
-	const containerRef = useRef<THREE.Group>(null);
 	const { mouse } = useThree();
 
 	// Track mouse position manually to work with UI elements
@@ -49,7 +48,7 @@ export function WheatleyRig() {
 
 	// Enhanced mouse following with distractions
 	useFrame((state, delta) => {
-		if (!wheatleyRef.current || !containerRef.current) return;
+		if (!wheatleyRef.current) return;
 
 		// Update distraction timer
 		distractionState.current.distractionTimer += delta;
@@ -162,29 +161,11 @@ export function WheatleyRig() {
 
 		wheatleyRef.current.position.y = floatY;
 		wheatleyRef.current.position.x = floatX;
-
-		// Gentle hovering animation
-		const hoverY = Math.sin(time * 0.5) * 0.1;
-
-		// Secondary micro-movements - adds a bit of character
-		const microX = Math.sin(time * 0.7) * 0.02;
-		const microZ = Math.cos(time * 0.6) * 0.02;
-
-		// Apply hovering to container
-		containerRef.current.position.y = hoverY;
-		containerRef.current.position.x = microX;
-		containerRef.current.position.z = microZ;
-
-		// Subtle tilt as he hovers
-		containerRef.current.rotation.x = Math.sin(time * 0.4) * 0.03;
-		containerRef.current.rotation.z = Math.sin(time * 0.3) * 0.03;
 	});
 
 	return (
-		<group ref={containerRef}>
-			<group ref={wheatleyRef} rotation={[0, Math.PI / 2, 0]}>
-				<Wheatley scale={0.025} position={[0, -0.5, 0]} rotation={[0, Math.PI - 0.2, 0]} />
-			</group>
+		<group ref={wheatleyRef} rotation={[0, Math.PI / 2, 0]}>
+			<Wheatley scale={0.025} position={[0, -0.5, 0]} rotation={[0, Math.PI - 0.2, 0]} />
 		</group>
 	);
 }

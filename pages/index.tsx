@@ -4,6 +4,7 @@ import Main from '../components/Main';
 import GameCanvas from '@/components/GameCanvas';
 import GameMenu from '@/components/ui/MainMenu';
 import { useState } from 'react';
+import Head from 'next/head';
 export default function Home() {
 	const [showGame, setShowGame] = useState(false);
 
@@ -39,6 +40,12 @@ export default function Home() {
 	};
 	return (
 		<UserContextProvider>
+			<Head>
+				<title>Portal Three.js</title>
+				<meta name="description" content="Portal Three.js" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="icon" href="/portal.svg" />
+			</Head>
 			<div className={styles['app']}>
 				<Main />
 

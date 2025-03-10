@@ -19,9 +19,10 @@ $mono-black: #1a1a1a;
 	background-color: transparent;
 	color: $mono-white;
 	padding: 15px 0;
-	z-index: 100;
+	z-index: 200;
 	font-family: 'Arial', sans-serif;
 	transform: translateZ(0);
+	pointer-events: auto;
 
 	@media (max-width: $breakpoint-mobile) {
 		padding: 10px 0;
@@ -41,6 +42,7 @@ $mono-black: #1a1a1a;
 	// background-color: rgba($mono-black, 0.85);
 	position: relative;
 	z-index: 6;
+	pointer-events: auto;
 	&:hover {
 		background-color: rgba($mono-black, 0.85);
 		transition: background-color 0.3s ease;

@@ -10,7 +10,6 @@ import { GLTF } from 'three-stdlib';
 import { useFrame, useThree } from '@react-three/fiber';
 import { easing, geometry } from 'maath';
 import UserContextProvider from '@/context/userContext';
-import InputContextProvider from '@/context/inputContext';
 import { useContext, useState } from 'react';
 import pointerEventHandlers from './shared/pointerEventHandlers';
 
@@ -35,15 +34,7 @@ export function Model(
 	props: { scrollable?: boolean; distances?: number[] } & JSX.IntrinsicElements['group']
 ) {
 	const { frameloop, dev, mobile } = useContext(UserContextProvider);
-	const {
-		timestamp,
-		scrollSpeed,
-		scrollDirection,
-		scrolling,
-		activeObject,
-		clipDuration,
-		setClipDuration,
-	} = useContext(InputContextProvider);
+
 	const { scrollable } = props.scrollable ? props : { scrollable: false };
 	const scroll = useScroll();
 	const { clock, controls, camera, scene } = useThree();

@@ -30,9 +30,9 @@ export default function Main() {
 
 					{/* <MacbookM4_ktx2 /> */}
 					<OrbitControls
-						enableZoom={false}
+						enableZoom={true}
 						enablePan={true}
-						enableRotate={false}
+						enableRotate={true}
 						minDistance={0}
 						maxDistance={10}
 						makeDefault

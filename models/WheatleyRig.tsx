@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { easing } from 'maath';
@@ -23,6 +23,14 @@ export function WheatleyRig() {
 		lookDuration: 0,
 		bobPhase: Math.random() * Math.PI * 2,
 	});
+
+	// Set initial rotation to face camera
+	useEffect(() => {
+		if (lookRef.current) {
+			// Rotate 90 degrees to face camera
+			lookRef.current.rotation.y = Math.PI / 2;
+		}
+	}, []);
 
 	useFrame((state, delta) => {
 		if (!groupRef.current || !lookRef.current || !bodyRef.current) return;
@@ -59,7 +67,7 @@ export function WheatleyRig() {
 
 			// Calculate target rotation
 			const targetRotation = new THREE.Euler();
-			targetRotation.y = Math.atan2(lookDirection.x, lookDirection.z);
+			targetRotation.y = Math.atan2(lookDirection.x, lookDirection.z) + Math.PI / 2; // Add 90 degrees to base rotation
 			targetRotation.x = Math.atan2(
 				lookDirection.y,
 				Math.sqrt(lookDirection.x * lookDirection.x + lookDirection.z * lookDirection.z)
@@ -91,8 +99,8 @@ export function WheatleyRig() {
 	return (
 		<group ref={groupRef}>
 			<group ref={bodyRef}>
-				<group ref={lookRef}>
-					<Wheatley scale={0.05} position={[0, 0, 0]} />
+				<group ref={lookRef} rotation={[0, Math.PI / 2, 0]}>
+					<Wheatley scale={0.05} position={[0, -1, 0]} />
 				</group>
 			</group>
 		</group>

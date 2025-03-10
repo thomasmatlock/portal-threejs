@@ -1,0 +1,134 @@
+@import '../../../../styles/App.module.scss';
+
+.radio_tabs,
+.radio_tabs_dark {
+	position: relative;
+	display: inline-flex;
+	border-radius: 0.5rem;
+	padding: 0.25rem;
+	margin: 0.5rem;
+	transition: $fast;
+	user-select: none;
+
+	&:hover {
+		transition: $fast;
+	}
+
+	input[type='radio'] {
+		display: none;
+
+		&:checked + label {
+			color: black;
+		}
+	}
+
+	// Vertical orientation styles
+	&.vertical {
+		flex-direction: column;
+		min-width: 200px;
+
+		.radio_tabs_label {
+			justify-content: flex-start;
+			width: 100%;
+			padding: 0.75rem 1rem;
+		}
+
+		.radio_tabs_active_color,
+		.radio_tabs_active_color_dark {
+			width: calc(100% - 0.5rem);
+			height: 2.5rem;
+			left: 0.25rem;
+			transform: none !important;
+		}
+	}
+}
+
+.radio_tabs {
+	background-color: white;
+
+	&:hover {
+		box-shadow: $lightShadow1;
+	}
+
+	&.vertical {
+		.radio_tabs_active_color {
+			box-shadow: inset 0.2rem 0.2rem 0.5rem $greyLight2, inset -0.2rem -0.2rem 0.5rem white;
+		}
+	}
+}
+
+.radio_tabs_dark {
+	background-color: $color2;
+
+	&.vertical {
+		.radio_tabs_active_color_dark {
+			box-shadow: inset 0.2rem 0.2rem 0.5rem $color0, inset -0.2rem -0.2rem 0.5rem $color2;
+		}
+	}
+}
+
+.radio_tabs_label {
+	padding: 0.75rem 1.25rem;
+	cursor: pointer;
+	color: black;
+	transition: $fast;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 13px;
+	font-weight: 500;
+	border-radius: 0.4rem;
+
+	&:hover {
+		color: black;
+	}
+
+	.radio_tabs_text {
+		position: relative;
+		z-index: 2;
+		margin: 0;
+		font-family: 'Greycliff';
+	}
+
+	.radio_tabs_icon {
+		display: inline-flex;
+		align-items: center;
+		margin-right: 0.5rem;
+		z-index: 2;
+
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}
+
+.radio_tabs_active_color,
+.radio_tabs_active_color_dark {
+	position: absolute;
+	height: calc(100% - 0.5rem);
+	top: 0.25rem;
+	left: 0;
+	border-radius: 0.4rem;
+	pointer-events: none;
+	z-index: 0;
+	transition: $fast;
+	background-color: white;
+}
+
+.radio_tabs_active_color {
+	box-shadow: inset 0.2rem 0.2rem 0.5rem $greyLight2, inset -0.2rem -0.2rem 0.5rem white;
+}
+
+.radio_tabs_active_color_dark {
+	background-color: $color2;
+	box-shadow: inset 0.2rem 0.2rem 0.5rem $color0, inset -0.2rem -0.2rem 0.5rem $color2;
+}
+
+.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

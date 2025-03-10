@@ -1,0 +1,211 @@
+@import './styles/App.module.scss';
+$speed: 0.25s;
+.horizontal_cards {
+	width: auto;
+	display: flex;
+	margin: 2rem;
+	height: auto;
+	justify-content: center;
+	align-content: center;
+}
+
+.horizontal_cards * {
+	transition: all $speed ease-in-out;
+}
+
+@keyframes rotateIn {
+	from {
+		opacity: 0;
+		transform: rotate3d(0, 1, 0, -90deg) translateX(100%) scale(0);
+		transform: translateX(100vw) scale(0);
+	}
+	50% {
+		// opacity: 0;
+		// transform: rotate3d(0, 1, 0, 0deg) translateX(0) scale(1);
+		// transform: translateX(0) scale(1);
+	}
+}
+
+@keyframes zoomBackgroundImg {
+	from {
+		background-size: 400% 400%;
+	}
+}
+
+.horizontal_card,
+.horizontal_card_dark,
+.horizontal_card_active,
+.horizontal_card_dark_active {
+	display: flex;
+	height: 33vh;
+	height: auto;
+	flex: 1;
+	will-change: auto;
+	width: 100%;
+	max-width: 25vh;
+	flex-direction: column;
+	background-color: #090909 !important;
+	// background-color: #131313 !important;
+	// box-shadow: -1rem 0 3rem rgba(0, 0, 0, 0.5);
+	position: relative;
+	left: 0px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	user-select: none;
+	cursor: pointer;
+	// background-image: url('https://raw.githubusercontent.com/thomasmatlock/media-server/main/images/ink2.webp');
+	// animation: rotateIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+	&:hover {
+		// box-shadow: -1rem 0 3rem rgba(0, 0, 0, 1), 0 0 0.5rem rgba(255, 255, 255, 1);
+		box-shadow: -1rem 0 3rem rgba(0, 0, 0, 1);
+	}
+}
+
+.horizontal_card:not(:first-child) {
+	margin-left: -50px;
+}
+
+.horizontal_card:hover {
+	transform: translateY(-20px);
+}
+
+.horizontal_card:hover ~ .horizontal_card {
+	position: relative;
+	left: 50px;
+}
+
+.horizontal_card_active {
+	transform: translateY(-20px);
+}
+
+.horizontal_card_active ~ .horizontal_card {
+	position: relative;
+	left: 50px;
+}
+
+.horizontal_card_header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	// background-color: #fff !important;
+	background-color: #111111 !important;
+	// background-color: #090909 !important;
+	width: 100%;
+	height: 33%;
+	height: auto;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: none;
+	// rotate background image
+	// transform: rotate(180deg);
+	&__light {
+		background-color: #fff;
+	}
+}
+
+.horizontal_card:hover .horizontal_card_header {
+	animation: zoomBackgroundImg 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.horizontal_card:nth-child(odd):hover .horizontal_card_header {
+	background-size: 150% 200%;
+	background-image: url('https://raw.githubusercontent.com/thomasmatlock/media-server/main/images/ink2.webp');
+}
+
+.horizontal_card:nth-child(even):hover .horizontal_card_header {
+	background-image: url('https://raw.githubusercontent.com/thomasmatlock/media-server/main/images/ink1.webp');
+	background-size: 175% 220%;
+}
+
+.horizontal_card:hover img {
+	filter: invert(0);
+}
+
+.horizontal_card:hover h4 {
+	color: black;
+}
+
+.horizontal_card:hover .horizontal_card_description p {
+	// color: black !important;
+}
+
+.title {
+	font-weight: 100;
+	text-transform: uppercase;
+	margin: 1rem;
+	font-size: 1rem;
+	width: 100%;
+	text-align: center;
+}
+
+.horizontal_card img {
+	margin-top: 1rem;
+	height: 1.5rem;
+	width: auto;
+	filter: invert(1);
+}
+
+.horizontal_card_description {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	width: 100%;
+	height: 100%;
+	background-color: #0e0e0e;
+	// background-size: cover;
+	// background-position: center;
+	// background-repeat: no-repeat;
+	// background-size: 200% auto;
+}
+
+.horizontal_card_description p {
+	font-weight: 100;
+	line-height: 1.5rem;
+	text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+	.horizontal_cards {
+		// width: 90vw;
+		height: auto;
+		margin: 0;
+		margin-bottom: 2rem;
+		margin-top: 2rem;
+		margin-right: 2rem;
+	}
+	.horizontal_card,
+	.horizontal_card_active {
+		display: flex;
+		height: 25vh;
+		height: auto;
+		flex: 1;
+		width: 100%;
+		max-width: 11rem;
+		left: 1rem;
+	}
+}
+
+@media (max-width: 1920px) {
+	.title {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.horizontal_cards {
+		margin-top: 0.5rem;
+		// margin: 1rem auto;
+	}
+	.horizontal_card {
+		// box-shadow: -1rem 0 3rem rgba(0, 0, 0, 0.5);
+	}
+	.horizontal_card_description p {
+		font-size: 11px;
+		line-height: 1.25rem;
+	}
+}

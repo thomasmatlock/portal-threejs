@@ -1,0 +1,29 @@
+.panel,
+.panel_hover {
+	position: relative;
+	max-width: 1920px;
+	// padding: 1rem;
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	// height: 100vh;
+
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	// border: 1px dotted blue;
+	pointer-events: none;
+
+	> * {
+		pointer-events: auto;
+	}
+}
+.panel_hover {
+	border-radius: 0.25rem;
+	pointer-events: auto;
+
+	&:hover {
+		border-radius: 0.25rem;
+		box-shadow: $lightShadow2;
+	}
+}

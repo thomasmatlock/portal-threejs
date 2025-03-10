@@ -1,0 +1,256 @@
+@import '../../styles/App.module.scss';
+
+.container {
+	display: flex;
+	height: auto;
+	width: 100%;
+	justify-content: center;
+	align-content: center;
+}
+
+.formContainer {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem;
+	width: 100%;
+
+	.dark & {
+		background-color: $color0;
+	}
+}
+
+.formContent {
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 0 1rem;
+}
+
+.logo {
+	font-size: 2rem;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 0.5rem;
+	color: $color0;
+	margin-bottom: 0.5rem;
+
+	.dark & {
+		color: $color12;
+	}
+}
+
+.welcomeText {
+	text-align: center;
+	color: $color6;
+	font-size: 0.75rem;
+
+	.dark & {
+		color: $color8;
+	}
+}
+
+.linkButton {
+	all: unset;
+	color: $color0;
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 0.75rem;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	.dark & {
+		color: $color12;
+	}
+}
+
+.ssoButtons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.75rem;
+	width: 100%;
+}
+
+.ssoButton {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	justify-content: center;
+	gap: 0.75rem;
+	height: 3rem;
+	max-height: 3rem;
+	border: 1px solid $color9;
+	border-radius: 6px;
+	transition: $fast;
+	font-size: 0.875rem;
+	background-color: white;
+	padding: 0.75rem 1.25rem;
+	padding: 0 0.75rem;
+
+	&:hover {
+		box-shadow: $lightShadow1;
+		// background-color: $color11;
+		cursor: pointer;
+	}
+
+	.dark & {
+		border-color: $color3;
+		background-color: $color1;
+
+		&:hover {
+			box-shadow: $darkShadow2;
+		}
+	}
+}
+
+.ssoButtonText {
+	color: $color0;
+	font-size: 0.875rem;
+	font-weight: 500;
+
+	.dark & {
+		color: $color12;
+	}
+}
+
+.divider {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	color: $color6;
+	font-size: 0.75rem;
+
+	span {
+		font-size: 0.75rem;
+		transform: translateY(-1px);
+	}
+
+	.dark & {
+		color: $color8;
+	}
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+}
+
+.input {
+	input {
+		width: 100%;
+		height: 3rem;
+		background-color: white;
+		border: 1px solid transparent;
+		border-radius: 6px;
+		transition: $fast;
+		padding: 0 0.75rem;
+		font-size: 0.75rem;
+		border: 1px solid $color9;
+
+		&:hover {
+			box-shadow: $lightShadow1;
+		}
+
+		&:focus {
+			box-shadow: $lightShadow2;
+			outline: none;
+
+			&::placeholder {
+				color: transparent;
+				opacity: 0;
+				transition: $fast;
+			}
+		}
+
+		&::placeholder {
+			color: $color6;
+			font-size: 0.75rem;
+			transition: $fast;
+		}
+
+		.dark & {
+			background-color: $color1;
+			color: $color12;
+
+			&:hover {
+				box-shadow: $darkShadow;
+			}
+
+			&:focus {
+				box-shadow: $darkShadow2;
+			}
+
+			&::placeholder {
+				color: $color8;
+			}
+		}
+	}
+}
+
+.loginButton {
+	width: 100%;
+	height: 3rem;
+	border-radius: 6px;
+	background-color: $color0;
+	color: $color12;
+	font-weight: 500;
+	transition: $fast;
+	border: none;
+	cursor: pointer;
+	font-size: 0.75rem;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		background-color: $color1;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.dark & {
+		background-color: $color12;
+		color: $color0;
+
+		&:hover {
+			background-color: $color11;
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.footerLink {
+	all: unset;
+	color: $color6;
+	font-size: 0.75rem;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.dark & {
+		color: $color8;
+	}
+}

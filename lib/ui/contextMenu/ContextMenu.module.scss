@@ -1,0 +1,197 @@
+@import '../../../styles/App.module.scss';
+
+.ContextMenuTrigger,
+.ContextMenuTriggerDark {
+	display: block;
+	border-radius: 4px;
+	font-size: 15px;
+	user-select: none;
+	padding: 45px 0;
+	width: 100%;
+	text-align: center;
+	z-index: 2;
+}
+
+.ContextMenuTrigger {
+	border: 1px $color9 dashed;
+	color: black;
+	background-color: white;
+}
+
+.ContextMenuTriggerDark {
+	border: 1px $color3 dashed;
+	color: white;
+	background-color: $color1;
+}
+
+.ContextMenuContent,
+.ContextMenuContentDark,
+.ContextMenuSubContent,
+.ContextMenuSubContentDark {
+	min-width: 220px;
+	border-radius: 4px;
+	overflow: hidden;
+	padding: 5px;
+	z-index: 999;
+	box-shadow: $lightShadow2;
+}
+
+.ContextMenuContent {
+	background-color: white;
+}
+
+.ContextMenuContentDark {
+	background-color: $color1;
+}
+
+.ContextMenuSubContent {
+	background-color: white;
+}
+
+.ContextMenuSubContentDark {
+	background-color: $color1;
+}
+
+.ContextMenuItem,
+.ContextMenuCheckboxItem,
+.ContextMenuRadioItem,
+.ContextMenuSubTrigger {
+	font-size: 13px;
+	line-height: 1;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	height: 25px;
+	padding: 0 5px;
+	position: relative;
+	padding-left: 25px;
+	user-select: none;
+	outline: none;
+
+	// Default text colors
+	color: $color0;
+	.ContextMenuContentDark &,
+	.ContextMenuSubContentDark & {
+		color: white;
+	}
+}
+
+.ContextMenuSubTrigger[data-state='open'] {
+	background-color: $color9;
+	.ContextMenuContentDark &,
+	.ContextMenuSubContentDark & {
+		background-color: $color3;
+		color: white;
+	}
+}
+
+.ContextMenuItem[data-disabled],
+.ContextMenuCheckboxItem[data-disabled],
+.ContextMenuRadioItem[data-disabled],
+.ContextMenuSubTrigger[data-disabled] {
+	color: $color9;
+	pointer-events: none;
+}
+
+.ContextMenuItem[data-highlighted],
+.ContextMenuCheckboxItem[data-highlighted],
+.ContextMenuRadioItem[data-highlighted],
+.ContextMenuSubTrigger[data-highlighted] {
+	background-color: $color3;
+	color: white;
+
+	.ContextMenuContentDark &,
+	.ContextMenuSubContentDark & {
+		background-color: $color3;
+		color: white;
+	}
+}
+
+.ContextMenuLabel {
+	padding-left: 25px;
+	font-size: 12px;
+	line-height: 25px;
+	color: $color7;
+}
+
+.ContextMenuSeparator {
+	height: 1px;
+	background-color: $color9;
+	margin: 5px;
+
+	.ContextMenuContentDark &,
+	.ContextMenuSubContentDark & {
+		background-color: $color3;
+	}
+}
+
+.ContextMenuItemIndicator {
+	position: absolute;
+	left: 0;
+	width: 25px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.RightSlot {
+	margin-left: auto;
+	padding-left: 20px;
+	color: $color0;
+
+	.ContextMenuContentDark &,
+	.ContextMenuSubContentDark & {
+		color: white;
+	}
+}
+
+[data-highlighted] > .RightSlot {
+	color: white;
+}
+
+[data-disabled] .RightSlot {
+	color: $color9;
+}
+
+// Animation for appearing/disappearing
+.ContextMenuContent,
+.ContextMenuSubContent {
+	animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+// Print styles
+@media print {
+	.ContextMenuContent,
+	.ContextMenuContentDark,
+	.ContextMenuSubContent,
+	.ContextMenuSubContentDark {
+		display: none;
+	}
+}
+
+// High contrast mode
+@media (forced-colors: active) {
+	.ContextMenuItem,
+	.ContextMenuCheckboxItem,
+	.ContextMenuRadioItem,
+	.ContextMenuSubTrigger {
+		forced-color-adjust: none;
+	}
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+	.ContextMenuContent,
+	.ContextMenuSubContent {
+		animation: none;
+	}
+}

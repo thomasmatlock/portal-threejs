@@ -1,0 +1,71 @@
+// Battery.module.scss
+@import '../../../styles/App.module.scss';
+
+.battery {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	path,
+	rect {
+		transition: $medium;
+	}
+}
+
+.batteryOutline {
+	transform-origin: center;
+	transition: $medium;
+
+	.dark & {
+		fill: $color12;
+	}
+}
+
+.batteryFill {
+	transform-origin: left;
+	transition: width 0.25s $standard-ease, fill 0.25s $standard-ease;
+
+	&.critical {
+		fill: #ef4444;
+	}
+
+	&.warning {
+		fill: #f97316;
+	}
+
+	&.normal {
+		fill: $color0;
+
+		.dark & {
+			fill: $color12;
+		}
+	}
+}
+
+// Print styles
+@media print {
+	.battery {
+		print-color-adjust: exact;
+	}
+}
+
+// High contrast mode
+@media (forced-colors: active) {
+	.battery {
+		path,
+		rect {
+			forced-color-adjust: auto;
+		}
+	}
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+	.battery {
+		path,
+		rect {
+			transition: none;
+		}
+	}
+}

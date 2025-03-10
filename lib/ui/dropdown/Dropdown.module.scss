@@ -1,0 +1,218 @@
+@import '../../../styles/App.module.scss';
+
+.DropdownMenuContent,
+.DropdownMenuSubContent {
+	min-width: 150px;
+	background-color: white;
+	border-radius: 4px;
+	padding: 5px;
+	box-shadow: $lightShadow2;
+	animation-duration: 250ms;
+	animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+	will-change: transform, opacity;
+	z-index: 2;
+	overflow: hidden;
+
+	.dark & {
+		background-color: $color2;
+	}
+}
+
+.IconButton {
+	font-family: inherit;
+	border-radius: 4px;
+	width: 1.5rem;
+	height: 1.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: black;
+	background-color: white;
+	transition: $fast;
+
+	&:hover {
+		box-shadow: $darkShadow;
+	}
+
+	.dark & {
+		color: white;
+		background-color: $color2;
+	}
+}
+
+.defaultTrigger {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.dots {
+		position: relative;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background-color: currentColor;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background-color: currentColor;
+		}
+
+		&:before {
+			left: -6px;
+		}
+
+		&:after {
+			right: -6px;
+		}
+	}
+}
+
+.DropdownMenuItem,
+.DropdownMenuCheckboxItem,
+.DropdownMenuRadioItem,
+.DropdownMenuSubTrigger {
+	font-size: 12px;
+	line-height: 1;
+	color: black;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	height: 24px;
+	padding: 0 1rem 0 25px;
+	position: relative;
+	user-select: none;
+	outline: none;
+	cursor: pointer;
+
+	.dark & {
+		color: white;
+	}
+
+	&[data-disabled] {
+		color: $color9;
+		pointer-events: none;
+	}
+
+	&[data-highlighted] {
+		background-color: $color4;
+		color: white;
+	}
+}
+
+.DropdownMenuSubTrigger {
+	&[data-state='open'] {
+		background-color: $color4;
+		color: white;
+	}
+}
+
+.DropdownMenuLabel {
+	padding: 0 25px;
+	font-size: 12px;
+	line-height: 25px;
+	color: $color8;
+}
+
+.DropdownMenuSeparator {
+	height: 1px;
+	background-color: $color9;
+	margin: 5px;
+}
+
+.IconSlot {
+	position: absolute;
+	left: 0;
+	width: 25px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.RightSlot {
+	margin-left: auto;
+	padding-left: 20px;
+	color: inherit;
+}
+
+[data-highlighted] > .RightSlot {
+	color: white;
+}
+
+[data-disabled] .RightSlot {
+	color: $color8;
+}
+
+.DropdownMenuArrow {
+	fill: white;
+
+	.dark & {
+		fill: $color2;
+	}
+}
+
+@keyframes slideUpAndFade {
+	from {
+		opacity: 0;
+		transform: translateY(2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideDownAndFade {
+	from {
+		opacity: 0;
+		transform: translateY(-2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideRightAndFade {
+	from {
+		opacity: 0;
+		transform: translateX(-2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideLeftAndFade {
+	from {
+		opacity: 0;
+		transform: translateX(2px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.DropdownMenuContent,
+.DropdownMenuSubContent {
+	&[data-side='top'] {
+		animation-name: slideDownAndFade;
+	}
+	&[data-side='right'] {
+		animation-name: slideLeftAndFade;
+	}
+	&[data-side='bottom'] {
+		animation-name: slideUpAndFade;
+	}
+	&[data-side='left'] {
+		animation-name: slideRightAndFade;
+	}
+}

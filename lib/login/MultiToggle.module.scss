@@ -1,0 +1,71 @@
+// MultiToggle.module.scss
+@import '../../styles/App.module.scss';
+
+.container {
+	display: flex;
+	width: 100%;
+	background-color: $color11;
+	border-radius: 6px;
+	padding: 2px;
+	position: relative;
+	border: 1px solid $color9;
+
+	&.connectedBelow {
+		border-bottom: none;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.dark & {
+		background-color: $color2;
+		border-color: $color3;
+	}
+}
+
+.option {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 16px;
+	font-size: 14px;
+	font-weight: 500;
+	color: $color6;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	transition: $fast;
+	border-radius: 4px;
+	gap: 8px;
+
+	&:hover:not(.active) {
+		color: $color4;
+	}
+
+	&.active {
+		background-color: white;
+		color: $color0;
+		font-weight: 600;
+
+		.dark & {
+			background-color: $color1;
+			color: $color12;
+		}
+	}
+
+	&.leftOption {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	&.rightOption {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

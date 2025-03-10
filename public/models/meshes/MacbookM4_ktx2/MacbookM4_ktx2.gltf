@@ -1,0 +1,686 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_draco_mesh_compression",
+    "KHR_texture_transform",
+    "KHR_materials_emissive_strength",
+    "KHR_texture_basisu"
+  ],
+  "extensionsRequired": [
+    "KHR_draco_mesh_compression",
+    "KHR_texture_transform",
+    "KHR_texture_basisu"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        4
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Macbook_Pro_16_Display_Screen_Space-Black.001",
+      "translation": [
+        0.0001817941665649414,
+        0,
+        -0.02296546846628189
+      ]
+    },
+    {
+      "children": [
+        0
+      ],
+      "mesh": 1,
+      "name": "Macbook_Pro_16_Display_Base_Space-Black.001",
+      "rotation": [
+        -0.860450267791748,
+        0,
+        0,
+        0.509534478187561
+      ],
+      "translation": [
+        3.071878433227539,
+        -4.99858283996582,
+        -0.19297723472118378
+      ]
+    },
+    {
+      "mesh": 2,
+      "name": "Macbook_Pro_16_Keyboard_Space-Black.001",
+      "translation": [
+        3.0773470401763916,
+        2.0677902698516846,
+        -0.49536949396133423
+      ]
+    },
+    {
+      "mesh": 3,
+      "name": "Macbook_Pro_16_Stand_Space-Black.001",
+      "translation": [
+        -0.3569624423980713,
+        4.627432823181152,
+        0.2466329038143158
+      ]
+    },
+    {
+      "children": [
+        1,
+        2,
+        3
+      ],
+      "mesh": 4,
+      "name": "Macbook_Pro_16_Case_Space-Black.001",
+      "rotation": [
+        0.7071068286895752,
+        0,
+        0,
+        0.7071068286895752
+      ],
+      "scale": [
+        0.009999999776482582,
+        0.009999999776482582,
+        0.009999999776482582
+      ],
+      "translation": [
+        -0.03006095625460148,
+        0,
+        0
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0,
+              -0.2459999918937683
+            ],
+            "scale": [
+              1,
+              1.5
+            ]
+          }
+        },
+        "index": 0
+      },
+      "name": "Macbook_Pro_16_Display_Screen_Space-Black",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0,
+                -0.2459999918937683
+              ],
+              "scale": [
+                1,
+                1.5
+              ]
+            }
+          },
+          "index": 1
+        },
+        "metallicRoughnessTexture": {
+          "extensions": {
+            "KHR_texture_transform": {
+              "offset": [
+                0,
+                -0.2459999918937683
+              ],
+              "scale": [
+                1,
+                1.5
+              ]
+            }
+          },
+          "index": 2
+        }
+      }
+    },
+    {
+      "alphaMode": "MASK",
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "extensions": {
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 10
+        }
+      },
+      "name": "Macbook_Pro_16_Display_Base_Space-Black",
+      "normalTexture": {
+        "index": 4
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 5
+        },
+        "metallicRoughnessTexture": {
+          "index": 6
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 7
+      },
+      "name": "Macbook_Pro_16_Keyboard_Space-Black",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 8
+        },
+        "metallicRoughnessTexture": {
+          "index": 9
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Macbook_Pro_16_Stand_Space-Black",
+      "normalTexture": {
+        "index": 10
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 11
+        },
+        "metallicRoughnessTexture": {
+          "index": 12
+        }
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "name": "Macbook_Pro_16_Case_Space-Black",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 13
+        },
+        "metallicRoughnessTexture": {
+          "index": 14
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh.371",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Mesh.376",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Mesh.370",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Mesh.369",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 12,
+            "NORMAL": 13,
+            "TEXCOORD_0": 14
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 15,
+          "material": 3,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Mesh.377",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 16,
+            "NORMAL": 17,
+            "TEXCOORD_0": 18
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 4,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 19,
+          "material": 4,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    },
+    {
+      "sampler": 0,
+      "source": 6
+    },
+    {
+      "sampler": 0,
+      "source": 7
+    },
+    {
+      "sampler": 0,
+      "source": 8
+    },
+    {
+      "sampler": 0,
+      "source": 9
+    },
+    {
+      "sampler": 0,
+      "source": 10
+    },
+    {
+      "sampler": 0,
+      "source": 11
+    },
+    {
+      "sampler": 0,
+      "source": 12
+    },
+    {
+      "sampler": 0,
+      "source": 13
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/jpeg",
+      "name": "paper-map-the-lord-of-the-rings-the-lord-of-the-rings-wallpaper-709dda8264a8eadad95995baa1c2eec6_1920x1096",
+      "uri": "../../textures/MacbookM4_ktx2/paper-map-the-lord-of-the-rings-the-lord-of-the-rings-wallpaper-709dda8264a8eadad95995baa1c2eec6_1920x1096.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Display-Screen_Metallic-Macbook-Pro-16_Display-Screen_Roughness",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Display-Screen_Metallic-Macbook-Pro-16_Display-Screen_Roughness.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Display-Base_Emission",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Display-Base_Emission.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Display-Base_Normal",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Display-Base_Normal.ktx2"
+    },
+    {
+      "mimeType": "image/png",
+      "name": "Macbook-Pro-16_Space-Black_Display-Base_BaseColor-Macbook-Pro-16_Display-Base_Alpha",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Space-Black_Display-Base_BaseColor-Macbook-Pro-16_Display-Base_Alpha.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Display-Base_Metallic-Macbook-Pro-16_Display-Base_Roughness",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Display-Base_Metallic-Macbook-Pro-16_Display-Base_Roughness.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Keyboard_Emission",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Keyboard_Emission.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Keyboard_BaseColor",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Keyboard_BaseColor.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Keyboard_Metallic-Macbook-Pro-16_Keyboard_Roughness",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Keyboard_Metallic-Macbook-Pro-16_Keyboard_Roughness.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Stand_Normal",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Stand_Normal.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Space-Black_Stand_BaseColor",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Space-Black_Stand_BaseColor.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Stand_Metallic-Macbook-Pro-16_Stand_Roughness",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Stand_Metallic-Macbook-Pro-16_Stand_Roughness.ktx2"
+    },
+    {
+      "mimeType": "image/png",
+      "name": "Macbook-Pro-16_Space-Black_Case_BaseColor-Macbook-Pro-16_Case_Alpha",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Space-Black_Case_BaseColor-Macbook-Pro-16_Case_Alpha.ktx2"
+    },
+    {
+      "mimeType": "image/jpeg",
+      "name": "Macbook-Pro-16_Case_Metallic-Macbook-Pro-16_Case_Roughness",
+      "uri": "../../textures/MacbookM4_ktx2/Macbook-Pro-16_Case_Metallic-Macbook-Pro-16_Case_Roughness.ktx2"
+    }
+  ],
+  "accessors": [
+    {
+      "componentType": 5126,
+      "count": 54,
+      "max": [
+        17.227500915527344,
+        24.040184020996094,
+        -0.3939340114593506
+      ],
+      "min": [
+        -17.227500915527344,
+        1.7579741477966309,
+        -0.393934041261673
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 54,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 54,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 156,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 9593,
+      "max": [
+        17.78518295288086,
+        24.597684860229492,
+        0.21154829859733582
+      ],
+      "min": [
+        -17.78481674194336,
+        -0.2123153954744339,
+        -0.8039683103561401
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 9593,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 9593,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 50145,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 20682,
+      "max": [
+        13.67623519897461,
+        6.359792709350586,
+        0.06296948343515396
+      ],
+      "min": [
+        -13.6766357421875,
+        -4.503224849700928,
+        -0.07001316547393799
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 20682,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 20682,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 102828,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 5245,
+      "max": [
+        20.819164276123047,
+        14.587763786315918,
+        0.5519888401031494
+      ],
+      "min": [
+        -13.960745811462402,
+        -9.431779861450195,
+        0.1777416616678238
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 5245,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 5245,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 25965,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 15158,
+      "max": [
+        20.85797691345215,
+        19.61042594909668,
+        0.5817073583602905
+      ],
+      "min": [
+        -14.712980270385742,
+        -5.199576377868652,
+        -0.5656535029411316
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 15158,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 15158,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 62499,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 558,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 39453,
+      "byteOffset": 560
+    },
+    {
+      "buffer": 0,
+      "byteLength": 122017,
+      "byteOffset": 40016
+    },
+    {
+      "buffer": 0,
+      "byteLength": 27940,
+      "byteOffset": 162036
+    },
+    {
+      "buffer": 0,
+      "byteLength": 86957,
+      "byteOffset": 189976
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 276936,
+      "uri": "MacbookM4_ktx2.bin"
+    }
+  ],
+  "extras": {
+    "processedWithKtx2": true
+  }
+}

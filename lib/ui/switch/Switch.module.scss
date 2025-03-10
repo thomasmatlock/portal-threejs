@@ -1,0 +1,128 @@
+@import '../../../styles/App.module.scss';
+
+.switchContainer {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.label {
+	font-size: 13px;
+	line-height: 1;
+	color: $color0;
+	user-select: none;
+	transition: $fast;
+
+	font-family: 'Greycliff';
+
+	&.labelDark {
+		color: $color12;
+	}
+
+	&.disabled {
+		color: $color8;
+	}
+}
+
+.root {
+	all: unset;
+	position: relative;
+	background-color: $color9;
+	border-radius: 9999px;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	transition: $fast;
+
+	&:hover:not(.disabled) {
+		background-color: $color8;
+		transition: $fast;
+		// box-shadow: 0 2px 2px $color5;
+	}
+
+	&[data-state='checked'] {
+		background-color: $color3;
+
+		&:hover:not(.disabled) {
+			background-color: $color4;
+			transition: $fast;
+		}
+	}
+
+	&.dark {
+		background-color: $color3;
+
+		&[data-state='checked'] {
+			background-color: $color12;
+		}
+
+		&:hover:not(.disabled) {
+			background-color: $color4;
+			transition: $fast;
+		}
+	}
+
+	&.disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+}
+
+// Size variants
+.sizesm {
+	width: 32px;
+	height: 18px;
+
+	.thumb {
+		width: 14px;
+		height: 14px;
+		transform: translateX(2px);
+
+		&[data-state='checked'] {
+			transform: translateX(16px);
+		}
+	}
+}
+
+.sizemd {
+	width: 42px;
+	height: 25px;
+
+	.thumb {
+		width: 21px;
+		height: 21px;
+		transform: translateX(2px);
+
+		&[data-state='checked'] {
+			transform: translateX(19px);
+		}
+	}
+}
+
+.sizelg {
+	width: 52px;
+	height: 32px;
+
+	.thumb {
+		width: 28px;
+		height: 28px;
+		transform: translateX(2px);
+
+		&[data-state='checked'] {
+			transform: translateX(22px);
+		}
+	}
+}
+
+.thumb {
+	display: block;
+	background-color: white;
+	border-radius: 50%;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	transition: $fast;
+	will-change: transform;
+
+	&:hover {
+		transition: $fast;
+		box-shadow: 0 2px 2px $color5;
+	}
+}

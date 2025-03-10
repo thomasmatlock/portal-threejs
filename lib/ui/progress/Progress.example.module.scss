@@ -1,0 +1,95 @@
+@import '../../../styles/App.module.scss';
+
+.container {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	height: auto;
+	padding: 1rem;
+
+	h6 {
+		// font-size: 1rem;
+		// font-weight: 500;
+		margin-bottom: 0.5rem;
+		text-align: left;
+	}
+}
+
+.customExamples {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.interactive {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.controls {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.button {
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	background-color: $color9;
+	color: $color0;
+	cursor: pointer;
+	transition: $fast;
+
+	&:hover {
+		background-color: $color8;
+	}
+
+	&:active {
+		background-color: $color7;
+	}
+}
+
+.buttonDark {
+	@extend .button;
+	background-color: $color3;
+	color: $color12;
+
+	&:hover {
+		background-color: $color4;
+	}
+
+	&:active {
+		background-color: $color5;
+	}
+}
+
+.customRange {
+	width: 250px;
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
+
+	.section {
+		h6 {
+			font-size: 0.875rem;
+		}
+	}
+
+	.button {
+		padding: 0.375rem 0.75rem;
+		font-size: 0.875rem;
+	}
+}

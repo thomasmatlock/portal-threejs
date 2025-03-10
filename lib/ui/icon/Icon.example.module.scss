@@ -1,0 +1,131 @@
+@import '../../../styles/App.module.scss';
+
+.container {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	height: auto;
+	padding: 1rem;
+
+	h6 {
+		margin-bottom: 1rem;
+		text-align: left;
+		color: inherit;
+	}
+}
+
+.iconGrid {
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.iconWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	transition: $fast;
+
+	&:hover {
+		background-color: $color9;
+	}
+}
+
+.sizeLabel {
+	font-size: 0.875rem;
+	color: $color7;
+	font-family: 'Greycliff';
+}
+
+.themeGrid {
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+}
+
+.themeExample {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1rem;
+	border-radius: 0.25rem;
+	background-color: white;
+	min-width: 120px;
+
+	&.darkBackground {
+		background-color: $color2;
+	}
+}
+
+.themeLabel {
+	font-size: 0.875rem;
+	color: $color7;
+	font-family: 'Greycliff';
+
+	&.darkLabel {
+		color: white;
+	}
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
+
+	.iconGrid,
+	.themeGrid {
+		gap: 1rem;
+	}
+
+	.section {
+		h6 {
+			font-size: 1rem;
+		}
+	}
+
+	.iconWrapper,
+	.themeExample {
+		padding: 0.25rem;
+	}
+}
+
+// Print styles
+@media print {
+	.container {
+		padding: 0;
+	}
+
+	.section {
+		page-break-inside: avoid;
+	}
+}
+
+// High contrast mode
+@media (forced-colors: active) {
+	.themeExample {
+		border: 1px solid currentColor;
+	}
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+	.iconWrapper,
+	.themeExample {
+		transition: none;
+	}
+}

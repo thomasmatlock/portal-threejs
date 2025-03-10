@@ -1,0 +1,184 @@
+@import '../../../styles/App.module.scss';
+
+.container {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	height: auto;
+	padding: 1rem;
+
+	h6 {
+		margin-bottom: 1rem;
+		text-align: left;
+		font-family: 'Greycliff';
+		// font-weight: 500;
+	}
+}
+
+.example {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+	background-color: white;
+	transition: $fast;
+
+	&:hover {
+		box-shadow: $lightShadow1;
+	}
+
+	.dark & {
+		background-color: $color2;
+
+		&:hover {
+			box-shadow: $darkShadow;
+		}
+	}
+}
+
+.helperText {
+	font-size: 0.875rem;
+	color: $color7;
+	font-family: 'Greycliff';
+	margin: 0;
+
+	.dark & {
+		color: $color8;
+	}
+}
+
+.buttonRow {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.customTrigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	background-color: $color9;
+	color: $color0;
+	cursor: pointer;
+	transition: $fast;
+
+	&:hover {
+		background-color: $color8;
+	}
+
+	.dark & {
+		background-color: $color3;
+		color: white;
+
+		&:hover {
+			background-color: $color4;
+		}
+	}
+}
+
+.selectionDisplay {
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+	background-color: $color11;
+	font-size: 0.875rem;
+	font-family: 'Greycliff';
+
+	.dark & {
+		background-color: $color3;
+		color: white;
+	}
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
+
+	.section {
+		gap: 0.75rem;
+
+		h6 {
+			margin-bottom: 0.75rem;
+			font-size: 1rem;
+		}
+	}
+
+	.example {
+		padding: 1rem;
+	}
+
+	.buttonRow {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+// Print styles
+@media print {
+	.container {
+		padding: 0;
+	}
+
+	.example {
+		padding: 1rem 0;
+		page-break-inside: avoid;
+		border: none;
+		box-shadow: none;
+	}
+}
+
+// High contrast mode
+@media (forced-colors: active) {
+	.example,
+	.customTrigger,
+	.selectionDisplay {
+		border: 1px solid currentColor;
+	}
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+	.example,
+	.customTrigger {
+		transition: none;
+	}
+}
+
+// Focus styles
+.customTrigger {
+	&:focus-visible {
+		outline: 2px solid $color4;
+		outline-offset: 2px;
+	}
+}
+
+// Support for Safari
+@supports (-webkit-touch-callout: none) {
+	.container {
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+// Support for Firefox
+@-moz-document url-prefix() {
+	.customTrigger {
+		&::-moz-focus-inner {
+			border: 0;
+		}
+	}
+}

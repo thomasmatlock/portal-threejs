@@ -1,0 +1,73 @@
+@import '../../../styles/App.module.scss';
+
+.container {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	height: auto;
+	padding: 1rem;
+
+	h6 {
+		margin-bottom: 0.5rem;
+		text-align: left;
+	}
+}
+
+.sizeExamples,
+.stateExamples {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
+}
+
+.interactive {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+
+	.state {
+		font-size: 0.875rem;
+		color: var(--mauve-11);
+		font-family: 'Greycliff';
+	}
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+	.container {
+		padding: 1rem;
+	}
+
+	.section {
+		gap: 0.75rem;
+
+		h6 {
+			font-size: 1rem;
+			margin-bottom: 0.375rem;
+		}
+	}
+
+	.sizeExamples,
+	.stateExamples {
+		padding: 0.75rem;
+	}
+}
+
+// Dark theme styles
+:global([data-theme='dark']) {
+	.state {
+		color: var(--mauve-4);
+	}
+}

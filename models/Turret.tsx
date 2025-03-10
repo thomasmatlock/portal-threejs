@@ -39,7 +39,7 @@ export function Model(
 	const scroll = useScroll();
 	const { clock, controls, camera, scene } = useThree();
 	const { nodes, materials } = useGLTF('/../../models/meshes/Turret/Turret.gltf') as GLTFResult;
-
+	//
 	return (
 		<group {...props} dispose={null}>
 			<group rotation={[Math.PI / 2, 0, 0]} scale={0.001} userData={{ name: 'turret' }}>

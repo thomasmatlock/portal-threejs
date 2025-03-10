@@ -10,7 +10,7 @@ const PBody = dynamic(() => import('../PBody').then((mod) => mod.Model), {
 
 export function PBodyRig() {
 	const pBodyRef = useRef<THREE.Group>(null);
-	const [scale, setScale] = useState(0); // Start hidden
+	const [scale, setScale] = useState(0); // Start hidden at scale 0
 
 	// Get UI context for menu interactions
 	const { hoveredMenuOption } = useUIContext();
@@ -39,8 +39,15 @@ export function PBodyRig() {
 		pBodyRef.current.scale.set(newScale, newScale, newScale);
 	});
 
+	// Set initial scale to 0
+	useEffect(() => {
+		if (pBodyRef.current) {
+			pBodyRef.current.scale.set(0, 0, 0);
+		}
+	}, []);
+
 	return (
-		<group ref={pBodyRef} position={[0.75, -0.5, 0]}>
+		<group ref={pBodyRef} position={[0.75, -0.5, 0]} scale={[0, 0, 0]}>
 			<PBody />
 		</group>
 	);

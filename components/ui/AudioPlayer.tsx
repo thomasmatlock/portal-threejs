@@ -83,7 +83,14 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		return () => {
 			// Clean up audio context on unmount
 			if (audioContextRef.current) {
-				audioContextRef.current.close().catch(console.error);
+				try {
+					// Only close if not already closed
+					if (audioContextRef.current.state !== 'closed') {
+						audioContextRef.current.close().catch(console.error);
+					}
+				} catch (error) {
+					console.error('Error closing AudioContext:', error);
+				}
 			}
 		};
 	}, [autoplay]);
@@ -109,8 +116,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 			const handleCanPlay = () => {
 				console.log('AUDIO CAN PLAY EVENT');
 				setAudioLoaded(true);
-				// Try autoplay if enabled
-				if (autoplay && !hasAttemptedAutoplayRef.current) {
+				// Try autoplay if enabled and not manually paused
+				if (autoplay && !hasAttemptedAutoplayRef.current && !manuallyPausedRef.current) {
 					hasAttemptedAutoplayRef.current = true;
 					handlePlayPause();
 				}
@@ -247,7 +254,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		setAudioLoaded(false);
 
 		// If currently playing, play the new track
-		if (isPlaying && audioRef.current) {
+		// If manually paused, keep the new track paused
+		if (isPlaying && audioRef.current && !manuallyPausedRef.current) {
 			// We need to wait for the new audio source to load
 			setTimeout(() => {
 				if (audioRef.current) {
@@ -267,6 +275,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 						});
 				}
 			}, 100);
+		} else {
+			// Make sure we're paused if we were manually paused
+			setIsPlaying(false);
 		}
 	};
 
@@ -282,7 +293,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		setAudioLoaded(false);
 
 		// If currently playing, play the new track
-		if (isPlaying && audioRef.current) {
+		// If manually paused, keep the new track paused
+		if (isPlaying && audioRef.current && !manuallyPausedRef.current) {
 			// We need to wait for the new audio source to load
 			setTimeout(() => {
 				if (audioRef.current) {
@@ -302,6 +314,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 						});
 				}
 			}, 100);
+		} else {
+			// Make sure we're paused if we were manually paused
+			setIsPlaying(false);
 		}
 	};
 
@@ -367,6 +382,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 	};
 
 	const handleTrackEnded = (): void => {
+		console.log('Track ended, going to next track');
+		// Clear the manually paused flag when a track ends naturally
+		manuallyPausedRef.current = false;
 		handleNextTrack();
 	};
 

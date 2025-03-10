@@ -92,9 +92,9 @@ export default function Main() {
 						makeDefault
 						position={[0, 0, 0]}
 						target={[0, 0.1, 0]}
-						dampingFactor={1}
+						dampingFactor={0.25}
 						autoRotate={true}
-						autoRotateSpeed={-1}
+						autoRotateSpeed={-0.25}
 					/>
 
 					<PerspectiveCamera

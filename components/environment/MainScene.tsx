@@ -130,7 +130,7 @@ export default function Main() {
 						color="#aaa9ad"
 						noise={1.5}
 					/>
-					<WheatleyRig />
+					{/* <WheatleyRig /> */}
 					<PBodyRig />
 					<AtlasRig />
 					{/* <GladOSRig /> */}

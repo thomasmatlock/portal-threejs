@@ -26,7 +26,7 @@ const GladOS = dynamic(() => import('../../models/GladOS').then((mod) => mod.Mod
 const Atlas = dynamic(() => import('../../models/Atlas').then((mod) => mod.Model), {
 	ssr: false,
 });
-const Wheatley = dynamic(() => import('../../models/Wheatley').then((mod) => mod.Model), {
+const TestChamber03 = dynamic(() => import('../../models/TestChamber03').then((mod) => mod.Model), {
 	ssr: false,
 });
 const WheatleyRig = dynamic(
@@ -110,15 +110,7 @@ export default function Main() {
 						// autoRotate={true}
 						// autoRotateSpeed={-0.1}
 					/>
-					<Sparkles
-						count={300}
-						size={1}
-						scale={10}
-						speed={0.2}
-						opacity={0.3}
-						color="#aaa9ad"
-						noise={1.5}
-					/>
+
 					<PerspectiveCamera
 						makeDefault
 						position={[-1, 0, 3]}
@@ -128,13 +120,24 @@ export default function Main() {
 					/>
 					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
 					<WheatleyRig />
+					{/* <TestChamber03 /> */}
+					{/* <TestChamber03 scale={1} position={[0, 1, 0]} rotation={[0, Math.PI / 2, 0]} /> */}
+					<Sparkles
+						count={300}
+						size={2}
+						scale={10}
+						speed={0.2}
+						opacity={0.3}
+						color="#aaa9ad"
+						noise={1.5}
+					/>
 					{/* <GladOS scale={0.25} position={[0.5, 1, 0]} /> */}
 					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
 					{/* Portal-style lighting setup */}
 					{/* Cool blue ambient light */}
 					<ambientLight intensity={0.1} color="#b4c7e0" />
 					{/* Main overhead light - simulates the ceiling panels */}
-					<spotLight
+					{/* <spotLight
 						intensity={0.7}
 						angle={Math.PI / 4}
 						penumbra={0.2}
@@ -142,12 +145,12 @@ export default function Main() {
 						color="#f0f5ff"
 						// castShadow
 						shadow-bias={-0.0001}
-					/>
+					/> */}
 					{/* Accent light from front - simulates the observation window */}
 					<spotLight
 						intensity={0.4}
 						angle={Math.PI / 6}
-						penumbra={0.1}
+						penumbra={0.5}
 						position={[0, 1, 5]}
 						color="#80ccff"
 						// castShadow
@@ -165,11 +168,11 @@ export default function Main() {
 					<pointLight
 						intensity={0.1}
 						position={[0, -1, 0]}
-						color="#ff8500"
+						color="#c2fcff"
 						distance={5}
 					/>
 					{/* Add a subtle volumetric effect */}
-					<fog attach="fog" color="#ff8500" near={10} far={30} />
+					<fog attach="fog" color="#c2fcff" near={10} far={30} />
 				</Canvas>
 			</Suspense>
 		</div>

@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const Wheatley = dynamic(() => import('../Wheatley').then((mod) => mod.Model), {
@@ -92,13 +93,6 @@ export function WheatleyRig() {
 				distractionState.current.shakeTimer <
 				distractionState.current.shakeDuration * 0.7
 			) {
-				// Add subtle bobbing motion during shake
-				const time = state.clock.getElapsedTime();
-				const floatY = Math.sin(time * 0.5) * 0.05;
-				const floatX = Math.sin(time * 0.3) * 0.03;
-
-				wheatleyRef.current.position.y = floatY;
-				wheatleyRef.current.position.x = floatX;
 				return; // Skip other rotation logic during most of the shake
 			}
 		}
@@ -229,24 +223,13 @@ export function WheatleyRig() {
 				delta * 5
 			);
 		}
-
-		// Add subtle bobbing motion (only if not in early shake phase)
-		if (
-			!distractionState.current.isShakingHead ||
-			distractionState.current.shakeTimer >= distractionState.current.shakeDuration * 0.7
-		) {
-			const time = state.clock.getElapsedTime();
-			const floatY = Math.sin(time * 0.5) * 0.05;
-			const floatX = Math.sin(time * 0.3) * 0.03;
-
-			wheatleyRef.current.position.y = floatY;
-			wheatleyRef.current.position.x = floatX;
-		}
 	});
 
 	return (
 		<group ref={wheatleyRef} rotation={[0, Math.PI / 2, 0]}>
-			<Wheatley scale={0.025} position={[0, -0.5, 0]} rotation={[0, Math.PI - 0.2, 0]} />
+			<Float rotationIntensity={0.5} floatIntensity={0.5} speed={1}>
+				<Wheatley scale={0.025} position={[0, -0.5, 0]} rotation={[0, Math.PI - 0.2, 0]} />
+			</Float>
 		</group>
 	);
 }

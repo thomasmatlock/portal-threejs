@@ -20,7 +20,10 @@ export function WheatleyRig() {
 		// Mouse x: -1 (left) to 1 (right) → rotation y
 		// Mouse y: -1 (bottom) to 1 (top) → rotation x
 		const rotationX = -mouse.y * 0.5; // Look up when mouse is at top
-		const rotationY = mouse.x * 0.5; // Look right when mouse is at right
+
+		// Adjust left-right sensitivity with non-linear mapping
+		// This gives more rotation on the left side
+		const rotationY = Math.sign(mouse.x) * Math.pow(Math.abs(mouse.x), 0.8) * 0.7;
 
 		// Apply rotation directly
 		wheatleyRef.current.rotation.x = rotationX;
@@ -29,7 +32,7 @@ export function WheatleyRig() {
 
 	return (
 		<group ref={wheatleyRef} rotation={[0, Math.PI / 2, 0]}>
-			<Wheatley scale={0.025} position={[0, -0.5, 0]} rotation={[0, Math.PI, 0]} />
+			<Wheatley scale={0.025} position={[0, -0.5, 0]} rotation={[0, Math.PI - 0.2, 0]} />
 		</group>
 	);
 }

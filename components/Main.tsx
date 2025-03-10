@@ -57,7 +57,7 @@ export default function Main() {
 				)}
 				{!showGame && (
 					<>
-						{/* <MainScene /> */}
+						<MainScene />
 						<GameMenu
 							onStartGame={handleStartGame}
 							onSettings={handleOptions}

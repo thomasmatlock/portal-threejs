@@ -51,7 +51,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 
 	// Audio settings
 	const [masterVolume, setMasterVolume] = useState<number>(100);
-	const [musicVolume, setMusicVolume] = useState<number>(20);
+	const [musicVolume, setMusicVolume] = useState<number>(10);
 	const [sfxVolume, setSfxVolume] = useState<number>(100);
 	const [voiceVolume, setVoiceVolume] = useState<number>(100);
 	const [audioQuality, setAudioQuality] = useState<string>('High');

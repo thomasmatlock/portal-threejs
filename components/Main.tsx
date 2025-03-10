@@ -4,6 +4,13 @@ import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from '
 import * as THREE from 'three';
 import dynamic from 'next/dynamic';
 
+// Add this type declaration at the top of your file
+declare global {
+	interface Window {
+		webkitAudioContext: typeof AudioContext;
+	}
+}
+
 // Create a context for audio control
 export const AudioContext = React.createContext({
 	playAudio: () => {},
@@ -24,8 +31,9 @@ function AudioInitializer() {
 
 		const handleInteraction = () => {
 			if (!initialized) {
-				// Initialize audio context
-				const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+				// Initialize audio context with proper typing
+				const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+				const audioContext = new AudioContextClass();
 				const silentBuffer = audioContext.createBuffer(1, 1, 22050);
 				const source = audioContext.createBufferSource();
 				source.buffer = silentBuffer;

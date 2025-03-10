@@ -112,21 +112,21 @@ const GameMenu: React.FC<GameMenuProps> = ({
 							label: 'MASTER VOLUME',
 							value: masterVolume,
 							options: [0, 20, 40, 60, 80, 100],
-							action: () => cycleOption('master_volume'),
+							action: () => incrementOption('master_volume'),
 						},
 						{
 							id: 'music_volume',
 							label: 'MUSIC VOLUME',
 							value: musicVolume,
 							options: [0, 20, 40, 60, 80, 100],
-							action: () => cycleOption('music_volume'),
+							action: () => incrementOption('music_volume'),
 						},
 						{
 							id: 'sfx_volume',
 							label: 'SOUND EFFECTS',
 							value: sfxVolume,
 							options: [0, 20, 40, 60, 80, 100],
-							action: () => cycleOption('sfx_volume'),
+							action: () => incrementOption('sfx_volume'),
 						},
 
 						{ id: 'back', label: 'BACK' },
@@ -141,28 +141,28 @@ const GameMenu: React.FC<GameMenuProps> = ({
 							label: 'ANTI-ALIASING',
 							value: antiAliasing,
 							options: ['Off', 'On'],
-							action: () => cycleOption('anti_aliasing'),
+							action: () => incrementOption('anti_aliasing'),
 						},
 						{
 							id: 'shadow_quality',
 							label: 'SHADOW QUALITY',
 							value: shadowQuality,
 							options: ['Off', 'Low', 'Medium', 'High'],
-							action: () => cycleOption('shadow_quality'),
+							action: () => incrementOption('shadow_quality'),
 						},
 						{
 							id: 'texture_quality',
 							label: 'TEXTURE QUALITY',
 							value: textureQuality,
 							options: ['Low', 'Medium', 'High'],
-							action: () => cycleOption('texture_quality'),
+							action: () => incrementOption('texture_quality'),
 						},
 						{
 							id: 'effects_quality',
 							label: 'EFFECTS QUALITY',
 							value: effectsQuality,
 							options: ['Low', 'Medium', 'High'],
-							action: () => cycleOption('effects_quality'),
+							action: () => incrementOption('effects_quality'),
 						},
 						{ id: 'back', label: 'BACK' },
 					],
@@ -176,14 +176,14 @@ const GameMenu: React.FC<GameMenuProps> = ({
 							label: 'MOUSE SENSITIVITY',
 							value: mouseSensitivity,
 							options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-							action: () => cycleOption('mouse_sensitivity'),
+							action: () => incrementOption('mouse_sensitivity'),
 						},
 						{
 							id: 'reverse_mouse',
 							label: 'REVERSE MOUSE',
 							value: reverseMouse ? 'ON' : 'OFF',
 							options: [false, true],
-							action: () => cycleOption('reverse_mouse'),
+							action: () => incrementOption('reverse_mouse'),
 						},
 						{ id: 'back', label: 'BACK' },
 					],
@@ -239,8 +239,90 @@ const GameMenu: React.FC<GameMenuProps> = ({
 		}, 3000);
 	};
 
-	// Function to cycle through option values
-	const cycleOption = (optionId: string) => {
+	// Add these new functions to handle incrementing and decrementing
+	const decrementOption = (optionId: string) => {
+		switch (optionId) {
+			case 'anti_aliasing':
+				const aaOptions = ['Off', 'On'];
+				const currentAAIndex = aaOptions.indexOf(antiAliasing);
+				const prevAAIndex = (currentAAIndex - 1 + aaOptions.length) % aaOptions.length;
+				setAntiAliasing(aaOptions[prevAAIndex]);
+				break;
+			case 'shadow_quality':
+				const shadowOptions = ['Off', 'Low', 'Medium', 'High'];
+				const currentShadowIndex = shadowOptions.indexOf(shadowQuality);
+				const prevShadowIndex =
+					(currentShadowIndex - 1 + shadowOptions.length) % shadowOptions.length;
+				setShadowQuality(shadowOptions[prevShadowIndex]);
+				break;
+			case 'texture_quality':
+				const textureOptions = ['Low', 'Medium', 'High'];
+				const currentTextureIndex = textureOptions.indexOf(textureQuality);
+				const prevTextureIndex =
+					(currentTextureIndex - 1 + textureOptions.length) % textureOptions.length;
+				setTextureQuality(textureOptions[prevTextureIndex]);
+				break;
+			case 'effects_quality':
+				const effectsOptions = ['Low', 'Medium', 'High'];
+				const currentEffectsIndex = effectsOptions.indexOf(effectsQuality);
+				const prevEffectsIndex =
+					(currentEffectsIndex - 1 + effectsOptions.length) % effectsOptions.length;
+				setEffectsQuality(effectsOptions[prevEffectsIndex]);
+				break;
+			case 'master_volume':
+				const masterOptions = [0, 20, 40, 60, 80, 100];
+				const currentMasterIndex = masterOptions.indexOf(masterVolume);
+				const prevMasterIndex =
+					(currentMasterIndex - 1 + masterOptions.length) % masterOptions.length;
+				setMasterVolume(masterOptions[prevMasterIndex]);
+				break;
+			case 'music_volume':
+				const musicOptions = [0, 20, 40, 60, 80, 100];
+				const currentMusicIndex = musicOptions.indexOf(musicVolume);
+				const prevMusicIndex =
+					(currentMusicIndex - 1 + musicOptions.length) % musicOptions.length;
+				setMusicVolume(musicOptions[prevMusicIndex]);
+				break;
+			case 'sfx_volume':
+				const sfxOptions = [0, 20, 40, 60, 80, 100];
+				const currentSfxIndex = sfxOptions.indexOf(sfxVolume);
+				const prevSfxIndex = (currentSfxIndex - 1 + sfxOptions.length) % sfxOptions.length;
+				setSfxVolume(sfxOptions[prevSfxIndex]);
+				break;
+			case 'voice_volume':
+				const voiceOptions = [0, 20, 40, 60, 80, 100];
+				const currentVoiceIndex = voiceOptions.indexOf(voiceVolume);
+				const prevVoiceIndex =
+					(currentVoiceIndex - 1 + voiceOptions.length) % voiceOptions.length;
+				setVoiceVolume(voiceOptions[prevVoiceIndex]);
+				break;
+			case 'audio_quality':
+				const audioOptions = ['Low', 'Medium', 'High'];
+				const currentAudioIndex = audioOptions.indexOf(audioQuality);
+				const prevAudioIndex =
+					(currentAudioIndex - 1 + audioOptions.length) % audioOptions.length;
+				setAudioQuality(audioOptions[prevAudioIndex]);
+				break;
+			case 'mouse_sensitivity':
+				const sensitivityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+				const currentSensitivityIndex = sensitivityOptions.indexOf(mouseSensitivity);
+				const prevSensitivityIndex =
+					(currentSensitivityIndex - 1 + sensitivityOptions.length) %
+					sensitivityOptions.length;
+				setMouseSensitivity(sensitivityOptions[prevSensitivityIndex]);
+				break;
+			case 'reverse_mouse':
+				setReverseMouse(!reverseMouse);
+				break;
+			case 'show_audio_player':
+				setShowAudioPlayer(!showAudioPlayer);
+				break;
+		}
+	};
+
+	// Rename the existing cycleOption to incrementOption for clarity
+	const incrementOption = (optionId: string) => {
+		// This is the same as your existing cycleOption function
 		switch (optionId) {
 			case 'anti_aliasing':
 				const aaOptions = ['Off', 'On'];
@@ -437,28 +519,28 @@ const GameMenu: React.FC<GameMenuProps> = ({
 					label: 'MASTER VOLUME',
 					value: masterVolume,
 					options: [0, 20, 40, 60, 80, 100],
-					action: () => cycleOption('master_volume'),
+					action: () => incrementOption('master_volume'),
 				},
 				{
 					id: 'music_volume',
 					label: 'MUSIC VOLUME',
 					value: musicVolume,
 					options: [0, 20, 40, 60, 80, 100],
-					action: () => cycleOption('music_volume'),
+					action: () => incrementOption('music_volume'),
 				},
 				{
 					id: 'sfx_volume',
 					label: 'SFX VOLUME',
 					value: sfxVolume,
 					options: [0, 20, 40, 60, 80, 100],
-					action: () => cycleOption('sfx_volume'),
+					action: () => incrementOption('sfx_volume'),
 				},
 
 				{
 					id: 'show_audio_player',
 					label: 'AUDIO PLAYER',
 					value: showAudioPlayer ? 'On' : 'Off',
-					action: () => cycleOption('show_audio_player'),
+					action: () => incrementOption('show_audio_player'),
 				},
 				{
 					id: 'back',
@@ -505,6 +587,33 @@ const GameMenu: React.FC<GameMenuProps> = ({
 	const menuOptionsWithoutBack = getMenuOptionsWithoutBack(currentMenuOptions);
 	const backButton = getBackButton(currentMenuOptions);
 
+	// Update the renderOptionValue function to handle arrow clicks
+	const renderOptionValue = (option: MenuOption) => {
+		if (option.value === undefined) return null;
+
+		const handleLeftArrowClick = (e: React.MouseEvent) => {
+			e.stopPropagation(); // Prevent the main option click from firing
+			decrementOption(option.id);
+		};
+
+		const handleRightArrowClick = (e: React.MouseEvent) => {
+			e.stopPropagation(); // Prevent the main option click from firing
+			incrementOption(option.id);
+		};
+
+		return (
+			<div className={styles.optionValue}>
+				<span className={styles.leftArrow} onClick={handleLeftArrowClick}>
+					◀
+				</span>
+				<span>{option.value}</span>
+				<span className={styles.rightArrow} onClick={handleRightArrowClick}>
+					▶
+				</span>
+			</div>
+		);
+	};
+
 	return (
 		<div
 			ref={containerRef}
@@ -541,9 +650,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 							onClick={() => handleOptionClick(option)}
 						>
 							<span>{option.label}</span>
-							{option.value !== undefined && (
-								<div className={styles.optionValue}>{option.value}</div>
-							)}
+							{option.value !== undefined && renderOptionValue(option)}
 							{option.disabled && (
 								<div className={styles.comingSoonTag}>COMING SOON</div>
 							)}

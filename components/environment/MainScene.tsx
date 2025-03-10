@@ -119,7 +119,6 @@ export default function Main() {
 						far={150}
 					/>
 					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
-					<WheatleyRig />
 					{/* <TestChamber03 /> */}
 					{/* <TestChamber03 scale={1} position={[0, 1, 0]} rotation={[0, Math.PI / 2, 0]} /> */}
 					<Sparkles
@@ -131,13 +130,14 @@ export default function Main() {
 						color="#aaa9ad"
 						noise={1.5}
 					/>
+					<WheatleyRig />
 					{/* <GladOS scale={0.25} position={[0.5, 1, 0]} /> */}
 					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
 					{/* Portal-style lighting setup */}
 					{/* Cool blue ambient light */}
 					<ambientLight intensity={0.1} color="#b4c7e0" />
 					{/* Main overhead light - simulates the ceiling panels */}
-					{/* <spotLight
+					<spotLight
 						intensity={0.7}
 						angle={Math.PI / 4}
 						penumbra={0.2}
@@ -145,7 +145,7 @@ export default function Main() {
 						color="#f0f5ff"
 						// castShadow
 						shadow-bias={-0.0001}
-					/> */}
+					/>
 					{/* Accent light from front - simulates the observation window */}
 					<spotLight
 						intensity={0.4}

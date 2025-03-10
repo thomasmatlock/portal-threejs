@@ -601,6 +601,62 @@ const GameMenu: React.FC<GameMenuProps> = ({
 			incrementOption(option.id);
 		};
 
+		const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+			e.stopPropagation(); // Prevent the main option click from firing
+			const newValue = parseInt(e.target.value, 10);
+
+			// Update the appropriate state based on the option ID
+			switch (option.id) {
+				case 'master_volume':
+					setMasterVolume(newValue);
+					break;
+				case 'music_volume':
+					setMusicVolume(newValue);
+					break;
+				case 'sfx_volume':
+					setSfxVolume(newValue);
+					break;
+				case 'voice_volume':
+					setVoiceVolume(newValue);
+					break;
+				case 'mouse_sensitivity':
+					setMouseSensitivity(newValue);
+					break;
+			}
+		};
+
+		// Check if this is a volume option or mouse sensitivity (numeric with specific IDs)
+		const isSliderOption =
+			typeof option.value === 'number' &&
+			(option.id === 'master_volume' ||
+				option.id === 'music_volume' ||
+				option.id === 'sfx_volume' ||
+				option.id === 'voice_volume' ||
+				option.id === 'mouse_sensitivity');
+
+		if (isSliderOption) {
+			// For mouse sensitivity, use a different range and step
+			const min = option.id === 'mouse_sensitivity' ? 1 : 0;
+			const max = option.id === 'mouse_sensitivity' ? 10 : 100;
+			const step = option.id === 'mouse_sensitivity' ? 1 : 10;
+
+			return (
+				<div className={styles.sliderOptionValue} onClick={(e) => e.stopPropagation()}>
+					<input
+						type="range"
+						min={min}
+						max={max}
+						step={step}
+						value={option.value as number}
+						onChange={handleSliderChange}
+						className={styles.volumeSlider}
+						aria-label={`${option.label} slider`}
+					/>
+				</div>
+			);
+		}
+
+		// For non-volume options, use the original arrow implementation
 		return (
 			<div className={styles.optionValue}>
 				<span className={styles.leftArrow} onClick={handleLeftArrowClick}>

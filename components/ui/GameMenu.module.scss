@@ -29,7 +29,7 @@ $breakpoint-mobile: 480px;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(to right, rgba($aperture-dark, 1) 0%, rgba(0, 0, 0, 0) 60%);
+		// background: linear-gradient(to right, rgba($aperture-dark, 1) 0%, rgba(0, 0, 0, 0.1) 100%);
 		z-index: -1;
 		// click through
 		pointer-events: none;
@@ -140,10 +140,11 @@ $breakpoint-mobile: 480px;
 }
 
 .portalNumberJS {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 100;
 	color: $aperture-orange;
 	position: relative;
+	bottom: 16px;
 }
 
 .menuWrapper {

@@ -47,16 +47,17 @@ export default function Home() {
 				<link rel="icon" href="/portal.svg" />
 			</Head>
 			<div className={styles['app']}>
-				<Main />
-
 				{!showGame && (
-					<GameMenu
-						onStartGame={handleStartGame}
-						onSettings={handleOptions}
-						onExit={handleExit}
-						onLoadGame={handleLoadGame}
-						onContinueGame={handleContinueGame}
-					/>
+					<>
+						<Main />
+						<GameMenu
+							onStartGame={handleStartGame}
+							onSettings={handleOptions}
+							onExit={handleExit}
+							onLoadGame={handleLoadGame}
+							onContinueGame={handleContinueGame}
+						/>
+					</>
 				)}
 
 				{showGame && <GameCanvas />}

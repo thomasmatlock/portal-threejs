@@ -1,5 +1,5 @@
 // components/portal/LevelManager.tsx
-import { create } from 'zustand';
+import create from 'zustand';
 
 export type LevelData = {
 	id: string;

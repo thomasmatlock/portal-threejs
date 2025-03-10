@@ -12,7 +12,7 @@ declare global {
 }
 
 // Create a context for audio control
-export const AudioContext = React.createContext({
+export const AudioPlayerContext = React.createContext({
 	playAudio: () => {},
 	isPlaying: false,
 });

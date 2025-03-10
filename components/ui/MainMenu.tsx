@@ -5,6 +5,7 @@ import AudioPlayer from './AudioPlayer';
 import { portalSoundtracks } from '../../utils/soundtrackData';
 import { GameMenuProps } from './GameMenu.props';
 import { useBackgroundRotation } from '../../utils/backgroundUtils';
+import { useUIContext } from '../../context/uiContext';
 
 type MenuOption = {
 	id: string;
@@ -64,6 +65,13 @@ const GameMenu: React.FC<GameMenuProps> = ({
 
 	const containerRef = useRef<HTMLDivElement>(null);
 	const audioPlayerRef = useRef<HTMLAudioElement | null>(null);
+
+	// Get UI context
+	const {
+		setCurrentMenu: updateUIMenu,
+		setHoveredMenuOption,
+		setSelectedMenuOption,
+	} = useUIContext();
 
 	// Function to get menu options without the back button
 	const getMenuOptionsWithoutBack = (options: MenuOption[]): MenuOption[] => {
@@ -441,6 +449,12 @@ const GameMenu: React.FC<GameMenuProps> = ({
 			} else if (menuId === 'keyboard') {
 				setSelectedOption('mouse_sensitivity');
 			}
+
+			// Update UI context
+			updateUIMenu(menuId);
+
+			// Update UI context again after animation
+			updateUIMenu(menuId);
 		}, 200);
 	};
 
@@ -496,6 +510,9 @@ const GameMenu: React.FC<GameMenuProps> = ({
 				}, 300);
 			}, 100);
 		}
+
+		// Update UI context
+		setSelectedMenuOption(option.id);
 	};
 
 	// Get current menu options based on state
@@ -704,6 +721,8 @@ const GameMenu: React.FC<GameMenuProps> = ({
 								selectedOption === option.id ? styles.selected : ''
 							} ${option.disabled ? styles.disabled : ''}`}
 							onClick={() => handleOptionClick(option)}
+							onMouseEnter={() => setHoveredMenuOption(option.id)}
+							onMouseLeave={() => setHoveredMenuOption(null)}
 						>
 							<span>{option.label}</span>
 							{option.value !== undefined && renderOptionValue(option)}
@@ -720,6 +739,8 @@ const GameMenu: React.FC<GameMenuProps> = ({
 							isSubmenu ? styles.submenuBackground : ''
 						}`}
 						onClick={() => handleOptionClick(backButton)}
+						onMouseEnter={() => setHoveredMenuOption(backButton.id)}
+						onMouseLeave={() => setHoveredMenuOption(null)}
 					>
 						<span>{backButton.label}</span>
 					</div>

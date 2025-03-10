@@ -1,22 +1,4 @@
-// ANIMATIONS
-// @import './animations/Animations.module.scss';
-// @import './animations/MenuAnimations.module.scss';
-// @import './animations/textAnimations.module.scss';
-// @import './animations/mirrored.module.scss';
-// @import './animations/glow.module.scss';
-// BASE
-@import './base/colors.module.scss';
-@import './base/gradients.module.scss';
-@import './base/shadows.module.scss';
-@import './base/transitions.module.scss';
-// @import './base/typography.module.scss';
-@import './base/variables.module.scss';
-// LAYOUT
-@import './layout/Container.module.scss';
-// @import './layout/Modal.module.scss';
-@import './layout/Panel.module.scss';
-@import './layout/Section.module.scss';
-// @import './layout/Lists.module.scss';
+@use './typography.module.scss';
 .app {
 	position: relative;
 	height: 100vh;

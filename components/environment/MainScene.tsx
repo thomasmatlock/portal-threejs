@@ -17,20 +17,20 @@ export const AudioPlayerContext = React.createContext({
 	isPlaying: false,
 });
 
-const Turret = dynamic(() => import('../../models/Turret').then((mod) => mod.Model), {
-	ssr: false,
-});
-const GladOS = dynamic(() => import('../../models/GladOS').then((mod) => mod.Model), {
-	ssr: false,
-});
-const Atlas = dynamic(() => import('../../models/Atlas').then((mod) => mod.Model), {
-	ssr: false,
-});
-const TestChamber03 = dynamic(() => import('../../models/TestChamber03').then((mod) => mod.Model), {
+const PBodyRig = dynamic(() => import('../../models/rigs/PBodyRig').then((mod) => mod.PBodyRig), {
 	ssr: false,
 });
 const WheatleyRig = dynamic(
-	() => import('../../models/WheatleyRig').then((mod) => mod.WheatleyRig),
+	() => import('../../models/rigs/WheatleyRig').then((mod) => mod.WheatleyRig),
+	{
+		ssr: false,
+	}
+);
+const AtlasRig = dynamic(() => import('../../models/rigs/AtlasRig').then((mod) => mod.AtlasRig), {
+	ssr: false,
+});
+const GladOSRig = dynamic(
+	() => import('../../models/rigs/GladOSRig').then((mod) => mod.GladOSRig),
 	{
 		ssr: false,
 	}
@@ -131,13 +131,17 @@ export default function Main() {
 						noise={1.5}
 					/>
 					<WheatleyRig />
-					{/* <GladOS scale={0.25} position={[0.5, 1, 0]} /> */}
-					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
+					<PBodyRig />
+					<AtlasRig />
+					<GladOSRig />
+					{/* <GladOS scale={0.15} position={[0.5, 1, 0]} />
+					<Atlas scale={0.15} position={[0, -0.5, 0]} />
+					<PBody scale={0.015} position={[0.75, -0.5, 0]} /> */}
 					{/* Portal-style lighting setup */}
 					{/* Cool blue ambient light */}
 					<ambientLight intensity={0.1} color="#b4c7e0" />
 					{/* Main overhead light - simulates the ceiling panels */}
-					<spotLight
+					{/* <spotLight
 						intensity={0.7}
 						angle={Math.PI / 4}
 						penumbra={0.2}
@@ -145,7 +149,7 @@ export default function Main() {
 						color="#f0f5ff"
 						// castShadow
 						shadow-bias={-0.0001}
-					/>
+					/> */}
 					{/* Accent light from front - simulates the observation window */}
 					<spotLight
 						intensity={0.4}

@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const Wheatley = dynamic(() => import('./Wheatley').then((mod) => mod.Model), {
+const Wheatley = dynamic(() => import('../Wheatley').then((mod) => mod.Model), {
 	ssr: false,
 });
 

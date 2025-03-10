@@ -1,7 +1,7 @@
 import styles from '../styles/App.module.scss';
 import { UserContextProvider } from '../context/userContext';
 import { InputContextProvider } from '../context/inputContext';
-import Main from '../components1/Main';
+import Main from '../components/Main';
 
 export default function Home() {
 	return (

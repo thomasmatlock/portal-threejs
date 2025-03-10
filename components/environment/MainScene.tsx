@@ -29,6 +29,12 @@ const Atlas = dynamic(() => import('../../models/Atlas').then((mod) => mod.Model
 const Wheatley = dynamic(() => import('../../models/Wheatley').then((mod) => mod.Model), {
 	ssr: false,
 });
+const WheatleyRig = dynamic(
+	() => import('../../models/WheatleyRig').then((mod) => mod.WheatleyRig),
+	{
+		ssr: false,
+	}
+);
 
 // Create a component to handle audio initialization
 function AudioInitializer() {
@@ -121,12 +127,12 @@ export default function Main() {
 						far={150}
 					/>
 					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
-					<Wheatley scale={0.05} position={[0, 0, 0]} />
+					<WheatleyRig />
 					{/* <GladOS scale={0.25} position={[0.5, 1, 0]} /> */}
 					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
-					<directionalLight position={[0, 10, 0]} intensity={0.1} />
+					{/* <directionalLight position={[0, 10, 0]} intensity={0.1} />
 					<directionalLight position={[-10, 0, 0]} intensity={0.1} />
-					<directionalLight position={[10, 0, 0]} intensity={0.1} />
+					<directionalLight position={[10, 0, 0]} intensity={0.1} /> */}
 					<spotLight
 						intensity={0.5}
 						angle={Math.PI / 2}

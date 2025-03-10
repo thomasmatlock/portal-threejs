@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Environment, Sparkles } from '@react-three/drei';
 import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import dynamic from 'next/dynamic';
@@ -18,6 +18,12 @@ export const AudioPlayerContext = React.createContext({
 });
 
 const Turret = dynamic(() => import('../../models/Turret').then((mod) => mod.Model), {
+	ssr: false,
+});
+const GladOS = dynamic(() => import('../../models/GladOS').then((mod) => mod.Model), {
+	ssr: false,
+});
+const Atlas = dynamic(() => import('../../models/Atlas').then((mod) => mod.Model), {
 	ssr: false,
 });
 
@@ -61,7 +67,7 @@ function AudioInitializer() {
 
 export default function Main() {
 	return (
-		<div style={{ position: 'fixed', width: '70%', height: '100vh', right: 0 }}>
+		<div style={{ position: 'fixed', width: '100%', height: '100vh', right: 0 }}>
 			<Suspense fallback={null}>
 				<Canvas
 					style={{ position: 'absolute', top: 0, left: 0 }}
@@ -81,7 +87,6 @@ export default function Main() {
 				>
 					<AudioInitializer />
 					<color args={['#000']} attach="background" />
-
 					{/* <MacbookM4_ktx2 /> */}
 					<OrbitControls
 						enableZoom={true}
@@ -91,28 +96,38 @@ export default function Main() {
 						maxDistance={10}
 						makeDefault
 						position={[0, 0, 0]}
-						target={[0, 0.1, 0]}
+						target={[0, 0, 0]}
 						dampingFactor={0.25}
 						autoRotate={true}
-						autoRotateSpeed={-0.25}
+						autoRotateSpeed={-0.1}
 					/>
-
+					<Sparkles count={200} size={2} speed={0.1} scale={20} />
 					<PerspectiveCamera
 						makeDefault
-						position={[-1, 0, 1]}
-						fov={27} // desktop is wider, mobile is narrower
+						position={[-1, 0, 5]}
+						fov={70} // desktop is wider, mobile is narrower
 						near={0.1} // Closer near plane
 						far={150} // Further far plane
 					/>
-					<Turret scale={5} position={[0, 0, 0]} />
-					{/* <directionalLight position={[5, 10, 0]} intensity={1} /> */}
+					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
+					<GladOS scale={0.25} position={[0.5, 0.5, 0]} />
+					{/* <Atlas scale={0.25} position={[0, -1, 0]} /> */}
+					{/* <directionalLight position={[0, 10, 0]} intensity={0.1} /> */}
+					{/* <directionalLight position={[-10, 0, 0]} intensity={0.1} /> */}
+					{/* <directionalLight position={[10, 0, 0]} intensity={0.1} /> */}
 					<spotLight
-						intensity={1}
-						// angle={Math.PI / 2}
+						intensity={0.5}
+						angle={Math.PI / 2}
 						penumbra={0.15} // this
-						position={[0, 0.5, 1]}
-						rotation={[Math.PI * 0.22, 0, 0]}
-						userData={{ name: 'point' }}
+						position={[0, 1, 1]}
+						// rotation={[Math.PI * 0.22, 0, 0]}
+					/>
+					<spotLight
+						intensity={0.5}
+						angle={Math.PI / 2}
+						penumbra={0.15} // this
+						position={[1, 1, 0]}
+						// rotation={[Math.PI * 0.22, 0, 0]}
 					/>
 				</Canvas>
 			</Suspense>

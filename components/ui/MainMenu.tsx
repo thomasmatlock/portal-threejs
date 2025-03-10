@@ -80,9 +80,9 @@ const GameMenu: React.FC<GameMenuProps> = ({
 			id: 'singleplayer',
 			label: 'SINGLE PLAYER',
 			submenu: [
-				{ id: 'continue', label: 'CONTINUE GAME', action: onContinueGame },
+				{ id: 'continue', label: 'CONTINUE GAME', action: onContinueGame, disabled: true },
 				{ id: 'newgame', label: 'NEW GAME', action: onStartGame },
-				{ id: 'loadgame', label: 'LOAD GAME', action: onLoadGame },
+				{ id: 'loadgame', label: 'LOAD GAME', action: onLoadGame, disabled: true },
 				{ id: 'back', label: 'BACK' },
 			],
 		},

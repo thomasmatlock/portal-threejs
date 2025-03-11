@@ -10,6 +10,7 @@ import {
 import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import dynamic from 'next/dynamic';
+import PostProcessing from '@/models/PostProcessing';
 
 // Add this type declaration at the top of your file
 declare global {
@@ -151,6 +152,7 @@ export default function Main() {
 						color="#aaa9ad"
 						noise={1.5}
 					/>
+					<PostProcessing />
 					<WheatleyRig />
 					{/* <PBodyRig /> */}
 					<AtlasRig />

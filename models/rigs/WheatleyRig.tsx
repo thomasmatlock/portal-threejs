@@ -4,7 +4,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-const Wheatley = dynamic(() => import('../Wheatley').then((mod) => mod.Model), {
+const Wheatley = dynamic(() => import('../WheatleyAnimated').then((mod) => mod.Model), {
 	ssr: false,
 });
 

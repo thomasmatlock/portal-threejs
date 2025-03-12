@@ -152,7 +152,7 @@ export default function Main() {
 						color="#aaa9ad"
 						noise={1.5}
 					/>
-					<PostProcessing />
+					{/* <PostProcessing /> */}
 					<WheatleyRig />
 					{/* <PBodyRig /> */}
 					<AtlasRig />

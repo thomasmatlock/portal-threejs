@@ -120,7 +120,7 @@ export default function Main() {
 					<color args={['#000']} attach="background" />
 					{/* <MacbookM4_ktx2 /> */}
 					<OrbitControls
-						enableZoom={true}
+						enableZoom={false}
 						enablePan={true}
 						enableRotate={false}
 						minDistance={0}

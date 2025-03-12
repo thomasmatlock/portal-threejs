@@ -135,7 +135,7 @@ export default function Main() {
 					<Rig />
 					<PerspectiveCamera
 						makeDefault
-						position={[-1, 0, 10]}
+						position={[-1, 0, 3]}
 						fov={60}
 						near={0.1}
 						far={150}

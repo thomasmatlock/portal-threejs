@@ -42,4 +42,5 @@ export interface Track {
 	title: string;
 	file: string;
 	duration?: number;
+	spotifyURL?: string;
 }

@@ -1,6 +1,6 @@
 import styles from '../styles/App.module.scss';
 import { useState, useContext } from 'react';
-import MainScene from '../components/environment/MainScene';
+import MainScene from './environment/MainMenuScene';
 import InputContext from '@/context/inputContext';
 import GameCanvas from '@/components/GameCanvas';
 import GameMenu from '@/components/ui/MainMenu';

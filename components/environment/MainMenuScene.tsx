@@ -43,7 +43,7 @@ const GladOSRig = dynamic(
 		ssr: false,
 	}
 );
-const Mixamo = dynamic(() => import('../../models/Mixamo').then((mod) => mod.Model), {
+const MixamoModel = dynamic(() => import('../../models/MixamoModel').then((mod) => mod.Model), {
 	ssr: false,
 });
 
@@ -158,7 +158,7 @@ export default function Main() {
 					<ambientLight intensity={10} color="#b4c7e0" />
 					{/* <PostProcessing /> */}
 					{/* <WheatleyRig /> */}
-					<Mixamo position={[0, -1, 0]} />
+					<MixamoModel position={[0, -1, 0]} defaultAnimation="happy_idle" />
 					{/* <PBodyRig /> */}
 					<AtlasRig />
 					{/* <GladOSRig /> */}

@@ -43,6 +43,9 @@ const GladOSRig = dynamic(
 		ssr: false,
 	}
 );
+const Mixamo = dynamic(() => import('../../models/Mixamo').then((mod) => mod.Model), {
+	ssr: false,
+});
 
 // Create a component to handle audio initialization
 function AudioInitializer() {
@@ -152,8 +155,10 @@ export default function Main() {
 						color="#aaa9ad"
 						noise={1.5}
 					/>
+					<ambientLight intensity={10} color="#b4c7e0" />
 					{/* <PostProcessing /> */}
-					<WheatleyRig />
+					{/* <WheatleyRig /> */}
+					<Mixamo position={[0, -1, 0]} />
 					{/* <PBodyRig /> */}
 					<AtlasRig />
 					{/* <GladOSRig /> */}

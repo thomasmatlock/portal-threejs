@@ -413,7 +413,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
 		<div className={styles.audioPlayer}>
 			<audio
 				ref={audioRef}
-				src={`/audio/music/${currentTrack.file}`}
+				src={`${currentTrack.assetsURL}/${currentTrack.file}`}
 				onTimeUpdate={handleTimeUpdate}
 				onEnded={handleTrackEnded}
 				onLoadedMetadata={handleTimeUpdate}

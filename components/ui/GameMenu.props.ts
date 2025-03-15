@@ -43,4 +43,5 @@ export interface Track {
 	file: string;
 	duration?: number;
 	spotifyURL?: string;
+	assetsURL?: string;
 }

@@ -1,4 +1,5 @@
 import { Track } from '../components/ui/GameMenu.props';
+import config from '@/cloudflare.config';
 
 // This file contains the soundtrack data for the audio player
 // The file paths are relative to the public/audio/music directory

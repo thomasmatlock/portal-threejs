@@ -17,6 +17,7 @@ import UserContextProvider from '@/context/userContext';
 import InputContextProvider from '@/context/inputContext';
 import { useContext, useState } from 'react';
 import pointerEventHandlers from './shared/pointerEventHandlers';
+import config from '@/cloudflare.config';
 
 type ActionName = 'personality_sphereAction.001';
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
@@ -72,7 +73,7 @@ export function Model(
 	const scroll = useScroll();
 	const { clock, controls, camera, scene } = useThree();
 	const { nodes, materials, animations } = useGLTF(
-		'/../../models/meshes/WheatleyAnimated/WheatleyAnimated.gltf'
+		`${config.assetsURL}/models/meshes/WheatleyAnimated/WheatleyAnimated.gltf`
 	) as GLTFResult;
 
 	const { actions } = useAnimations(animations, group);
@@ -319,4 +320,4 @@ export function Model(
 	);
 }
 
-useGLTF.preload('/../../models/meshes/WheatleyAnimated/WheatleyAnimated.gltf');
+useGLTF.preload(`${config.assetsURL}/models/meshes/WheatleyAnimated/WheatleyAnimated.gltf`);

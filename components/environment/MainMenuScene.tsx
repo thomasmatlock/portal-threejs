@@ -155,10 +155,10 @@ export default function Main() {
 						color="#aaa9ad"
 						noise={1.5}
 					/>
-					<ambientLight intensity={10} color="#b4c7e0" />
+					{/* <ambientLight intensity={10} color="#b4c7e0" /> */}
 					{/* <PostProcessing /> */}
-					{/* <WheatleyRig /> */}
-					<MixamoModel position={[0, -1, 0]} defaultAnimation="happy_idle" />
+					<WheatleyRig />
+					{/* <MixamoModel position={[0, -1, 0]} defaultAnimation="happy_idle" /> */}
 					{/* <PBodyRig /> */}
 					<AtlasRig />
 					{/* <GladOSRig /> */}

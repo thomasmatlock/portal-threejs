@@ -22,7 +22,7 @@ export const portalSoundtracks: Track[] = [
 	{
 		id: 'you-will-be-perfect',
 		title: 'You Will Be Perfect',
-		file: encodeURIComponent('Portal 2 OST Volume 2 - You Will Be Perfect.mp3'),
+		file: 'Portal 2 OST Volume 2 - You Will Be Perfect.mp3',
 		spotifyURL: 'https://open.spotify.com/track/0seJSzwYdx5vk0WqMTiDUZ',
 		assetsURL: `${config.assetsURL}/audio/music`,
 	},
@@ -71,7 +71,7 @@ export const getRandomSoundtrack = (): Track => {
 	const track = portalSoundtracks[randomIndex];
 	return {
 		...track,
-		file: `${track.assetsURL}/${track.file}`, // Construct full URL for cloud access
+		file: `${track.assetsURL}/${encodeURIComponent(track.file)}`,
 	};
 };
 
@@ -89,7 +89,7 @@ export const getNextSoundtrack = (currentId: string): Track => {
 	const track = portalSoundtracks[nextIndex];
 	return {
 		...track,
-		file: `${track.assetsURL}/${track.file}`, // Construct full URL for cloud access
+		file: `${track.assetsURL}/${encodeURIComponent(track.file)}`,
 	};
 };
 
@@ -102,6 +102,6 @@ export const getPreviousSoundtrack = (currentId: string): Track => {
 	const track = portalSoundtracks[prevIndex];
 	return {
 		...track,
-		file: `${track.assetsURL}/${track.file}`, // Construct full URL for cloud access
+		file: `${track.assetsURL}/${encodeURIComponent(track.file)}`,
 	};
 };

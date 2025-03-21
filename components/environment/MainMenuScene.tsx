@@ -148,7 +148,7 @@ export default function Main() {
 					{/* <TestChamber03 scale={1} position={[0, 1, 0]} rotation={[0, Math.PI / 2, 0]} /> */}
 					<Sparkles
 						count={300}
-						size={2}
+						size={3}
 						scale={10}
 						speed={0.2}
 						opacity={0.3}

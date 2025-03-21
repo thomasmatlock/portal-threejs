@@ -2,12 +2,13 @@ import styles from '../styles/App.module.scss';
 import { useState, useContext } from 'react';
 import MainScene from './environment/MainMenuScene';
 import InputContext from '@/context/inputContext';
+import UserContext from '@/context/userContext';
 import GameCanvas from '@/components/GameCanvas';
 import GameMenu from '@/components/ui/MainMenu';
 export default function Main() {
 	const { setInteracted } = useContext(InputContext);
 	const [showGame, setShowGame] = useState(false);
-
+	const { mobile } = useContext(UserContext);
 	const handleStartGame = () => {
 		console.log('Starting new game...');
 		setShowGame(true);

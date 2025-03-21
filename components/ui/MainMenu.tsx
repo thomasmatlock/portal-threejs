@@ -1,11 +1,12 @@
 // do not remove commented out code
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import styles from './GameMenu.module.scss';
 import AudioPlayer from './AudioPlayer';
 import { portalSoundtracks } from '../../utils/soundtrackData';
 import { GameMenuProps } from './GameMenu.props';
 import { useBackgroundRotation } from '../../utils/backgroundUtils';
 import { useUIContext } from '../../context/uiContext';
+import UserContext, { useUserContext } from '@/context/userContext';
 
 type MenuOption = {
 	id: string;
@@ -26,6 +27,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 }) => {
 	const [selectedOption, setSelectedOption] = useState<string>('singleplayer');
 	const [menuVisible, setMenuVisible] = useState<boolean>(true);
+	const { mobile } = useContext(UserContext);
 	const [logoAnimated, setLogoAnimated] = useState<boolean>(false);
 	const [currentMenu, setCurrentMenu] = useState<
 		| 'main'
@@ -702,44 +704,46 @@ const GameMenu: React.FC<GameMenuProps> = ({
 				<span className={styles.portalNumberJS}>.js</span>
 			</div>
 
-			<div className={styles.menuWrapper}>
-				<div
-					className={`${styles.menuOptions} ${
-						menuTransitioning ? styles.menuTransitioning : ''
-					} ${isSubmenu ? styles.submenuBackground : ''}`}
-				>
-					{menuOptionsWithoutBack.map((option) => (
+			{!mobile && (
+				<div className={styles.menuWrapper}>
+					<div
+						className={`${styles.menuOptions} ${
+							menuTransitioning ? styles.menuTransitioning : ''
+						} ${isSubmenu ? styles.submenuBackground : ''}`}
+					>
+						{menuOptionsWithoutBack.map((option) => (
+							<div
+								key={option.id}
+								className={`${styles.menuOption} ${
+									selectedOption === option.id ? styles.selected : ''
+								} ${option.disabled ? styles.disabled : ''}`}
+								onClick={() => handleOptionClick(option)}
+								onMouseEnter={() => setHoveredMenuOption(option.id)}
+								onMouseLeave={() => setHoveredMenuOption(null)}
+							>
+								<span>{option.label}</span>
+								{option.value !== undefined && renderOptionValue(option)}
+								{option.disabled && (
+									<div className={styles.comingSoonTag}>COMING SOON</div>
+								)}
+							</div>
+						))}
+					</div>
+
+					{backButton && (
 						<div
-							key={option.id}
-							className={`${styles.menuOption} ${
-								selectedOption === option.id ? styles.selected : ''
-							} ${option.disabled ? styles.disabled : ''}`}
-							onClick={() => handleOptionClick(option)}
-							onMouseEnter={() => setHoveredMenuOption(option.id)}
+							className={`${styles.backButton} ${
+								isSubmenu ? styles.submenuBackground : ''
+							}`}
+							onClick={() => handleOptionClick(backButton)}
+							onMouseEnter={() => setHoveredMenuOption(backButton.id)}
 							onMouseLeave={() => setHoveredMenuOption(null)}
 						>
-							<span>{option.label}</span>
-							{option.value !== undefined && renderOptionValue(option)}
-							{option.disabled && (
-								<div className={styles.comingSoonTag}>COMING SOON</div>
-							)}
+							<span>{backButton.label}</span>
 						</div>
-					))}
+					)}
 				</div>
-
-				{backButton && (
-					<div
-						className={`${styles.backButton} ${
-							isSubmenu ? styles.submenuBackground : ''
-						}`}
-						onClick={() => handleOptionClick(backButton)}
-						onMouseEnter={() => setHoveredMenuOption(backButton.id)}
-						onMouseLeave={() => setHoveredMenuOption(null)}
-					>
-						<span>{backButton.label}</span>
-					</div>
-				)}
-			</div>
+			)}
 
 			{showComingSoon && <div className={styles.notification}>{comingSoonMessage}</div>}
 

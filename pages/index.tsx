@@ -135,13 +135,13 @@ export default function Home() {
 					// text: `Load game! Like time travel, but with less paradoxes. Hopefully less paradoxes. ${userName}..I haven't actually checked the paradox levels.`,
 					// text: `Going back? ...second thoughts? Perfectly natural, healthy skepticism, shows good judgment, Jake. Or crippling indecision. Could be either, really.`,
 					// text: `Audio settings! Very important. Very, very important. Too loud and it hurts your ears, too quiet and you miss important things... like me telling you important things ${userName}. Bit of a paradox there..`,
-					// text: `Oh, audio adjustments! Brilliant. If I sound too panicky, that's not actually adjustable, ${userName}. That's just... that's just my personality. Sorry about that.`,
+					text: `Oh, audio adjustments! Brilliant. If I sound too panicky, that's not actually adjustable, ${userName}. That's just... that's just my personality. Sorry about that.`,
 					// text: `Ah, remapping the controls! Clever, ${userName}. Very clever. Taking control of your destiny. Or at least, control of your controller. Much safer that way`,
 					// text: `Oh, god. Multiplayer. You real... you really wanna double down on the fun?`,
 					// text: `Oh, you can't handle single player all by yourself, huh ${userName}?`,
 					// text: `Oh, back again? Didn't get it right the first time? Join the club. Story of my life, really. Try, fail, try again, fail slightly differently...`,
-					text: `I'm noticing a pattern of indecision here. Not judging! It's just... you've looked at every option at least twice now. ${userName}.
-					Everything alright? Decision paralysis? I get that sometimes. All the time, actually..`,
+					// text: `I'm noticing a pattern of indecision here. Not judging! It's just... you've looked at every option at least twice now. ${userName}.
+					// Everything alright? Decision paralysis? I get that sometimes. All the time, actually..`,
 					voiceId: voices.wheatley.id,
 					modelId: voices.wheatley.model,
 					outputFormat: voices.wheatley.outputFormat,

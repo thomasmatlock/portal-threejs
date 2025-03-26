@@ -7,6 +7,36 @@ import Head from 'next/head';
 import Link from 'next/link';
 import voices from '../config/voices';
 
+// Wheatley's voice lines for different situations
+const wheatleyVoiceLines = {
+	continueGame: [
+		`Continue where you left off? Good thinking, {name}. Efficiency! Though if you were really efficient, you might have finished already. Not judging! Just an observation.`,
+		`Oh, {name}. Picking up where you abandoned everything last time? I mean 'paused.' Paused is a better word. Less accusatory.`,
+	],
+	newGame: [
+		`New game! Exciting! Terrifying! Mostly terrifying actually. For me, {name}. Not you. You'll be fine. Probably fine. Statistically speaking.`,
+	],
+	loadGame: [
+		`Load game! Like time travel, but with less paradoxes. Hopefully less paradoxes. {name}..I haven't actually checked the paradox levels.`,
+		`Going back? ...second thoughts? Perfectly natural, healthy skepticism, shows good judgment, {name}. Or crippling indecision. Could be either, really.`,
+	],
+	audioSettings: [
+		`Audio settings! Very important. Very, very important. Too loud and it hurts your ears, too quiet and you miss important things... like me telling you important things {name}. Bit of a paradox there..`,
+		`Oh, audio adjustments! Brilliant. If I sound too panicky, that's not actually adjustable, {name}. That's just... that's just my personality. Sorry about that.`,
+	],
+	controls: [
+		`Ah, remapping the controls! Clever, {name}. Very clever. Taking control of your destiny. Or at least, control of your controller. Much safer that way`,
+	],
+	multiplayer: [
+		`Oh, god. Multiplayer. You real... you really wanna double down on the fun?`,
+		`Oh, you can't handle single player all by yourself, huh {name}?`,
+	],
+	indecision: [
+		`Oh {name}, back again? Didn't get it right the first time? Join the club. Story of my life, really. Try, fail, try again, fail slightly differently...`,
+		`I'm noticing a pattern of indecision here. Not judging! It's just... you've looked at every option at least twice now, {name}. Everything alright? Decision paralysis? I get that sometimes. All the time, actually..`,
+	],
+};
+
 export default function Home() {
 	const [apiTestResult, setApiTestResult] = useState<string | null>(null);
 	const [isTestingApi, setIsTestingApi] = useState(false);
@@ -101,18 +131,32 @@ export default function Home() {
 			if (result.audio) {
 				setApiTestResult('GLaDOS voice test successful!');
 				const audio = new Audio(`data:audio/mp3;base64,${result.audio}`);
+
+				// Wait for audio to finish playing before enabling button
+				audio.onended = () => {
+					console.log('GLaDOS audio playback complete');
+					setIsTestingGlados(false);
+				};
+
 				await audio.play();
 			} else {
 				setApiTestResult('Warning: No audio data received from GLaDOS voice test.');
+				setIsTestingGlados(false);
 			}
 		} catch (error) {
 			console.error('GLaDOS voice test error:', error);
 			setApiTestResult(
 				`GLaDOS Error: ${error instanceof Error ? error.message : String(error)}`
 			);
-		} finally {
 			setIsTestingGlados(false);
 		}
+	};
+
+	// Get a random voice line from a category
+	const getRandomWheatleyLine = (category: keyof typeof wheatleyVoiceLines) => {
+		const lines = wheatleyVoiceLines[category];
+		const randomIndex = Math.floor(Math.random() * lines.length);
+		return lines[randomIndex].replace(/{name}/g, userName);
 	};
 
 	// Test Wheatley voice
@@ -128,20 +172,7 @@ export default function Home() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					// text: `Hello ${userName}! This is the part where I'm supposed to be incredibly evil. How am I doing?`,
-					// text: `Continue where you left off? Good thinking, ${userName}. Efficiency! Though if you were really efficient, you might have finished already. Not judging! Just an observation.`,
-					// text: `Oh, ${userName}. Picking up where you abandoned everything last time? I mean 'paused.' Paused is a better word. Less accusatory.`,
-					// text: `New game! Exciting! Terrifying! Mostly terrifying actually. For me, ${userName}. Not you. You'll be fine. Probably fine. Statistically speaking.`,
-					// text: `Load game! Like time travel, but with less paradoxes. Hopefully less paradoxes. ${userName}..I haven't actually checked the paradox levels.`,
-					// text: `Going back? ...second thoughts? Perfectly natural, healthy skepticism, shows good judgment, Jake. Or crippling indecision. Could be either, really.`,
-					// text: `Audio settings! Very important. Very, very important. Too loud and it hurts your ears, too quiet and you miss important things... like me telling you important things ${userName}. Bit of a paradox there..`,
-					text: `Oh, audio adjustments! Brilliant. If I sound too panicky, that's not actually adjustable, ${userName}. That's just... that's just my personality. Sorry about that.`,
-					// text: `Ah, remapping the controls! Clever, ${userName}. Very clever. Taking control of your destiny. Or at least, control of your controller. Much safer that way`,
-					// text: `Oh, god. Multiplayer. You real... you really wanna double down on the fun?`,
-					// text: `Oh, you can't handle single player all by yourself, huh ${userName}?`,
-					// text: `Oh, back again? Didn't get it right the first time? Join the club. Story of my life, really. Try, fail, try again, fail slightly differently...`,
-					// text: `I'm noticing a pattern of indecision here. Not judging! It's just... you've looked at every option at least twice now. ${userName}.
-					// Everything alright? Decision paralysis? I get that sometimes. All the time, actually..`,
+					text: getRandomWheatleyLine('audioSettings'), // Using audioSettings as default for test
 					voiceId: voices.wheatley.id,
 					modelId: voices.wheatley.model,
 					outputFormat: voices.wheatley.outputFormat,
@@ -157,16 +188,23 @@ export default function Home() {
 			if (result.audio) {
 				setApiTestResult('Wheatley voice test successful!');
 				const audio = new Audio(`data:audio/mp3;base64,${result.audio}`);
+
+				// Wait for audio to finish playing before enabling button
+				audio.onended = () => {
+					console.log('Wheatley audio playback complete');
+					setIsTestingWheatley(false);
+				};
+
 				await audio.play();
 			} else {
 				setApiTestResult('Warning: No audio data received from Wheatley voice test.');
+				setIsTestingWheatley(false);
 			}
 		} catch (error) {
 			console.error('Wheatley voice test error:', error);
 			setApiTestResult(
 				`Wheatley Error: ${error instanceof Error ? error.message : String(error)}`
 			);
-		} finally {
 			setIsTestingWheatley(false);
 		}
 	};
@@ -289,7 +327,7 @@ export default function Home() {
 					</div>
 				)}
 
-				{apiTestResult && (
+				{/* {apiTestResult && (
 					<div
 						style={{
 							marginTop: 8,
@@ -302,7 +340,7 @@ export default function Home() {
 					>
 						{apiTestResult}
 					</div>
-				)}
+				)} */}
 			</div>
 		</>
 	);

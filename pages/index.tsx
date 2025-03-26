@@ -45,7 +45,7 @@ const wheatleyVoiceLines = {
 	},
 	multiplayer: [
 		// `Oh, god. Multiplayer. You really... you really wanna double down on the fun, {name}?`,
-		`Oh, you can't handle single player all by yourself, huh {name}?`,
+		`Oh, you can't handle single player all by yourself huh {name}?`,
 	],
 	contextual: {
 		repeat: [

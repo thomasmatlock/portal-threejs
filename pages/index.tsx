@@ -14,6 +14,7 @@ export default function Home() {
 	const [isCheckingEnv, setIsCheckingEnv] = useState(false);
 	const [isTestingGlados, setIsTestingGlados] = useState(false);
 	const [isTestingWheatley, setIsTestingWheatley] = useState(false);
+	const [userName, setUserName] = useState<string>('Test Subject');
 
 	// Add this script to your Portal index.tsx file
 	useEffect(() => {
@@ -225,7 +226,7 @@ export default function Home() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					text: 'Hello, test subject. The Enrichment Center reminds you that the Aperture Science Weighted Companion Cube will never threaten to stab you.',
+					text: `Hello, ${userName}. The Enrichment Center reminds you that the Aperture Science Weighted Companion Cube will never threaten to stab you.`,
 					voiceId: voices.glados.id,
 					modelId: voices.glados.model,
 					outputFormat: voices.glados.outputFormat,
@@ -268,7 +269,7 @@ export default function Home() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					text: "Hello Tom! This is the part where I'm supposed to be incredibly evil. How am I doing? Oh, actually, I'm not supposed to ask you that. Sorry!",
+					text: `Hello ${userName}! This is the part where I'm supposed to be incredibly evil. How am I doing?`,
 					voiceId: voices.wheatley.id,
 					modelId: voices.wheatley.model,
 					outputFormat: voices.wheatley.outputFormat,
@@ -318,6 +319,31 @@ export default function Home() {
 					maxWidth: 300,
 				}}
 			>
+				{/* User Name Input */}
+				<div style={{ marginBottom: 10 }}>
+					<label
+						htmlFor="userName"
+						style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
+					>
+						Your Name:
+					</label>
+					<input
+						id="userName"
+						type="text"
+						value={userName}
+						onChange={(e) => setUserName(e.target.value)}
+						placeholder="Enter your name"
+						style={{
+							padding: '8px',
+							width: '100%',
+							boxSizing: 'border-box',
+							marginBottom: '8px',
+							borderRadius: '4px',
+							border: '1px solid #ccc',
+						}}
+					/>
+				</div>
+
 				<div style={{ marginBottom: 10 }}>
 					{/* GLaDOS voice test button */}
 					<button

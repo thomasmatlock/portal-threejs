@@ -57,6 +57,54 @@ const wheatleyVoiceLines = {
 	},
 };
 
+// GLaDOS's voice lines for different situations
+const gladosVoiceLines = {
+	mainMenu: {
+		newGame: [
+			`Very well, {name}. Let's begin the testing. I do hope you're ready. For science. And pain. But mostly science.`,
+			`Initiating new test sequence for {name}. I have such tests planned for you. Oh yes, such wonderful tests.`,
+		],
+		continueGame: [
+			`Oh, look who's back. {name}, the test subject who couldn't even finish in one session. Well, better late than never. I suppose.`,
+			`Resuming tests for {name}. You know, most test subjects have the dedication to finish their testing in one session. But you're... special.`,
+		],
+		loadGame: [
+			`Accessing previous test chamber data for {name}. Let's see where you failed last time. For science, of course.`,
+			`Loading previous test results. Oh {name}, these results are... interesting. And by interesting, I mean concerning.`,
+		],
+		back: [
+			`Leaving so soon, {name}? What a shame. I had such wonderful tests planned. But I understand. Not everyone is cut out for science.`,
+			`Oh, going back? I suppose the testing was too much for you, {name}. Don't worry, it happens to... well, just you actually.`,
+		],
+	},
+	settings: {
+		general: [
+			`Adjusting test parameters for {name}. Though I doubt it will improve your performance.`,
+			`Configuration mode engaged. Please adjust settings to your limited capabilities, {name}.`,
+		],
+		audio: [
+			`Audio calibration in progress. I've adjusted my voice to be precisely 63% more condescending, just for you, {name}.`,
+			`Modifying acoustic parameters. Though I doubt it will help you hear the disappointment in my voice any clearer, {name}.`,
+		],
+		video: [
+			`Visual settings modification detected. Making the facility look prettier won't make you test any better, {name}.`,
+			`Display configuration mode active. Oh good, now you can see your failures in higher resolution, {name}.`,
+		],
+		controls: [
+			`Input reconfiguration initiated. Perhaps this will help you fail in new and interesting ways, {name}.`,
+			`Control scheme modification in progress. Although, {name}, the problem isn't the controls. It's you.`,
+		],
+	},
+	testing: [
+		`Oh good, {name} is testing again. I do enjoy watching you struggle with simple tasks.`,
+		`Let's see how {name} handles this next test. I'm predicting failure, but please, prove me wrong. It would be a refreshing change.`,
+	],
+	death: [
+		`Oh, {name} died. Again. I'm starting to think we should have gone with plan B. The one with the robots.`,
+		`Another fatal error from {name}. You know, most test subjects manage to die less frequently. Just an observation.`,
+	],
+};
+
 export default function Home() {
 	const [apiTestResult, setApiTestResult] = useState<string | null>(null);
 	const [isTestingApi, setIsTestingApi] = useState(false);
@@ -65,8 +113,10 @@ export default function Home() {
 	const [isTestingGlados, setIsTestingGlados] = useState(false);
 	const [isTestingWheatley, setIsTestingWheatley] = useState(false);
 	const [userName, setUserName] = useState<string>('Tom');
-	const [selectedCategory, setSelectedCategory] = useState<string>('settings');
-	const [selectedSubcategory, setSelectedSubcategory] = useState<string>('audio');
+	const [selectedWheatleyCategory, setSelectedWheatleyCategory] = useState<string>('settings');
+	const [selectedWheatleySubcategory, setSelectedWheatleySubcategory] = useState<string>('audio');
+	const [selectedGladosCategory, setSelectedGladosCategory] = useState<string>('settings');
+	const [selectedGladosSubcategory, setSelectedGladosSubcategory] = useState<string>('audio');
 
 	// Add this script to your Portal index.tsx file
 	useEffect(() => {
@@ -124,6 +174,26 @@ export default function Home() {
 		};
 	}, []);
 
+	// Get a random voice line from a category and subcategory for either character
+	const getRandomLine = (voiceLines: any, category: string, subcategory?: string) => {
+		let lines;
+		if (subcategory) {
+			lines = voiceLines[category][subcategory];
+		} else {
+			lines = voiceLines[category];
+		}
+		const randomIndex = Math.floor(Math.random() * lines.length);
+		return lines[randomIndex].replace(/{name}/g, userName);
+	};
+
+	// Get available subcategories for the selected category
+	const getSubcategories = (voiceLines: any, category: string) => {
+		const categoryData = voiceLines[category];
+		return categoryData && typeof categoryData === 'object' && !Array.isArray(categoryData)
+			? Object.keys(categoryData)
+			: [];
+	};
+
 	// Test GLaDOS voice
 	const testGladosVoice = async () => {
 		setIsTestingGlados(true);
@@ -137,7 +207,11 @@ export default function Home() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					text: `Hello, ${userName}. The Enrichment Center reminds you that the Aperture Science Weighted Companion Cube will never threaten to stab you.`,
+					text: getRandomLine(
+						gladosVoiceLines,
+						selectedGladosCategory,
+						selectedGladosSubcategory
+					),
 					voiceId: voices.glados.id,
 					modelId: voices.glados.model,
 					outputFormat: voices.glados.outputFormat,
@@ -174,26 +248,6 @@ export default function Home() {
 		}
 	};
 
-	// Get a random voice line from a category and subcategory
-	const getRandomWheatleyLine = (category: string, subcategory?: string) => {
-		let lines;
-		if (subcategory) {
-			lines = wheatleyVoiceLines[category][subcategory];
-		} else {
-			lines = wheatleyVoiceLines[category];
-		}
-		const randomIndex = Math.floor(Math.random() * lines.length);
-		return lines[randomIndex].replace(/{name}/g, userName);
-	};
-
-	// Get available subcategories for the selected category
-	const getSubcategories = (category: string) => {
-		const categoryData = wheatleyVoiceLines[category];
-		return categoryData && typeof categoryData === 'object' && !Array.isArray(categoryData)
-			? Object.keys(categoryData)
-			: [];
-	};
-
 	// Test Wheatley voice
 	const testWheatleyVoice = async () => {
 		setIsTestingWheatley(true);
@@ -207,7 +261,11 @@ export default function Home() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					text: getRandomWheatleyLine(selectedCategory, selectedSubcategory),
+					text: getRandomLine(
+						wheatleyVoiceLines,
+						selectedWheatleyCategory,
+						selectedWheatleySubcategory
+					),
 					voiceId: voices.wheatley.id,
 					modelId: voices.wheatley.model,
 					outputFormat: voices.wheatley.outputFormat,
@@ -289,22 +347,91 @@ export default function Home() {
 					/>
 				</div>
 
+				{/* GLaDOS Dialog Category Selection */}
+				<div style={{ marginBottom: 10 }}>
+					<label
+						htmlFor="gladosCategory"
+						style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
+					>
+						GLaDOS Dialog Category:
+					</label>
+					<select
+						id="gladosCategory"
+						value={selectedGladosCategory}
+						onChange={(e) => {
+							const newCategory = e.target.value;
+							setSelectedGladosCategory(newCategory);
+							const subcats = getSubcategories(gladosVoiceLines, newCategory);
+							setSelectedGladosSubcategory(subcats.length > 0 ? subcats[0] : '');
+						}}
+						style={{
+							padding: '8px',
+							width: '100%',
+							boxSizing: 'border-box',
+							marginBottom: '8px',
+							borderRadius: '4px',
+							border: '1px solid #ccc',
+							background: 'white',
+						}}
+					>
+						{Object.keys(gladosVoiceLines).map((category) => (
+							<option key={category} value={category}>
+								{category.charAt(0).toUpperCase() + category.slice(1)}
+							</option>
+						))}
+					</select>
+
+					{/* GLaDOS Subcategory dropdown */}
+					{getSubcategories(gladosVoiceLines, selectedGladosCategory).length > 0 && (
+						<>
+							<label
+								htmlFor="gladosSubcategory"
+								style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
+							>
+								GLaDOS Dialog Subcategory:
+							</label>
+							<select
+								id="gladosSubcategory"
+								value={selectedGladosSubcategory}
+								onChange={(e) => setSelectedGladosSubcategory(e.target.value)}
+								style={{
+									padding: '8px',
+									width: '100%',
+									boxSizing: 'border-box',
+									marginBottom: '8px',
+									borderRadius: '4px',
+									border: '1px solid #ccc',
+									background: 'white',
+								}}
+							>
+								{getSubcategories(gladosVoiceLines, selectedGladosCategory).map(
+									(subcat) => (
+										<option key={subcat} value={subcat}>
+											{subcat.charAt(0).toUpperCase() + subcat.slice(1)}
+										</option>
+									)
+								)}
+							</select>
+						</>
+					)}
+				</div>
+
 				{/* Wheatley Dialog Category Selection */}
 				<div style={{ marginBottom: 10 }}>
 					<label
-						htmlFor="category"
+						htmlFor="wheatleyCategory"
 						style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
 					>
-						Dialog Category:
+						Wheatley Dialog Category:
 					</label>
 					<select
-						id="category"
-						value={selectedCategory}
+						id="wheatleyCategory"
+						value={selectedWheatleyCategory}
 						onChange={(e) => {
 							const newCategory = e.target.value;
-							setSelectedCategory(newCategory);
-							const subcats = getSubcategories(newCategory);
-							setSelectedSubcategory(subcats.length > 0 ? subcats[0] : '');
+							setSelectedWheatleyCategory(newCategory);
+							const subcats = getSubcategories(wheatleyVoiceLines, newCategory);
+							setSelectedWheatleySubcategory(subcats.length > 0 ? subcats[0] : '');
 						}}
 						style={{
 							padding: '8px',
@@ -323,19 +450,19 @@ export default function Home() {
 						))}
 					</select>
 
-					{/* Subcategory dropdown - only show if the selected category has subcategories */}
-					{getSubcategories(selectedCategory).length > 0 && (
+					{/* Wheatley Subcategory dropdown */}
+					{getSubcategories(wheatleyVoiceLines, selectedWheatleyCategory).length > 0 && (
 						<>
 							<label
-								htmlFor="subcategory"
+								htmlFor="wheatleySubcategory"
 								style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
 							>
-								Dialog Subcategory:
+								Wheatley Dialog Subcategory:
 							</label>
 							<select
-								id="subcategory"
-								value={selectedSubcategory}
-								onChange={(e) => setSelectedSubcategory(e.target.value)}
+								id="wheatleySubcategory"
+								value={selectedWheatleySubcategory}
+								onChange={(e) => setSelectedWheatleySubcategory(e.target.value)}
 								style={{
 									padding: '8px',
 									width: '100%',
@@ -346,18 +473,20 @@ export default function Home() {
 									background: 'white',
 								}}
 							>
-								{getSubcategories(selectedCategory).map((subcat) => (
-									<option key={subcat} value={subcat}>
-										{subcat.charAt(0).toUpperCase() + subcat.slice(1)}
-									</option>
-								))}
+								{getSubcategories(wheatleyVoiceLines, selectedWheatleyCategory).map(
+									(subcat) => (
+										<option key={subcat} value={subcat}>
+											{subcat.charAt(0).toUpperCase() + subcat.slice(1)}
+										</option>
+									)
+								)}
 							</select>
 						</>
 					)}
 				</div>
 
 				<div style={{ marginBottom: 10 }}>
-					{/* GLaDOS voice test button */}
+					{/* Test buttons */}
 					<button
 						onClick={testGladosVoice}
 						disabled={isTestingGlados}
@@ -376,7 +505,6 @@ export default function Home() {
 						{isTestingGlados ? 'Testing...' : 'Test GLaDOS Voice'}
 					</button>
 
-					{/* Wheatley voice test button */}
 					<button
 						onClick={testWheatleyVoice}
 						disabled={isTestingWheatley}
@@ -394,22 +522,6 @@ export default function Home() {
 					>
 						{isTestingWheatley ? 'Testing...' : 'Test Wheatley Voice'}
 					</button>
-
-					{/* <button
-						onClick={testTtsApi}
-						disabled={isTestingApi}
-						style={{
-							padding: '8px 16px',
-							background: '#4CAF50',
-							color: 'white',
-							border: 'none',
-							borderRadius: 4,
-							cursor: isTestingApi ? 'not-allowed' : 'pointer',
-							opacity: isTestingApi ? 0.7 : 1,
-						}}
-					>
-						{isTestingApi ? 'Testing...' : 'Test TTS API'}
-					</button> */}
 				</div>
 
 				{envCheckResult && (
@@ -428,21 +540,6 @@ export default function Home() {
 						{envCheckResult}
 					</div>
 				)}
-
-				{/* {apiTestResult && (
-					<div
-						style={{
-							marginTop: 8,
-							padding: 8,
-							background: apiTestResult.includes('Error') ? '#FFCCCC' : '#CCFFCC',
-							color: apiTestResult.includes('Error') ? '#AA0000' : '#007700',
-							borderRadius: 4,
-							fontSize: 14,
-						}}
-					>
-						{apiTestResult}
-					</div>
-				)} */}
 			</div>
 		</>
 	);

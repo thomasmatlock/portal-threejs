@@ -129,7 +129,10 @@ export default function Home() {
 				},
 				body: JSON.stringify({
 					// text: `Hello ${userName}! This is the part where I'm supposed to be incredibly evil. How am I doing?`,
-					text: `Continue where you left off? Good thinking, ${userName}. Efficiency! Though if you were really efficient, you might have finished already. Not judging! Just an observation.`,
+					// text: `Continue where you left off? Good thinking, ${userName}. Efficiency! Though if you were really efficient, you might have finished already. Not judging! Just an observation.`,
+					// text: `Oh, ${userName}. Picking up where you abandoned everything last time? I mean 'paused.' Paused is a better word. Less accusatory.`,
+					// text: `New game! Exciting! Terrifying! Mostly terrifying actually. For me, ${userName}. Not you. You'll be fine. Probably fine. Statistically speaking.`,
+					text: `Load game! Like time travel, but with less paradoxes. Hopefully less paradoxes. ${userName}..I haven't actually checked the paradox levels.`,
 					voiceId: voices.wheatley.id,
 					modelId: voices.wheatley.model,
 					outputFormat: voices.wheatley.outputFormat,

@@ -747,7 +747,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 
 			{showComingSoon && <div className={styles.notification}>{comingSoonMessage}</div>}
 
-			{showAudioPlayer && (
+			{/* {showAudioPlayer && (
 				<AudioPlayer
 					tracks={portalSoundtracks}
 					initialVolume={musicVolume}
@@ -755,7 +755,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 					autoplay={true}
 					randomizeTrack={true}
 				/>
-			)}
+			)} */}
 		</div>
 	);
 };

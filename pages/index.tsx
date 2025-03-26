@@ -517,7 +517,7 @@ export default function Home() {
 							cursor: isTestingWheatley ? 'not-allowed' : 'pointer',
 							opacity: isTestingWheatley ? 0.7 : 1,
 							marginRight: '1rem',
-							marginBottom: '4rem',
+							marginBottom: '6rem',
 						}}
 					>
 						{isTestingWheatley ? 'Testing...' : 'Test Wheatley Voice'}

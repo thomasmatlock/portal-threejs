@@ -516,8 +516,8 @@ export default function Home() {
 							borderRadius: 4,
 							cursor: isTestingWheatley ? 'not-allowed' : 'pointer',
 							opacity: isTestingWheatley ? 0.7 : 1,
-							marginRight: '8px',
-							marginBottom: '8px',
+							marginRight: '1rem',
+							marginBottom: '4rem',
 						}}
 					>
 						{isTestingWheatley ? 'Testing...' : 'Test Wheatley Voice'}

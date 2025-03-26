@@ -113,10 +113,11 @@ export default function Home() {
 	const [isTestingGlados, setIsTestingGlados] = useState(false);
 	const [isTestingWheatley, setIsTestingWheatley] = useState(false);
 	const [userName, setUserName] = useState<string>('Tom');
-	const [selectedWheatleyCategory, setSelectedWheatleyCategory] = useState<string>('settings');
-	const [selectedWheatleySubcategory, setSelectedWheatleySubcategory] = useState<string>('audio');
-	const [selectedGladosCategory, setSelectedGladosCategory] = useState<string>('settings');
-	const [selectedGladosSubcategory, setSelectedGladosSubcategory] = useState<string>('audio');
+	const [selectedWheatleyCategory, setSelectedWheatleyCategory] = useState<string>('mainMenu');
+	const [selectedWheatleySubcategory, setSelectedWheatleySubcategory] =
+		useState<string>('newGame');
+	const [selectedGladosCategory, setSelectedGladosCategory] = useState<string>('mainMenu');
+	const [selectedGladosSubcategory, setSelectedGladosSubcategory] = useState<string>('newGame');
 
 	// Add this script to your Portal index.tsx file
 	useEffect(() => {

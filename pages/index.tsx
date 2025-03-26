@@ -65,6 +65,8 @@ export default function Home() {
 	const [isTestingGlados, setIsTestingGlados] = useState(false);
 	const [isTestingWheatley, setIsTestingWheatley] = useState(false);
 	const [userName, setUserName] = useState<string>('Tom');
+	const [selectedCategory, setSelectedCategory] = useState<string>('settings');
+	const [selectedSubcategory, setSelectedSubcategory] = useState<string>('audio');
 
 	// Add this script to your Portal index.tsx file
 	useEffect(() => {
@@ -184,6 +186,14 @@ export default function Home() {
 		return lines[randomIndex].replace(/{name}/g, userName);
 	};
 
+	// Get available subcategories for the selected category
+	const getSubcategories = (category: string) => {
+		const categoryData = wheatleyVoiceLines[category];
+		return categoryData && typeof categoryData === 'object' && !Array.isArray(categoryData)
+			? Object.keys(categoryData)
+			: [];
+	};
+
 	// Test Wheatley voice
 	const testWheatleyVoice = async () => {
 		setIsTestingWheatley(true);
@@ -197,7 +207,7 @@ export default function Home() {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					text: getRandomWheatleyLine('settings', 'audio'), // Using audio settings as default for test
+					text: getRandomWheatleyLine(selectedCategory, selectedSubcategory),
 					voiceId: voices.wheatley.id,
 					modelId: voices.wheatley.model,
 					outputFormat: voices.wheatley.outputFormat,
@@ -277,6 +287,73 @@ export default function Home() {
 							border: '1px solid #ccc',
 						}}
 					/>
+				</div>
+
+				{/* Wheatley Dialog Category Selection */}
+				<div style={{ marginBottom: 10 }}>
+					<label
+						htmlFor="category"
+						style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
+					>
+						Dialog Category:
+					</label>
+					<select
+						id="category"
+						value={selectedCategory}
+						onChange={(e) => {
+							const newCategory = e.target.value;
+							setSelectedCategory(newCategory);
+							const subcats = getSubcategories(newCategory);
+							setSelectedSubcategory(subcats.length > 0 ? subcats[0] : '');
+						}}
+						style={{
+							padding: '8px',
+							width: '100%',
+							boxSizing: 'border-box',
+							marginBottom: '8px',
+							borderRadius: '4px',
+							border: '1px solid #ccc',
+							background: 'white',
+						}}
+					>
+						{Object.keys(wheatleyVoiceLines).map((category) => (
+							<option key={category} value={category}>
+								{category.charAt(0).toUpperCase() + category.slice(1)}
+							</option>
+						))}
+					</select>
+
+					{/* Subcategory dropdown - only show if the selected category has subcategories */}
+					{getSubcategories(selectedCategory).length > 0 && (
+						<>
+							<label
+								htmlFor="subcategory"
+								style={{ display: 'block', marginBottom: '5px', fontSize: '14px' }}
+							>
+								Dialog Subcategory:
+							</label>
+							<select
+								id="subcategory"
+								value={selectedSubcategory}
+								onChange={(e) => setSelectedSubcategory(e.target.value)}
+								style={{
+									padding: '8px',
+									width: '100%',
+									boxSizing: 'border-box',
+									marginBottom: '8px',
+									borderRadius: '4px',
+									border: '1px solid #ccc',
+									background: 'white',
+								}}
+							>
+								{getSubcategories(selectedCategory).map((subcat) => (
+									<option key={subcat} value={subcat}>
+										{subcat.charAt(0).toUpperCase() + subcat.slice(1)}
+									</option>
+								))}
+							</select>
+						</>
+					)}
 				</div>
 
 				<div style={{ marginBottom: 10 }}>

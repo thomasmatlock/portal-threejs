@@ -14,7 +14,7 @@ export default function Home() {
 	const [isCheckingEnv, setIsCheckingEnv] = useState(false);
 	const [isTestingGlados, setIsTestingGlados] = useState(false);
 	const [isTestingWheatley, setIsTestingWheatley] = useState(false);
-	const [userName, setUserName] = useState<string>('Test Subject');
+	const [userName, setUserName] = useState<string>('Tom');
 
 	// Add this script to your Portal index.tsx file
 	useEffect(() => {

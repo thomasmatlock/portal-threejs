@@ -23,14 +23,14 @@ interface VoiceConfigurations {
 
 const voices: VoiceConfigurations = {
 	glados: {
-		id: 'QsTTjj3u734M0rmVZiJN',
 		name: 'GLaDOS',
 		description: 'Passive-aggressive AI antagonist from the Portal series',
 		model: 'eleven_multilingual_v2',
+		id: 'GDHJm7rsiAFXZ0ctpCyx',
 		outputFormat: 'mp3_44100_128',
 	},
 	wheatley: {
-		id: 'Qp2jP4wqfVrgjJ3nj5Pr',
+		id: 'VDCD06JV2NI4A7bLa3JU',
 		name: 'Wheatley',
 		description: 'Well-meaning but incompetent personality core from Portal 2',
 		model: 'eleven_multilingual_v2',

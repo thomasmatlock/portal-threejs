@@ -102,75 +102,77 @@ function Rig() {
 export default function Main() {
 	return (
 		<div style={{ position: 'fixed', width: '100%', height: '100vh', right: 0 }}>
-			<Suspense fallback={null}>
-				<Canvas
-					style={{ position: 'absolute', top: 0, left: 0 }}
-					shadows
-					dpr={[1, 2]}
-					gl={{
-						powerPreference: 'high-performance',
-						antialias: true,
-						logarithmicDepthBuffer: true,
-						stencil: false,
-						toneMapping: THREE.ACESFilmicToneMapping,
-						toneMappingExposure: 1.0,
-					}}
-					onCreated={({ gl }) => {
-						gl.toneMapping = THREE.ACESFilmicToneMapping;
-					}}
-				>
-					<AudioInitializer />
-					<color args={['#000']} attach="background" />
-					{/* <MacbookM4_ktx2 /> */}
-					<OrbitControls
-						enableZoom={false}
-						enablePan={true}
-						enableRotate={false}
-						minDistance={0}
-						maxDistance={10}
-						makeDefault
-						position={[0, 0, 0]}
-						target={[0, 0, 0]}
-						dampingFactor={0.25}
-						// autoRotate={true}
-						// autoRotateSpeed={-0.1}
-					/>
-					<Rig />
-					<PerspectiveCamera
-						makeDefault
-						position={[-1, 0, 3]}
-						fov={60}
-						near={0.1}
-						far={150}
-					/>
-					{/* <Turret scale={5} position={[0, 0, 0]} /> */}
-					{/* <TestChamber03 /> */}
-					{/* <TestChamber03 scale={1} position={[0, 1, 0]} rotation={[0, Math.PI / 2, 0]} /> */}
-					<Sparkles
-						count={300}
-						size={3}
-						scale={10}
-						speed={0.2}
-						opacity={0.3}
-						color="#aaa9ad"
-						noise={1.5}
-					/>
-					{/* <ambientLight intensity={10} color="#b4c7e0" /> */}
-					{/* <PostProcessing /> */}
+			{/* <Suspense fallback={null}> */}
+			<Canvas
+				style={{ position: 'absolute', top: 0, left: 0 }}
+				shadows
+				dpr={[1, 2]}
+				gl={{
+					powerPreference: 'high-performance',
+					antialias: true,
+					logarithmicDepthBuffer: true,
+					stencil: false,
+					toneMapping: THREE.ACESFilmicToneMapping,
+					toneMappingExposure: 1.0,
+				}}
+				onCreated={({ gl }) => {
+					gl.toneMapping = THREE.ACESFilmicToneMapping;
+				}}
+			>
+				<AudioInitializer />
+				<color args={['#000']} attach="background" />
+				{/* <MacbookM4_ktx2 /> */}
+				<OrbitControls
+					enableZoom={false}
+					enablePan={true}
+					enableRotate={false}
+					minDistance={0}
+					maxDistance={10}
+					makeDefault
+					position={[0, 0, 0]}
+					target={[0, 0, 0]}
+					dampingFactor={0.25}
+					// autoRotate={true}
+					// autoRotateSpeed={-0.1}
+				/>
+				<Rig />
+				<PerspectiveCamera
+					makeDefault
+					position={[-1, 0, 3]}
+					fov={60}
+					near={0.1}
+					far={150}
+				/>
+				{/* <Turret scale={5} position={[0, 0, 0]} /> */}
+				{/* <TestChamber03 /> */}
+				{/* <TestChamber03 scale={1} position={[0, 1, 0]} rotation={[0, Math.PI / 2, 0]} /> */}
+				<Sparkles
+					count={300}
+					size={3}
+					scale={10}
+					speed={0.2}
+					opacity={0.3}
+					color="#aaa9ad"
+					noise={1.5}
+				/>
+				{/* <ambientLight intensity={10} color="#b4c7e0" /> */}
+				{/* <PostProcessing /> */}
+				<Suspense fallback={null}>
 					<WheatleyRig />
 					{/* <MixamoModel position={[0, -1, 0]} defaultAnimation="happy_idle" /> */}
 					{/* <PBodyRig /> */}
 					<AtlasRig />
-					{/* <GladOSRig /> */}
-					{/* <GladOS scale={0.15} position={[0.5, 1, 0]} />
+				</Suspense>
+				{/* <GladOSRig /> */}
+				{/* <GladOS scale={0.15} position={[0.5, 1, 0]} />
 					<Atlas scale={0.15} position={[0, -0.5, 0]} />
 					<PBody scale={0.015} position={[0.75, -0.5, 0]} /> */}
-					{/* Portal-style lighting setup */}
-					{/* Cool blue ambient light */}
-					<ambientLight intensity={0.1} color="#b4c7e0" />
+				{/* Portal-style lighting setup */}
+				{/* Cool blue ambient light */}
+				<ambientLight intensity={0.1} color="#b4c7e0" />
 
-					{/* Main overhead light - simulates the ceiling panels */}
-					{/* <spotLight
+				{/* Main overhead light - simulates the ceiling panels */}
+				{/* <spotLight
 						intensity={0.7}
 						angle={Math.PI / 4}
 						penumbra={0.2}
@@ -180,35 +182,30 @@ export default function Main() {
 						shadow-bias={-0.0001}
 					/> */}
 
-					{/* Accent light from front - simulates the observation window */}
-					<spotLight
-						intensity={0.4}
-						angle={Math.PI / 6}
-						penumbra={0.5}
-						position={[0, 1, 5]}
-						color="#80ccff"
-						// castShadow
-					/>
-					{/* Side accent light - gives that asymmetric Portal look */}
-					<spotLight
-						intensity={0.3}
-						angle={Math.PI / 5}
-						penumbra={0.2}
-						position={[4, 2, 1]}
-						color="#c2fcff"
-						// castShadow
-					/>
-					{/* Subtle floor bounce light */}
-					<pointLight
-						intensity={0.1}
-						position={[0, -1, 0]}
-						color="#c2fcff"
-						distance={5}
-					/>
-					{/* Add a subtle volumetric effect */}
-					<fog attach="fog" color="#c2fcff" near={10} far={30} />
-				</Canvas>
-			</Suspense>
+				{/* Accent light from front - simulates the observation window */}
+				<spotLight
+					intensity={0.4}
+					angle={Math.PI / 6}
+					penumbra={0.5}
+					position={[0, 1, 5]}
+					color="#80ccff"
+					// castShadow
+				/>
+				{/* Side accent light - gives that asymmetric Portal look */}
+				<spotLight
+					intensity={0.3}
+					angle={Math.PI / 5}
+					penumbra={0.2}
+					position={[4, 2, 1]}
+					color="#c2fcff"
+					// castShadow
+				/>
+				{/* Subtle floor bounce light */}
+				<pointLight intensity={0.1} position={[0, -1, 0]} color="#c2fcff" distance={5} />
+				{/* Add a subtle volumetric effect */}
+				<fog attach="fog" color="#c2fcff" near={10} far={30} />
+			</Canvas>
+			{/* </Suspense> */}
 		</div>
 	);
 }

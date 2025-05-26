@@ -1,0 +1,10 @@
+- gltf/ktx2 
+- Progressive async loading for instant live site
+- animated Atlas and Pbody with a library of blended mixamo animations, idle, surprise, etc
+- New voiced dialog for Wheatley and GladOS
+- Animated Wheatley with various blinks, getting distracted, watching your mouse cursor, being surprised at stuff
+- Amazing audio soundtrack
+- Singleplayer autosave (google auth and supabase)
+- Multiplayer coop (colyseus)
+- Controller support in browser 
+- Particle menu? Wheatley pushing the particles out of the way when he’s surprised 

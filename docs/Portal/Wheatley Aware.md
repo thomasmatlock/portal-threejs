@@ -1,0 +1,15 @@
+- Night day time aware, good morning, afternoon, etc 
+- Steambeat SMS
+“It’s dark out there, sunny, cloudy, rainy eh?
+- device aware?
+- Pitiful device screen size you have there. Come back when you have proper desktop for some proper testing
+- Hm wow what a nice size window you have here. Did you buy it yourself or did your husband give it to you? 
+- API anthropic infer male or female
+- Commenting on letter input? 3 letters? Well that’s triple brilliant? 8 letters, not nearly enough to contain the __ of you, but yet we make do. I’m sure you’re used to it.
+- Come on come ON! 3 letters, no way only 3 letters represents all your awesomeness.
+- comment on screen
+- We don’t allow Jake’s around these parts. Or was it cakes? 
+- Have name be “maybe later” and ok with text field 
+- Maybe have an intro with skip intro
+- I think both API have 100ms response both 250ms roundtrip 
+- Tommy Shelby voice

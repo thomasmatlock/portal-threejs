@@ -1,0 +1,5 @@
+- Use no commentary playthrough and Davinci to assemble Wheatley and GladOS clipsp
+- use elevenlabs to clone Wheatley and GladOS voices
+- Have new dialog for each
+- GladOS with dbrand/Dagoth Ur type attitude
+- Mobile only voice messages “come back to desktop when you’re ready to do proper science”

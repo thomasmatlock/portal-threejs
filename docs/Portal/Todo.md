@@ -1,0 +1,10 @@
+-   Scaffold project
+-   add tip to press esc to bring up in game menu
+-   Wheatley threejs reference
+-   add in-game menu
+-   change gamemenu to main
+-   Refactor menu stuff into shared or whatever
+-   Wheatley controllers
+    -   Have him look at camera sometimes
+    -   go to sleep after a few seconds
+-   Add those cursor prompt instructions

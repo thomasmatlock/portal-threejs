@@ -11,10 +11,14 @@
             "id": "b9857ca6031c86c0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Portal Awards.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Portal Awards"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Portal Awards.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Portal Awards"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Portal Awards.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from Portal Awards"
             }
           },
           {
@@ -136,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Portal Awards.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Portal Awards"
             }
           }
         ]
@@ -163,6 +170,17 @@
   },
   "active": "b9857ca6031c86c0",
   "lastOpenFiles": [
+    "Youtubers.md",
+    "legal",
+    "research",
+    "assets/models",
+    "assets",
+    "ui/main-menu",
+    "ui",
+    "audio",
+    "characters/wheatley",
+    "characters/glados",
+    "characters",
     "Todo.md",
     "Welcome.md",
     "Wheatley Dialog.md",
@@ -186,7 +204,6 @@
     "Final notes.md",
     "Actor Layers.md",
     "Main Menu/Wheatley Behaviors.md",
-    "Main Menu/Mm characters.md",
-    "Main Menu"
+    "Main Menu/Mm characters.md"
   ]
 }

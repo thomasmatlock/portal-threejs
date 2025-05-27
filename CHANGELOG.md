@@ -13,6 +13,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Refactoring
 
+-   **FirstPersonController Component**: Decomposed 144-line component into focused modules
+
+    -   Split into 4 files: Main component (40 lines), Physics hook (68 lines), Movement utils (100 lines), Ground detection hook (28 lines)
+    -   Extracted complex movement calculations into pure `firstPersonMovement.ts` utility functions
+    -   Created reusable `usePlayerPhysics` hook for physics state management
+    -   Separated ground detection logic into focused `useGroundDetection` hook
+    -   Eliminated cyclomatic complexity violation (complexity 11) through function decomposition
+    -   Achieved compliance with 100 LOC strict limit for core logic components
+
 -   **PauseMenu Component**: Decomposed 120-line component into focused modules
 
     -   Split into 4 files: Main component (96 lines), Hook (37 lines), Utils (48 lines), Constants (18 lines)

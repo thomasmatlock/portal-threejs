@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Elevated changelog prominence with dedicated section
+
+    -   Added "Development History" section immediately after Features for better visibility
+    -   Enhanced changelog description to highlight development milestones and architectural decisions
+    -   Removed redundant changelog reference from Documentation section at bottom
+
 -   **README**: Added Google Auth and Supabase to tech stack
 
     -   Added "Authentication & Data" section with Google OAuth for player login

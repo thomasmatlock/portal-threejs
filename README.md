@@ -23,6 +23,10 @@ Experience the full game with player authentication, automatic progress saving, 
 -   **Professional UI**: Clean menu system with single player, multiplayer, and options
 -   **Easter Eggs**: Hidden details and references for Portal fans to discover
 
+## Development History
+
+📝 **[CHANGELOG.md](CHANGELOG.md)** - Complete development milestones, refactoring history, and architectural decisions
+
 ## Tech Stack
 
 ### Core Framework
@@ -111,7 +115,6 @@ This project follows clear, pragmatic development principles:
 
 For detailed documentation:
 
--   **[📝 CHANGELOG.md](CHANGELOG.md)** - Development milestones and refactoring history
 -   **[📖 docs/Portal/](docs/Portal/)** - Game design, mechanics, and technical specifications
 -   **[⚙️ docs/Portal/principles_enforcement.md](docs/Portal/principles_enforcement.md)** - Code quality guidelines and automated enforcement
 

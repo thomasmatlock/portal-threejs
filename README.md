@@ -60,31 +60,6 @@ Experience the full game with player authentication, automatic progress saving, 
 
 -   **Colyseus** - Real-time multiplayer server framework for seamless co-op gameplay
 
-### Development
-
--   **ESLint** - Code quality and consistency
--   **Sass** - Enhanced styling capabilities
--   **Cloudflare** - Deployment and edge optimization
-
-## Project Structure
-
-```
-portal-threejs/
-├── components/
-│   ├── audio/          # Sound systems and voice controllers
-│   ├── core/           # Game state and fundamental systems
-│   ├── effects/        # Post-processing and visual effects
-│   ├── environment/    # Lighting, atmosphere, and world setup
-│   ├── maps/           # Level components and test chambers
-│   └── ui/             # Interface and HUD elements
-├── docs/Portal/        # Game design documentation
-├── hooks/              # Reusable React hooks
-├── models/             # 3D assets and character models
-├── public/             # Static assets and textures
-├── styles/             # Global styles and theme
-└── utils/              # Shared utilities and helpers
-```
-
 ## Current Status
 
 ✅ **Live Production**

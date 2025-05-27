@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Streamlined structure by removing implementation details
+
+    -   Removed Project Structure section to eliminate maintenance overhead
+    -   Removed Development section (ESLint, Sass, Cloudflare) to focus on core game technologies
+    -   Tech stack now flows cleanly from framework to user-facing features
+
 -   **README**: Added emojis to features section for improved visual appeal
 
     -   Added contextually appropriate emojis to each feature (🌀 portals, 🔐 auth, 💾 saves, 👥 multiplayer, 🤖 AI, 🔊 audio, 🎨 UI, 🥚 easter eggs)

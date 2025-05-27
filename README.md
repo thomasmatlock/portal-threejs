@@ -8,7 +8,7 @@ Portal Three.js aims to capture the essence of Portal's innovative gameplay, mem
 
 ## Live Demo
 
-🎮 **[Play Portal Three.js](https://thomasmatlock.com/play/portal)**
+🎮 **<a href="https://thomasmatlock.com/play/portal" target="_blank">Play Portal Three.js</a>**
 
 Experience the full game with seamless co-op multiplayer, AI-generated voice dialog, physics simulation, and Easter eggs.
 
@@ -75,7 +75,7 @@ portal-threejs/
 
 ✅ **Live Production**
 
--   **Deployed and playable** at [thomasmatlock.com/play/portal](https://thomasmatlock.com/play/portal)
+-   **Deployed and playable** at <a href="https://thomasmatlock.com/play/portal" target="_blank">thomasmatlock.com/play/portal</a>
 -   **Featured on portfolio** as award-winning project showcase
 -   Complete menu system with single player and multiplayer modes
 -   AI-generated character dialog with GLaDOS and Wheatley

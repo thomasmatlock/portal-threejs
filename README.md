@@ -50,6 +50,7 @@ Experience the full game with player authentication, automatic progress saving, 
 
 -   **ElevenLabs** - AI voice generation for dynamic dialog
 -   **Spatial Audio** - Immersive 3D audio positioning
+-   **Portal 2 OST** - Complete official soundtrack including "Science is Fun", "Wheatley Science", "Reconstructing More Science", and atmospheric pieces from all three volumes
 
 ### Authentication & Data
 

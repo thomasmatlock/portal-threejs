@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Added Portal 2 soundtrack documentation to tech stack
+
+    -   Added complete Portal 2 OST reference in Audio & AI section
+    -   Highlighted implemented tracks like "Science is Fun", "Wheatley Science", and "Reconstructing More Science"
+    -   Documents all three soundtrack volumes available in the project
+
 -   **README**: Streamlined structure by removing implementation details
 
     -   Removed Project Structure section to eliminate maintenance overhead

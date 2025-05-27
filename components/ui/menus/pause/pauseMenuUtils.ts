@@ -1,4 +1,4 @@
-import { PauseMenuProps } from '../../GameMenu.props';
+import { PauseMenuProps } from '../GameMenu.props';
 
 export interface MenuActions {
 	onResume: () => void;

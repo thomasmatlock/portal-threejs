@@ -1,4 +1,4 @@
-import { Track } from '../components/ui/GameMenu.props';
+import { Track } from '../components/ui/menus/GameMenu.props';
 import config from '@/cloudflare.config';
 
 export const spotifyPlaylistURL = 'https://open.spotify.com/playlist/3jH61Xe9Y4AuonXUykOGNh';

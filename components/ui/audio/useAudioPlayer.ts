@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { Track } from '../GameMenu.props';
+import { Track } from '../menus/GameMenu.props';
 import { getRandomSoundtrackIndex } from '../../../utils/soundtrackHandlers';
 import InputContext from '../../../context/inputContext';
 

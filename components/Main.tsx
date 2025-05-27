@@ -4,7 +4,7 @@ import MainScene from './maps/MainMenuScene';
 import InputContext from '@/context/inputContext';
 import UserContext from '@/context/userContext';
 import GameCanvas from '@/components/GameCanvas';
-import GameMenu from '@/components/ui/MainMenu';
+import GameMenu from '@/components/ui/menus/MainMenu';
 import Crosshair from '@/components/ui/hud/Crosshair';
 
 export default function Main() {

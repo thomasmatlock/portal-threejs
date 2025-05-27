@@ -1,4 +1,4 @@
-import { Track } from '../components/ui/GameMenu.props';
+import { Track } from '../components/ui/menus/GameMenu.props';
 
 // Utility function to build full track file URL
 export const buildTrackFileURL = (track: Track): Track => {

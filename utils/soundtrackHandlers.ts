@@ -1,4 +1,4 @@
-import { Track } from '../components/ui/GameMenu.props';
+import { Track } from '../components/ui/menus/GameMenu.props';
 import { portalSoundtracks, spotifyPlaylistURL } from './soundtrackConstants';
 import {
 	buildTrackFileURL,

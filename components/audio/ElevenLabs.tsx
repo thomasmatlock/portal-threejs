@@ -12,7 +12,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import chalk from 'chalk';
-import voices from '../config/voices';
+import voices from '../../config/voices';
 
 // Define the OutputFormat type based on the ElevenLabs API
 type OutputFormat =

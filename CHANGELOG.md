@@ -8,12 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
--   **Principles Enforcement**: Enhanced with tiered approach for game development
+-   **Principles Enforcement**: Redesigned with directory-based approach for game architecture
 
-    -   Implemented contextual LOC limits: Core logic (100), Scene orchestrators (150), Data files (200)
-    -   Added prioritized refactoring workflow: Complexity first, then core logic, then scenes
-    -   Combined enforcement commands for comprehensive project assessment
-    -   Improved pragmatism while maintaining strict quality standards
+    -   Replaced generic file-type limits with architecture-aware directory limits
+    -   UI components (100 LOC), Models (150 LOC), Animation systems (200 LOC), Game maps (400 LOC)
+    -   Enforcement now matches actual project structure: controllers, models, maps, effects
+    -   Prioritized refactoring by architectural impact rather than arbitrary file patterns
+    -   Architecture-aware quality that respects different file responsibilities
 
 -   **Principles Enforcement**: Updated tooling for TypeScript/React projects
 

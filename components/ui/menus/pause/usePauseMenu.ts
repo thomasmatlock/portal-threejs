@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useBackgroundRotation } from '../../utils/backgroundUtils';
+import { useBackgroundRotation } from '../../../../utils/backgroundUtils';
 import { DEFAULT_MUSIC_VOLUME, MENU_ANIMATION_DELAY } from './pauseMenuConstants';
 
 export const usePauseMenu = () => {

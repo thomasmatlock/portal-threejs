@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './PauseMenu.module.scss';
-import AudioPlayer from './audio/AudioPlayer';
-import { portalSoundtracks } from '../../utils/soundtrackHandlers';
-import { PauseMenuProps } from './GameMenu.props';
+import AudioPlayer from '../../audio/AudioPlayer';
+import { portalSoundtracks } from '../../../../utils/soundtrackHandlers';
+import { PauseMenuProps } from '../../GameMenu.props';
 import { usePauseMenu } from './usePauseMenu';
 import { pauseMenuOptionData } from './pauseMenuConstants';
 import {

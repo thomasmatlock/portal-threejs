@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **Todo.md**: Updated task list for better clarity
+
+    -   Added clarification note to Wheatley threejs reference task
+    -   Removed completed tasks for refactoring menu components and cursor prompt instructions
+    -   Streamlined todo list to focus on remaining development priorities
+
 -   **README**: Cleaned up documentation section by removing outdated principles enforcement reference
     -   Removed broken link to principles enforcement guidelines
     -   Streamlined documentation references to focus on active game design docs

@@ -7,11 +7,14 @@ This document contains a couple of tools I use to systematically enforce code qu
 This command identifies files exceeding 100 lines of code, which is my threshold for file complexity. Files exceeding this limit are candidates for refactoring into smaller, more focused components.
 
 ```bash
-# Find all Ruby files with more than 100 lines
-find app -name "*.rb" -exec wc -l {} \; | awk '$1 > 100 { print $0 }' | sort -nr
+# Find all TypeScript/React files with more than 100 lines
+find components pages utils -name "*.tsx" -o -name "*.ts" | xargs wc -l | awk '$1 > 100 { print $0 }' | sort -nr
 
 # Alternative version with percentage indicator showing how far over limit
-find app -name "*.rb" -exec wc -l {} \; | awk '$1 > 100 { printf "%4d lines (%3d%% of limit): %s\n", $1, $1*100/100, $2 }' | sort -nr
+find components pages utils -name "*.tsx" -o -name "*.ts" | xargs wc -l | awk '$1 > 100 { printf "%4d lines (%3d%% over limit): %s\n", $1, $1-100, $2 }' | sort -nr
+
+# Include styles and config files in the check
+find . -name "*.tsx" -o -name "*.ts" -o -name "*.scss" -o -name "*.css" | grep -v node_modules | grep -v .next | xargs wc -l | awk '$1 > 100 { printf "%4d lines (%3d over limit): %s\n", $1, $1-100, $2 }' | sort -nr
 ```
 
 ## 2. Cyclomatic Complexity Checker

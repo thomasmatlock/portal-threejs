@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Documentation
+
+-   **Principles Enforcement**: Updated LOC checker for TypeScript/React projects
+    -   Converted Ruby-specific commands to work with TypeScript files
+    -   Added style and config file checking capabilities
+    -   Improved percentage calculations for overlimit reporting
+
 ### Project Structure
 
 -   **Documentation Organization**: Restructured docs into logical folders

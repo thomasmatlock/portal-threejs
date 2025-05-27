@@ -46,6 +46,10 @@ Experience the full game with seamless co-op multiplayer, AI-generated voice dia
 -   **ElevenLabs** - AI voice generation for dynamic dialog
 -   **Spatial Audio** - Immersive 3D audio positioning
 
+### Multiplayer & Networking
+
+-   **Colyseus** - Real-time multiplayer server framework for seamless co-op gameplay
+
 ### Development
 
 -   **ESLint** - Code quality and consistency

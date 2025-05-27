@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Added Colyseus to tech stack for multiplayer functionality
+
+    -   Added dedicated "Multiplayer & Networking" section to tech stack
+    -   Documents planned real-time multiplayer server framework for co-op gameplay
+
 -   **README**: Removed Contributing section to streamline project documentation
     -   Contributing guidelines were redundant for a demonstration project
     -   Focus on project overview and technical information for portfolio showcase

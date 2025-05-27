@@ -255,6 +255,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 -   Updated README to reference new enforcement files (brevity/simplicity)
 -   Modularized enforcement documentation for clarity
 
+### Tooling
+
+-   Added modular brevity enforcement scripts in `test/brevity/` for all LOC rules
+-   Created `test/enforce-brevity.sh` to run all checks with clean, actionable output
+-   Updated scripts to remove summary lines and focus on file-level violations
+
 ---
 
 _For detailed change history, see git commit log with `git log --oneline`_

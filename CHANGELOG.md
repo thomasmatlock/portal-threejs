@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Removed GSAP from tech stack
+
+    -   Cleaned up Animation & Interaction section to reflect current dependencies
+    -   Removed outdated reference to unused GSAP library
+
 -   **README**: Added Colyseus to tech stack for multiplayer functionality
 
     -   Added dedicated "Multiplayer & Networking" section to tech stack

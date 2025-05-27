@@ -37,7 +37,6 @@ Experience the full game with seamless co-op multiplayer, AI-generated voice dia
 
 ### Animation & Interaction
 
--   **GSAP** - High-performance animations
 -   **Maath** - Mathematical utilities for 3D
 -   **React Device Detect** - Platform-specific optimizations
 

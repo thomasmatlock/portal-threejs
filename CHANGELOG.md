@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Documentation
+
+-   **README**: Removed Contributing section to streamline project documentation
+    -   Contributing guidelines were redundant for a demonstration project
+    -   Focus on project overview and technical information for portfolio showcase
+
+### Cleanup
+
+-   **GameMenu.module.scss**: Removed unused stylesheet file
+    -   File was no longer referenced in codebase after menu system refactoring
+
 ### Fixes
 
 -   **TestChamber03 Model**: Corrected import path for shared pointer event handlers

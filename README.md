@@ -105,10 +105,6 @@ For detailed documentation:
 -   **[📖 docs/Portal/](docs/Portal/)** - Game design, mechanics, and technical specifications
 -   **[⚙️ docs/Portal/principles_enforcement.md](docs/Portal/principles_enforcement.md)** - Code quality guidelines and automated enforcement
 
-## Contributing
-
-This project is currently in active development. For major changes, please open an issue first to discuss what you would like to change.
-
 ## License
 
 This project is a non-commercial recreation for educational and demonstration purposes. Portal is a trademark of Valve Corporation.

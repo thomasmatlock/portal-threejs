@@ -1,7 +1,7 @@
 // do not remove commented out code
 import { useState, useEffect, useRef, useContext } from 'react';
 import styles from './GameMenu.module.scss';
-import AudioPlayer from './AudioPlayer';
+import AudioPlayer from './audio/AudioPlayer';
 import { portalSoundtracks } from '../../utils/soundtrackData';
 import { GameMenuProps } from './GameMenu.props';
 import { useBackgroundRotation } from '../../utils/backgroundUtils';

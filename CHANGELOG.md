@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Refactoring
+
+-   **AudioPlayer Component**: Decomposed monolithic 509-line component into focused modules
+
+    -   Split into 4 UI components: Controls (42 lines), Progress (53 lines), Volume (25 lines), Main (78 lines)
+    -   Extracted audio logic into reusable `useAudioPlayer` hook (225 lines)
+    -   Organized components in `/audio` subdirectory for better file structure
+    -   Eliminated 2 cyclomatic complexity violations through focused function design
+    -   Achieved full compliance with directory-based LOC enforcement
+
 ### Documentation
 
 -   **Principles Enforcement**: Redesigned with directory-based approach for game architecture

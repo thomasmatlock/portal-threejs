@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './PauseMenu.module.scss';
-import AudioPlayer from './AudioPlayer';
+import AudioPlayer from './audio/AudioPlayer';
 import { portalSoundtracks } from '../../utils/soundtrackData';
 import { PauseMenuProps } from './GameMenu.props';
 import { useBackgroundRotation } from '../../utils/backgroundUtils';

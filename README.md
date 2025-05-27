@@ -103,6 +103,12 @@ This project is a non-commercial recreation for educational and demonstration pu
 -   **React Three Fiber Team** - For making 3D web development accessible
 -   **Portal Community** - For inspiration and continued passion for the franchise
 
+## Code Quality & Enforcement
+
+-   Latest enforcement run flagged LOC and complexity violations in UI, models, and orchestrators.
+-   Top files for refactoring are listed in the [CHANGELOG.md](CHANGELOG.md).
+-   See `test/principles_enforcement.md` for enforcement process and architectural rationale.
+
 ---
 
 _"The cake is a lie, but the code is real."_

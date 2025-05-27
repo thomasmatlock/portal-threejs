@@ -240,9 +240,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Development Practices
 
 -   **Commit Style**:
+
     -   Clear, direct statements focused on what changed
     -   Descriptive context for complex changes
     -   No unnecessary prefixes or ceremony
+
+-   Ran codebase enforcement: flagged LOC and complexity violations in UI, models, and orchestrators
+-   Listed top files for refactoring by architectural impact and maintainability
+-   See README for enforcement process and next steps
 
 ---
 

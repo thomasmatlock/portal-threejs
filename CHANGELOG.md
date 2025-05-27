@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Refactoring
+
+-   **Crosshair Component**: Extracted reticle system into dedicated HUD component
+
+    -   Moved crosshair implementation from inline JSX in Main component to `components/ui/hud/Crosshair`
+    -   Created reusable component with TypeScript interface for extensibility
+    -   Extracted all reticle styles into dedicated module for better separation of concerns
+    -   Organized HUD elements in proper directory structure for future scalability
+    -   Improved code maintainability while preserving existing functionality
+
 ### Documentation
 
 -   **Portal Awards Strategy**: Enhanced proven track record with working background context

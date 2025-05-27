@@ -5,6 +5,7 @@ import InputContext from '@/context/inputContext';
 import UserContext from '@/context/userContext';
 import GameCanvas from '@/components/GameCanvas';
 import GameMenu from '@/components/ui/MainMenu';
+import Crosshair from '@/components/ui/hud/Crosshair';
 
 export default function Main() {
 	const { setInteracted, interacted } = useContext(InputContext);
@@ -47,15 +48,7 @@ export default function Main() {
 					setInteracted(true);
 				}}
 			>
-				{showGame && (
-					<div className={styles.reticles}>
-						<div className={styles.reticle} />
-						<div className={styles.reticle} />
-						<div className={styles.reticle} />
-						<div className={styles.reticle} />
-						<div className={styles.reticle} />
-					</div>
-				)}
+				{showGame && <Crosshair />}
 				{!showGame && (
 					<>
 						<MainScene />

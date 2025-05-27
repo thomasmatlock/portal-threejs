@@ -19,23 +19,39 @@ find . -name "*.tsx" -o -name "*.ts" -o -name "*.scss" -o -name "*.css" | grep -
 
 ## 2. Cyclomatic Complexity Checker
 
-This tool measures the complexity of individual methods by counting decision paths. Methods with high cyclomatic complexity are harder to understand, maintain, and test properly. I use a threshold of 7 as the maximum acceptable complexity.
+This tool measures the complexity of individual functions by counting decision paths. Functions with high cyclomatic complexity are harder to understand, maintain, and test properly. I use a threshold of 7 as the maximum acceptable complexity.
 
 ```bash
-# Check cyclomatic complexity of all Ruby files
-# Flag any method with complexity > 7
-bundle exec rubocop --only Metrics/CyclomaticComplexity
+# Check cyclomatic complexity of all TypeScript/React files
+# Flag any function with complexity > 7
+npx eslint components pages utils --ext .ts,.tsx --rule 'complexity: ["error", 7]' --format unix
 
-# For more detailed analysis with exact scores:
-bundle exec rubocop --format json --only Metrics/CyclomaticComplexity | \
-  ruby -r json -e 'data = JSON.load(STDIN); data["files"].each do |file|
-    next if file["offenses"].empty?;
-    puts "\n#{file["path"]}:";
-    file["offenses"].each do |offense|
-      complexity = offense["message"].scan(/\d+/).first.to_i;
-      puts "  Line #{offense["location"]["line"]}: Complexity: #{complexity} (#{(complexity-7.0)/7.0*100}% over limit)";
-    end;
-  end'
+# For more detailed analysis with exact scores using a custom formatter:
+npx eslint components pages utils --ext .ts,.tsx --rule 'complexity: ["error", 7]' --format json | \
+  node -e 'const data = JSON.parse(require("fs").readFileSync(0, "utf8"));
+    data.forEach(file => {
+      if (file.messages.length === 0) return;
+      console.log(`\n${file.filePath}:`);
+      file.messages.forEach(msg => {
+        if (msg.ruleId === "complexity") {
+          const complexity = parseInt(msg.message.match(/\d+/)[0]);
+          const overLimit = ((complexity - 7) / 7 * 100).toFixed(0);
+          console.log(`  Line ${msg.line}: Complexity: ${complexity} (${overLimit}% over limit)`);
+        }
+      });
+    });'
+
+# Alternative using complexity-report for more detailed metrics:
+npx complexity-report --format json components/**/*.{ts,tsx} pages/**/*.{ts,tsx} utils/**/*.{ts,tsx} | \
+  node -e 'const data = JSON.parse(require("fs").readFileSync(0, "utf8"));
+    data.reports.forEach(report => {
+      report.functions.forEach(fn => {
+        if (fn.complexity.cyclomatic > 7) {
+          const overLimit = ((fn.complexity.cyclomatic - 7) / 7 * 100).toFixed(0);
+          console.log(`${report.path}:${fn.line} - ${fn.name}: ${fn.complexity.cyclomatic} (${overLimit}% over limit)`);
+        }
+      });
+    });'
 ```
 
 ## Why These Matter
@@ -57,7 +73,7 @@ Together, these automated enforcers create guardrails that protect code quality 
 After implementing a feature or making changes:
 
 1. Run the LOC checker to identify any files that have grown too large
-2. Run the complexity checker to find methods that have become too complex
-3. Refactor identified files/methods before considering the work complete
+2. Run the complexity checker to find functions that have become too complex
+3. Refactor identified files/functions before considering the work complete
 
 This systematic approach helps ensure sustainable quality and easy long term maintenance.​​​​​​​​​​​​​​​​

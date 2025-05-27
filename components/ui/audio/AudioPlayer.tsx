@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../AudioPlayer.module.scss';
+import styles from './AudioPlayer.module.scss';
 import { AudioPlayerProps } from '../GameMenu.props';
 import { useAudioPlayer } from './useAudioPlayer';
 import AudioPlayerControls from './AudioPlayerControls';

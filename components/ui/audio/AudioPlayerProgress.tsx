@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import styles from '../AudioPlayer.module.scss';
+import styles from './AudioPlayer.module.scss';
 import { Track } from '../GameMenu.props';
 
 interface AudioPlayerProgressProps {

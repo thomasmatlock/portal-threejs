@@ -8,6 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Refactoring
 
+-   **PauseMenu Component**: Decomposed 120-line component into focused modules
+
+    -   Split into 4 files: Main component (96 lines), Hook (37 lines), Utils (48 lines), Constants (18 lines)
+    -   Extracted state management into `usePauseMenu` hook for reusability
+    -   Separated complex switch logic into `executeMenuAction` utility function
+    -   Moved menu options data to `pauseMenuConstants.ts` for maintainability
+    -   Eliminated cyclomatic complexity violation through focused function design
+    -   Achieved compliance with 100 LOC strict limit for UI components
+
 -   **Soundtrack Module**: Decomposed 107-line soundtrackData.ts into focused modules
 
     -   Split into 3 files: Constants (65 lines), Utils (29 lines), Main API (44 lines)

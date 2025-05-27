@@ -6,13 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Refactoring
-
--   **ElevenLabs Types**: Extracted type definitions into dedicated types module
-    -   Created `components/audio/types.ts` with comprehensive TypeScript interfaces
-    -   Centralized OutputFormat, PortalCharacter, and component prop types
-    -   Reduced ElevenLabs component size from 222 to 197 lines through type separation
-
 ### UI
 
 -   **Audio Player Styling**: Enhanced modular SCSS architecture for audio components

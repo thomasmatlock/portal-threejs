@@ -13,7 +13,32 @@
 import { useEffect, useState, useRef } from 'react';
 import chalk from 'chalk';
 import voices from '../../config/voices';
-import type { OutputFormat, PortalCharacter, ElevenLabsProps } from './types';
+
+// Define the OutputFormat type based on the ElevenLabs API
+type OutputFormat =
+	| 'mp3_22050_32'
+	| 'mp3_44100_32'
+	| 'mp3_44100_64'
+	| 'mp3_44100_96'
+	| 'mp3_44100_128'
+	| 'mp3_44100_192'
+	| 'pcm_16000'
+	| 'pcm_22050'
+	| 'pcm_24000'
+	| 'pcm_44100'
+	| 'ulaw_8000';
+
+// Define allowed Portal characters
+type PortalCharacter = 'glados' | 'wheatley';
+
+interface ElevenLabsProps {
+	text: string;
+	character?: PortalCharacter;
+	voiceId?: string; // If you want to override the character setting
+	modelId?: string;
+	outputFormat?: OutputFormat;
+	autoPlay?: boolean;
+}
 
 const ElevenLabs = ({
 	text,

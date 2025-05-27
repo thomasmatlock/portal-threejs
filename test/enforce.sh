@@ -1,12 +1,14 @@
 #!/bin/bash
-# enforce-brevity.sh
-# Runs all LOC enforcement scripts in test/brevity
-# See test/enforce-brevity.md for rationale and details
+# enforce.sh
+# Runs all LOC and cyclomatic complexity enforcement scripts
+# See test/enforce-brevity.md and test/enforce-simplicity.md for rationale and details
 
 set -e
 
+# Run all brevity (LOC) checks
 for script in test/brevity/*.sh; do
   bash "$script"
 done
 
-echo "All brevity checks complete. See test/enforce-brevity.md for next steps." 
+
+bash test/simplify/cyclomatic-detailed.sh

@@ -6,6 +6,25 @@ This document serves as a comprehensive guide for submitting the Portal Three.js
 
 ---
 
+## **Proven Award Success**
+
+The developer's previous project (Portfolio Site, December 2023) established a strong foundation with CSS Design Awards:
+
+-   **Final Judge Score**: 7.93/10
+-   **Innovation Score**: 8.30/10 (with one judge awarding 8.5)
+-   **Two judges awarded 9/10 overall scores**
+-   **4 total awards won**
+
+This track record demonstrates:
+
+-   Proven ability to execute award-winning projects
+-   Understanding of what resonates with award committees
+-   Established credibility with design award platforms
+
+Given that Portal Three.js represents a 10x leap in complexity, innovation, and technical achievement compared to the portfolio project, the award projections carry additional confidence.
+
+---
+
 ## Awwwards
 
 _Submission URL: https://www.awwwards.com/submit/_

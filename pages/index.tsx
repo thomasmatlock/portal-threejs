@@ -1,7 +1,7 @@
 import styles from '../styles/App.module.scss';
 import { UserContextProvider } from '../context/userContext';
 import { InputContextProvider } from '../context/inputContext';
-import { AudioContextProvider } from '../context/audioContext';
+import { AudioVolumeContextProvider } from '../context/audioVolumeContext';
 import Main from '../components/Main';
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
@@ -307,9 +307,9 @@ export default function Home() {
 	return (
 		<>
 			<InputContextProvider>
-				<AudioContextProvider>
+				<AudioVolumeContextProvider>
 					<Main />
-				</AudioContextProvider>
+				</AudioVolumeContextProvider>
 			</InputContextProvider>
 
 			{/* Debug Controls */}

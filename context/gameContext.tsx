@@ -4,17 +4,17 @@ import UserContextProvider from './userContext';
 import { useRouter } from 'next/router';
 
 const InputContext = createContext({
-	interacted: false as any,
-	setInteracted: (interacted: boolean) => {},
+	testGameState: false as any,
+	setTestGameState: (interacted: boolean) => {},
 });
 export function InputContextProvider(props) {
-	const [interacted, setInteracted] = useState(false); // user
+	const [testGameState, setTestGameState] = useState(false);
 
 	return (
 		<InputContext.Provider
 			value={{
-				interacted,
-				setInteracted,
+				testGameState,
+				setTestGameState,
 			}}
 		>
 			{props.children}

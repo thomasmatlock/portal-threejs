@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AudioPlayerVolume.module.scss';
+import styles from './AudioPlayer.module.scss';
 
 interface AudioPlayerVolumeProps {
 	volume: number;

@@ -6,13 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### UI
-
--   **Audio Player Styling**: Enhanced modular SCSS architecture for audio components
-    -   Added shared `_variables.scss` with monochrome color palette and responsive breakpoints
-    -   Improved `AudioPlayerControls` with consistent button styling and enhanced accessibility
-    -   Refined `AudioPlayerProgress` and `AudioPlayerVolume` with cohesive visual design
-
 ### Documentation
 
 -   **Todo.md**: Updated task list for better clarity

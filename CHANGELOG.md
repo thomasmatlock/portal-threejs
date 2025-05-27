@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixes
+
+-   **TestChamber03 Model**: Corrected import path for shared pointer event handlers
+    -   Fixed relative import path from `./shared/` to `../shared/` for proper module resolution
+
 ### Refactoring
 
 -   **PauseMenu Component**: Decomposed 120-line component into focused modules

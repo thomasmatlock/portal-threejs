@@ -15,7 +15,7 @@ import { easing, geometry } from 'maath';
 import UserContextProvider from '@/context/userContext';
 import InputContextProvider from '@/context/inputContext';
 import { useContext, useState } from 'react';
-import pointerEventHandlers from './shared/pointerEventHandlers';
+import pointerEventHandlers from '../shared/pointerEventHandlers';
 
 type GLTFResult = GLTF & {
 	nodes: {

@@ -13,15 +13,32 @@
 import { useEffect, useState, useRef } from 'react';
 import chalk from 'chalk';
 import voices from '../../config/voices';
-import type { OutputFormat, PortalCharacter, ElevenLabsProps } from './types';
-import {
-	getVoiceConfig,
-	createAudioDataUrl,
-	logConversionStart,
-	logConversionComplete,
-	logPlaybackStart,
-	logPlaybackComplete,
-} from './elevenLabsUtils';
+
+// Define the OutputFormat type based on the ElevenLabs API
+type OutputFormat =
+	| 'mp3_22050_32'
+	| 'mp3_44100_32'
+	| 'mp3_44100_64'
+	| 'mp3_44100_96'
+	| 'mp3_44100_128'
+	| 'mp3_44100_192'
+	| 'pcm_16000'
+	| 'pcm_22050'
+	| 'pcm_24000'
+	| 'pcm_44100'
+	| 'ulaw_8000';
+
+// Define allowed Portal characters
+type PortalCharacter = 'glados' | 'wheatley';
+
+interface ElevenLabsProps {
+	text: string;
+	character?: PortalCharacter;
+	voiceId?: string; // If you want to override the character setting
+	modelId?: string;
+	outputFormat?: OutputFormat;
+	autoPlay?: boolean;
+}
 
 const ElevenLabs = ({
 	text,
@@ -38,10 +55,9 @@ const ElevenLabs = ({
 	const audioRef = useRef<HTMLAudioElement | null>(null);
 
 	// Select the voice configuration based on character or use voiceId directly
-	const voiceConfig = getVoiceConfig(character);
-	const selectedVoiceId = voiceId || voiceConfig.id;
-	const selectedModelId = modelId || voiceConfig.model;
-	const selectedOutputFormat = outputFormat || voiceConfig.outputFormat;
+	const selectedVoiceId = voiceId || voices[character].id;
+	const selectedModelId = modelId || voices[character].model;
+	const selectedOutputFormat = outputFormat || (voices[character].outputFormat as OutputFormat);
 
 	// Create audio element
 	useEffect(() => {
@@ -66,7 +82,11 @@ const ElevenLabs = ({
 			if (audioData) return;
 
 			try {
-				logConversionStart(voiceConfig.name);
+				console.log(
+					chalk.blue(
+						`ElevenLabs: Converting text to speech with ${voices[character].name} voice...`
+					)
+				);
 				setLoading(true);
 				setError(null);
 
@@ -94,7 +114,7 @@ const ElevenLabs = ({
 
 				const data = await response.json();
 				setAudioData(data.audio);
-				logConversionComplete();
+				console.log(chalk.green('ElevenLabs: Text to speech conversion complete.'));
 			} catch (err) {
 				const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
 				setError(errorMessage);
@@ -123,10 +143,10 @@ const ElevenLabs = ({
 			if (!audioData || !autoPlay || hasPlayedRef.current || !audioRef.current) return;
 
 			try {
-				logPlaybackStart(voiceConfig.name);
+				console.log(chalk.blue(`ElevenLabs: Playing ${voices[character].name} voice...`));
 
 				// Create a data URL from the base64 audio data
-				audioRef.current.src = createAudioDataUrl(audioData);
+				audioRef.current.src = `data:audio/mp3;base64,${audioData}`;
 
 				// Play the audio
 				await audioRef.current.play();
@@ -136,7 +156,7 @@ const ElevenLabs = ({
 
 				// Listen for when playback ends
 				audioRef.current.onended = () => {
-					logPlaybackComplete();
+					console.log(chalk.green('ElevenLabs: Audio playback complete.'));
 				};
 			} catch (err) {
 				console.error(chalk.red('ElevenLabs playback error:'), err);
@@ -151,5 +171,52 @@ const ElevenLabs = ({
 
 export default ElevenLabs;
 
-// Re-export the standalone function from utils
-export { generateSpeech } from './elevenLabsUtils';
+// Export a standalone function to use outside of React components
+export const generateSpeech = async (
+	text: string,
+	character: PortalCharacter = 'glados',
+	autoPlay: boolean = true
+) => {
+	try {
+		console.log(
+			chalk.blue(
+				`ElevenLabs: Converting text to speech with ${voices[character].name} voice...`
+			)
+		);
+
+		// Call our API route
+		const response = await fetch('/api/text-to-speech', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				text,
+				voiceId: voices[character].id,
+				modelId: voices[character].model,
+				outputFormat: voices[character].outputFormat,
+			}),
+		});
+
+		if (!response.ok) {
+			const errorData = await response.json();
+			throw new Error(
+				errorData.details || `API returned ${response.status}: ${response.statusText}`
+			);
+		}
+
+		const data = await response.json();
+		const audioBase64 = data.audio;
+
+		if (autoPlay) {
+			console.log(chalk.blue(`ElevenLabs: Playing ${voices[character].name} voice...`));
+			const audio = new Audio(`data:audio/mp3;base64,${audioBase64}`);
+			await audio.play();
+		}
+
+		return audioBase64;
+	} catch (error) {
+		console.error(chalk.red('ElevenLabs error:'), error);
+		throw error;
+	}
+};

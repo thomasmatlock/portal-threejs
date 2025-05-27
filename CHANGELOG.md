@@ -14,6 +14,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Refactoring
 
+-   **Menu Components**: Reorganized menu structure into dedicated subdirectory
+
+    -   Moved GameMenu, MainMenu, and MenuAnimations from `components/ui/` to `components/ui/menus/`
+    -   Improved code organization by grouping related menu components together
+    -   Updated import paths in components consuming menu modules
+    -   Enhanced project structure following separation of concerns principle
+
 -   **Crosshair Component**: Extracted reticle system into dedicated HUD component
 
     -   Moved crosshair implementation from inline JSX in Main component to `components/ui/hud/Crosshair`

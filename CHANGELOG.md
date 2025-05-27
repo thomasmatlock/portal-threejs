@@ -249,6 +249,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 -   Listed top files for refactoring by architectural impact and maintainability
 -   See README for enforcement process and next steps
 
+### New Changes
+
+-   Split `test/principles_enforcement.md` into `test/enforce-brevity.md` and `test/enforce-simplicity.md`
+-   Updated README to reference new enforcement files (brevity/simplicity)
+-   Modularized enforcement documentation for clarity
+
 ---
 
 _For detailed change history, see git commit log with `git log --oneline`_

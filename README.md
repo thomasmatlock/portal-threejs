@@ -8,9 +8,7 @@ Portal Three.js aims to capture the essence of Portal's innovative gameplay, mem
 
 ## Live Demo
 
-🎮 **[Play Portal Three.js](https://thomasmatlock-portal-threejs.vercel.app/)**
-
-🏆 **[Featured on Portfolio](https://thomasmatlock.com/play/portal)** - Award-winning creative technologist showcase
+🎮 **[Play Portal Three.js](https://thomasmatlock.com/play/portal)**
 
 Experience the full game with seamless co-op multiplayer, AI-generated voice dialog, physics simulation, and Easter eggs.
 

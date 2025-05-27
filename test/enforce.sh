@@ -3,5 +3,5 @@
 
 set -e
 
+bash test/enforce-cyclomatic.sh
 bash test/enforce-loc.sh
-# bash test/enforce-cyclomatic.sh

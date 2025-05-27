@@ -1,48 +1,9 @@
 // Settings state management utilities
+// Types moved to settingsTypes.ts for clarity
+// Cycle utilities moved to settingsCycleUtils.ts for modularity
 import { SETTINGS_OPTIONS } from './menuOptions';
-
-export interface SettingsState {
-	antiAliasing: string;
-	shadowQuality: string;
-	textureQuality: string;
-	effectsQuality: string;
-	masterVolume: number;
-	musicVolume: number;
-	sfxVolume: number;
-	voiceVolume: number;
-	audioQuality: string;
-	mouseSensitivity: number;
-	reverseMouse: boolean;
-	showAudioPlayer: boolean;
-}
-
-export interface SettingsActions {
-	setAntiAliasing: (value: string) => void;
-	setShadowQuality: (value: string) => void;
-	setTextureQuality: (value: string) => void;
-	setEffectsQuality: (value: string) => void;
-	setMasterVolume: (value: number) => void;
-	setMusicVolume: (value: number) => void;
-	setSfxVolume: (value: number) => void;
-	setVoiceVolume: (value: number) => void;
-	setAudioQuality: (value: string) => void;
-	setMouseSensitivity: (value: number) => void;
-	setReverseMouse: (value: boolean) => void;
-	setShowAudioPlayer: (value: boolean) => void;
-}
-
-// Utility function to cycle through options
-const cycleOptionForward = <T>(current: T, options: T[]): T => {
-	const currentIndex = options.indexOf(current);
-	const nextIndex = (currentIndex + 1) % options.length;
-	return options[nextIndex];
-};
-
-const cycleOptionBackward = <T>(current: T, options: T[]): T => {
-	const currentIndex = options.indexOf(current);
-	const prevIndex = (currentIndex - 1 + options.length) % options.length;
-	return options[prevIndex];
-};
+import { SettingsState, SettingsActions } from './settingsTypes';
+import { cycleOptionForward, cycleOptionBackward } from './settingsCycleUtils';
 
 // Increment setting values
 export const incrementSetting = (

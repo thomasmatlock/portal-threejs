@@ -10,7 +10,7 @@ import {
 import React, { lazy, Suspense, useState, useContext, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import dynamic from 'next/dynamic';
-import PostProcessing from '@/models/PostProcessing';
+// import PostProcessingEffects from '@/components/effects/PostProcessingEffects';
 
 // Add this type declaration at the top of your file
 declare global {

@@ -1,1 +1,104 @@
-@import './AudioPlayer.module.scss';
+@import './variables';
+
+.trackInfo {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0; // Needed for text-overflow to work
+	position: relative; // For marquee positioning
+	overflow: hidden; // Contain the marquee
+	padding-right: 5px; // Prevent text from touching the edge
+
+	@media (max-width: $breakpoint-mobile) {
+		width: 100%;
+		order: 1;
+		margin-top: 8px;
+	}
+}
+
+.trackTitle {
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	color: $mono-white;
+	letter-spacing: 1px;
+	padding: 2px 0;
+	text-overflow: ellipsis;
+	position: relative;
+
+	// By default, no marquee animation
+	&:hover .marqueeText {
+		animation: none;
+	}
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 13px;
+	}
+}
+
+// Apply marquee only for long titles
+.longTitle {
+	&:hover .marqueeText {
+		animation: marquee 10s linear infinite !important;
+	}
+}
+
+.marqueeText {
+	display: inline-block;
+	padding-right: 50px; // Space after text
+}
+
+.progressContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+}
+
+.progressBar {
+	height: 4px;
+	background-color: rgba($mono-dark-gray, 0.7);
+	border-radius: 3px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		height: 6px;
+		margin-top: -1px;
+		margin-bottom: -1px;
+
+		.progressFill {
+			background-color: $mono-white;
+		}
+	}
+}
+
+.progressFill {
+	height: 100%;
+	background-color: $mono-light-gray;
+	border-radius: 3px;
+	transition: width 0.1s linear;
+}
+
+.timeInfo {
+	display: flex;
+	justify-content: space-between;
+	font-size: 10px;
+	color: $mono-medium-gray;
+	letter-spacing: 1px;
+
+	@media (max-width: $breakpoint-mobile) {
+		font-size: 9px;
+	}
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}

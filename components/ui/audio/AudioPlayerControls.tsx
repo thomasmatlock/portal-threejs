@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './AudioPlayer.module.scss';
+import styles from './AudioPlayerControls.module.scss';
 
 interface AudioPlayerControlsProps {
 	isPlaying: boolean;

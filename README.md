@@ -10,12 +10,14 @@ Portal Three.js aims to capture the essence of Portal's innovative gameplay, mem
 
 🎮 **<a href="https://thomasmatlock.com/play/portal" target="_blank">Play Portal Three.js</a>**
 
-Experience the full game with seamless co-op multiplayer, AI-generated voice dialog, physics simulation, and Easter eggs.
+Experience the full game with player authentication, automatic progress saving, seamless co-op multiplayer, AI-generated voice dialog, physics simulation, and Easter eggs.
 
 ## Features
 
 -   **Authentic Portal Mechanics**: Physics-based portal gun, momentum conservation, and spatial puzzles
--   **Co-op Multiplayer**: Seamless multiplayer experience with shared puzzle solving
+-   **Player Authentication**: Google OAuth integration for seamless login and user management
+-   **Progress Saving**: Automatic progress persistence with cloud synchronization via Supabase
+-   **Co-op Multiplayer**: Seamless multiplayer experience with shared puzzle solving and friend invitations
 -   **AI-Generated Dialog**: Dynamic GLaDOS and Wheatley voice lines using ElevenLabs integration
 -   **Immersive Audio**: Spatial audio with contextual character interactions
 -   **Professional UI**: Clean menu system with single player, multiplayer, and options
@@ -44,6 +46,11 @@ Experience the full game with seamless co-op multiplayer, AI-generated voice dia
 
 -   **ElevenLabs** - AI voice generation for dynamic dialog
 -   **Spatial Audio** - Immersive 3D audio positioning
+
+### Authentication & Data
+
+-   **Google OAuth** - Secure player authentication and identity management
+-   **Supabase** - Backend-as-a-Service for progress saving, user data, and real-time features
 
 ### Multiplayer & Networking
 

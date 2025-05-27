@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Added Google Auth and Supabase to tech stack
+
+    -   Added "Authentication & Data" section with Google OAuth for player login
+    -   Added Supabase for progress saving, user data, and real-time features
+    -   Updated features to highlight player authentication and automatic progress saving
+    -   Enhanced co-op multiplayer description to include friend invitations
+    -   Updated live demo description to showcase new platform capabilities
+
 -   **README**: Removed GSAP from tech stack
 
     -   Cleaned up Animation & Interaction section to reflect current dependencies

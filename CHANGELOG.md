@@ -258,7 +258,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Tooling
 
 -   Added modular brevity enforcement scripts in `test/brevity/` for all LOC rules
--   Created `test/enforce-brevity.sh` to run all checks with clean, actionable output
+-   Created `test/enforce.sh` to run all checks with clean, actionable output
 -   Updated scripts to remove summary lines and focus on file-level violations
 
 ---

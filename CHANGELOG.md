@@ -45,11 +45,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     -   Organized HUD elements in proper directory structure for future scalability
     -   Improved code maintainability while preserving existing functionality
 
--   **Settings Handlers**: Modularized settings logic for clarity
-    -   Split `settingsHandlers.ts` into `settingsTypes.ts` (types) and `settingsCycleUtils.ts` (utilities)
-    -   Updated imports and comments for improved maintainability
-    -   No logic changes; improved code discoverability
-
 ### Documentation
 
 -   **Portal Awards Strategy**: Enhanced proven track record with working background context
@@ -283,7 +278,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     -   Updated enforcement process to run all checks in one command
 
 -   Improved `test/enforce-loc.sh` output clarity and color-coding for LOC violations
-    -   Output now shows compliant files in green for clarity, not just violations
 
 ---
 

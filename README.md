@@ -107,7 +107,7 @@ This project is a non-commercial recreation for educational and demonstration pu
 
 -   Latest enforcement run flagged LOC and complexity violations in UI, models, and orchestrators.
 -   Top files for refactoring are listed in the [CHANGELOG.md](CHANGELOG.md).
--   See `test/enforce-loc.sh` for unified LOC enforcement by architecture. Output now shows compliant files in green for clarity, in addition to color-coded violation levels.
+-   See `test/enforce-loc.sh` for unified LOC enforcement by architecture. Output now features improved clarity and color-coded violation levels.
 -   Run all LOC and complexity checks: `bash test/enforce.sh` for a complete, modular report.
 -   Now runs cyclomatic complexity checks after all brevity checks for clearer enforcement results.
 -   See CHANGELOG for details on the enforcement documentation split.

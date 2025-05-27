@@ -2,7 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import { KeyboardControls, Sky, Stats } from '@react-three/drei';
 import { Physics } from '@react-three/rapier';
-import TestChamber00 from './environment/levels/TestChamber00';
+import TestChamber00 from './maps/TestChamber00';
 import Player from '@/components/core/Player';
 import { Suspense } from 'react';
 import styles from '@/styles/App.module.scss';

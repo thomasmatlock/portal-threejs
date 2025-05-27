@@ -20,6 +20,7 @@ This track record demonstrates:
 -   Proven ability to execute award-winning projects
 -   Understanding of what resonates with award committees
 -   Established credibility with design award platforms
+-   **All achievements accomplished as a self-taught developer**, showcasing exceptional dedication and skill development outside traditional education paths
 
 Given that Portal Three.js represents a 10x leap in complexity, innovation, and technical achievement compared to the portfolio project, the award projections carry additional confidence.
 

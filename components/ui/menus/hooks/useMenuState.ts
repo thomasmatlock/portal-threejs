@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { MenuId } from '../utils/menuOptions';
 import { SettingsState, SettingsActions } from '../utils/settingsHandlers';
-import { useAudioVolumeContext } from '../../../../context/audioVolumeContext';
+import { useAudioVolumeContext } from '../../../../context/audioContext';
 
 export interface MenuState {
 	selectedOption: string;

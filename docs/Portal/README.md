@@ -11,8 +11,6 @@ Portal Three.js aims to capture the essence of Portal's innovative gameplay, mem
 -   **Authentic Portal Mechanics**: Physics-based portal gun, momentum conservation, and spatial puzzles
 -   **Dynamic Characters**: GLaDOS, Wheatley, Atlas, and P-Body with contextual AI-generated dialog
 -   **Immersive Audio**: Spatial audio with ElevenLabs integration for dynamic character voices
--   **Modern Rendering**: Post-processing effects pipeline with bloom, chromatic aberration, and film grain
--   **Responsive Design**: Optimized for desktop and mobile with touch-friendly controls
 
 ## Tech Stack
 

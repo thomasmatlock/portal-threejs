@@ -9,10 +9,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Documentation
 
 -   **Principles Enforcement**: Updated tooling for TypeScript/React projects
+
     -   Converted Ruby-specific commands to work with TypeScript/React files
     -   Added ESLint-based cyclomatic complexity checking with detailed reporting
     -   Added style and config file checking capabilities
     -   Improved percentage calculations for overlimit reporting
+
+-   **Portal README**: Streamlined feature list
+    -   Removed planned features not yet implemented
+    -   Focus on core mechanics and confirmed capabilities
 
 ### Project Structure
 

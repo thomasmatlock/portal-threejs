@@ -107,8 +107,8 @@ This project is a non-commercial recreation for educational and demonstration pu
 
 -   Latest enforcement run flagged LOC and complexity violations in UI, models, and orchestrators.
 -   Top files for refactoring are listed in the [CHANGELOG.md](CHANGELOG.md).
--   See `test/enforce-brevity.md` and `test/enforce-simplicity.md` for enforcement process and architectural rationale.
--   **Run all LOC checks:** `bash test/enforce.sh` for a complete, modular report of file length violations.
+-   See `test/enforce-loc.sh` for unified LOC enforcement by architecture.
+-   Run all LOC and complexity checks: `bash test/enforce.sh` for a complete, modular report.
 -   Now runs cyclomatic complexity checks after all brevity checks for clearer enforcement results.
 -   See CHANGELOG for details on the enforcement documentation split.
 

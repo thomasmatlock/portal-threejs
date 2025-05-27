@@ -267,8 +267,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     -   Simplifies test scripts and reduces redundancy
 
 -   **enforce.sh**: Updated enforcement script to run cyclomatic complexity checks after all brevity (LOC) checks
+
     -   Ensures clear separation and reporting of LOC and complexity violations
     -   Improves enforcement process transparency for contributors
+
+-   Added `test/enforce-loc.sh` for unified, directory-aware LOC enforcement
+    -   Replaces individual brevity scripts with a single, maintainable script
+    -   Modularizes LOC checks by architecture (UI, models, maps, etc.)
+    -   Updated enforcement process to run all checks in one command
 
 ---
 

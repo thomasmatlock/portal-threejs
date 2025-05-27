@@ -8,6 +8,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Refactoring
 
+-   **Soundtrack Module**: Decomposed 107-line soundtrackData.ts into focused modules
+
+    -   Split into 3 files: Constants (65 lines), Utils (29 lines), Main API (44 lines)
+    -   Separated data from logic with `soundtrackConstants.ts` for pure data
+    -   Extracted reusable utilities into `soundtrackUtils.ts` for array operations
+    -   Maintained backward compatibility through re-exports in main API
+    -   Achieved compliance with 100 LOC strict limit for core logic files
+
 -   **AudioPlayer Component**: Decomposed monolithic 509-line component into focused modules
 
     -   Split into 4 UI components: Controls (42 lines), Progress (53 lines), Volume (25 lines), Main (78 lines)

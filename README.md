@@ -6,34 +6,22 @@ A browser-based recreation of Valve's Portal using React Three Fiber, bringing t
 
 Portal Three.js aims to capture the essence of Portal's innovative gameplay, memorable characters, and distinctive aesthetic in a modern web environment. Built with performance and accessibility in mind, this project demonstrates what's possible when cutting-edge web technologies meet timeless game design.
 
-## Getting Started
+## Live Demo
 
-### Prerequisites
+🎮 **[Play Portal Three.js](https://thomasmatlock-portal-threejs.vercel.app/)**
 
--   Node.js 18+
--   npm or yarn
+🏆 **[Featured on Portfolio](https://thomasmatlock.com/play/portal)** - Award-winning creative technologist showcase
 
-### Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/portal-threejs.git
-cd portal-threejs
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to start testing.
+Experience the full game with seamless co-op multiplayer, AI-generated voice dialog, physics simulation, and Easter eggs.
 
 ## Features
 
 -   **Authentic Portal Mechanics**: Physics-based portal gun, momentum conservation, and spatial puzzles
--   **Dynamic Characters**: GLaDOS, Wheatley, Atlas, and P-Body with contextual AI-generated dialog
--   **Immersive Audio**: Spatial audio with ElevenLabs integration for dynamic character voices
+-   **Co-op Multiplayer**: Seamless multiplayer experience with shared puzzle solving
+-   **AI-Generated Dialog**: Dynamic GLaDOS and Wheatley voice lines using ElevenLabs integration
+-   **Immersive Audio**: Spatial audio with contextual character interactions
+-   **Professional UI**: Clean menu system with single player, multiplayer, and options
+-   **Easter Eggs**: Hidden details and references for Portal fans to discover
 
 ## Tech Stack
 
@@ -85,27 +73,22 @@ portal-threejs/
 └── utils/              # Shared utilities and helpers
 ```
 
-## Current Progress
+## Current Status
 
-✅ **Project Foundation**
+✅ **Live Production**
 
--   Component architecture established
--   Asset organization and build pipeline
--   Development environment configured
--   Modular animation system with WheatleyRig
+-   **Deployed and playable** at [thomasmatlock-portal-threejs.vercel.app](https://thomasmatlock-portal-threejs.vercel.app/)
+-   **Featured on portfolio** as award-winning project showcase
+-   Complete menu system with single player and multiplayer modes
+-   AI-generated character dialog with GLaDOS and Wheatley
+-   Modular animation system with optimized performance
 
-🚧 **In Development**
+🚧 **Active Development**
 
--   In-game menu system
--   Wheatley Three.js integration
--   Core Portal mechanics implementation
-
-📋 **Planned Features**
-
--   Complete test chamber suite
--   Advanced Portal physics
--   Character AI and dialog system
--   Performance optimizations
+-   Enhanced Portal mechanics and physics
+-   Additional test chambers and puzzle complexity
+-   Advanced multiplayer features and synchronization
+-   Performance optimizations for broader device support
 
 ## Development Philosophy
 

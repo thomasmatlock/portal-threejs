@@ -262,8 +262,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 -   Updated scripts to remove summary lines and focus on file-level violations
 
 -   Remove cyclomatic-detailed.sh script from test/simplify
+
     -   Consolidate cyclomatic complexity checks to cyclomatic.sh
     -   Simplifies test scripts and reduces redundancy
+
+-   **enforce.sh**: Updated enforcement script to run cyclomatic complexity checks after all brevity (LOC) checks
+    -   Ensures clear separation and reporting of LOC and complexity violations
+    -   Improves enforcement process transparency for contributors
 
 ---
 

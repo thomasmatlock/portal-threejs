@@ -11,4 +11,4 @@ for script in test/brevity/*.sh; do
 done
 
 
-bash test/simplify/cyclomatic-detailed.sh
+bash test/simplify/cyclomatic.sh

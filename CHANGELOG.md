@@ -120,6 +120,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixes
 
+-   **Audio Volume Synchronization**: Implemented global audio context for bidirectional volume control
+
+    -   Created `AudioVolumeContext` for centralized audio state management
+    -   Resolved issue where MainMenu volume sliders didn't sync with AudioPlayer controls
+    -   Eliminated circular dependency risks and complex callback prop chains
+    -   Both menu and audio player volume sliders now update each other seamlessly
+    -   Further reduced MainMenu component size from 134 to 126 lines through simplified architecture
+
 -   **TestChamber03 Model**: Corrected import path for shared pointer event handlers
     -   Fixed relative import path from `./shared/` to `../shared/` for proper module resolution
 

@@ -20,6 +20,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Refactoring
 
+-   **MainMenu Component**: Decomposed massive 764-line monolithic component into focused modules
+
+    -   Split into 8 files: Main component (124 lines), 2 hooks (143-147 lines), 3 utilities (83-248 lines), 3 UI components (18-105 lines)
+    -   Extracted complex state management into `useMenuState` and `useMenuNavigation` hooks
+    -   Separated menu data configurations into dedicated `menuOptions.ts` utility
+    -   Created reusable settings handlers with `incrementSetting` and `decrementSetting` functions
+    -   Built focused UI components: `MenuHeader`, `MenuOptionsList`, and `SettingsControls`
+    -   Reduced cyclomatic complexity violations from 7 to 4, contained within utility functions
+    -   Achieved 84% reduction in main component size while maintaining full functionality
+
 -   **Menu Components**: Reorganized menu structure into dedicated subdirectory
 
     -   Moved GameMenu, MainMenu, and MenuAnimations from `components/ui/` to `components/ui/menus/`

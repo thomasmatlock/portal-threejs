@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **Principles Enforcement**: Enhanced with tiered approach for game development
+
+    -   Implemented contextual LOC limits: Core logic (100), Scene orchestrators (150), Data files (200)
+    -   Added prioritized refactoring workflow: Complexity first, then core logic, then scenes
+    -   Combined enforcement commands for comprehensive project assessment
+    -   Improved pragmatism while maintaining strict quality standards
+
 -   **Principles Enforcement**: Updated tooling for TypeScript/React projects
 
     -   Converted Ruby-specific commands to work with TypeScript/React files

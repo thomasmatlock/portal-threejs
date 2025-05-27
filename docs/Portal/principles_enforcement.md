@@ -2,19 +2,50 @@
 
 This document contains a couple of tools I use to systematically enforce code quality principles rather than relying on memory or manual inspection. These automated enforcers help ensure consistent quality across the codebase.
 
-## 1. Lines of Code (LOC) Checker
+## 1. Lines of Code (LOC) Checker - Tiered Approach
 
-This command identifies files exceeding 100 lines of code, which is my threshold for file complexity. Files exceeding this limit are candidates for refactoring into smaller, more focused components.
+This uses a contextual approach to file size limits, recognizing that different file types have different complexity characteristics. Game development requires some flexibility while maintaining the core principle of focused, maintainable files.
+
+### Core Logic Files (100 LOC - Strict)
+
+Business logic, UI components, and utilities should stay small and focused:
 
 ```bash
-# Find all TypeScript/React files with more than 100 lines
-find components pages utils -name "*.tsx" -o -name "*.ts" | xargs wc -l | awk '$1 > 100 { print $0 }' | sort -nr
+# Check core logic files against strict 100 LOC limit
+find components pages utils -name "*.tsx" -o -name "*.ts" | grep -v data | xargs wc -l | awk '$1 > 100 { printf "%4d lines (%3d over limit): %s\n", $1, $1-100, $2 }' | sort -nr
+```
 
-# Alternative version with percentage indicator showing how far over limit
-find components pages utils -name "*.tsx" -o -name "*.ts" | xargs wc -l | awk '$1 > 100 { printf "%4d lines (%3d%% over limit): %s\n", $1, $1-100, $2 }' | sort -nr
+### Data/Config Files (200 LOC - Relaxed)
 
-# Include styles and config files in the check
-find . -name "*.tsx" -o -name "*.ts" -o -name "*.scss" -o -name "*.css" | grep -v node_modules | grep -v .next | xargs wc -l | awk '$1 > 100 { printf "%4d lines (%3d over limit): %s\n", $1, $1-100, $2 }' | sort -nr
+Pure data structures and configuration files can be larger without complexity burden:
+
+```bash
+# Check data/config files against relaxed 200 LOC limit
+find . -name "*Data.ts" -o -name "*Config.ts" -o -name "*Constants.ts" -o -name "*data*.ts" | grep -v node_modules | xargs wc -l | awk '$1 > 200 { printf "%4d lines (%3d over 200 limit): %s\n", $1, $1-200, $2 }' | sort -nr
+```
+
+### Scene Orchestrators (150 LOC - Moderate)
+
+Game scenes and main orchestrator files can be moderately larger due to their coordinating nature:
+
+```bash
+# Check scene/orchestrator files against moderate 150 LOC limit
+find . -name "*Scene.tsx" -o -name "index.tsx" | grep -v node_modules | xargs wc -l | awk '$1 > 150 { printf "%4d lines (%3d over 150 limit): %s\n", $1, $1-150, $2 }' | sort -nr
+```
+
+### Combined Tiered Check
+
+Run all three tiers in sequence for complete assessment:
+
+```bash
+echo "=== CORE LOGIC FILES (100 LOC STRICT) ==="
+find components pages utils -name "*.tsx" -o -name "*.ts" | grep -v data | xargs wc -l | awk '$1 > 100 { printf "%4d lines (%3d over limit): %s\n", $1, $1-100, $2 }' | sort -nr
+
+echo -e "\n=== DATA/CONFIG FILES (200 LOC RELAXED) ==="
+find . -name "*Data.ts" -o -name "*Config.ts" -o -name "*Constants.ts" -o -name "*data*.ts" | grep -v node_modules | xargs wc -l | awk '$1 > 200 { printf "%4d lines (%3d over 200 limit): %s\n", $1, $1-200, $2 }' | sort -nr
+
+echo -e "\n=== SCENE ORCHESTRATORS (150 LOC MODERATE) ==="
+find . -name "*Scene.tsx" -o -name "index.tsx" | grep -v node_modules | xargs wc -l | awk '$1 > 150 { printf "%4d lines (%3d over 150 limit): %s\n", $1, $1-150, $2 }' | sort -nr
 ```
 
 ## 2. Cyclomatic Complexity Checker
@@ -58,22 +89,37 @@ npx complexity-report --format json components/**/*.{ts,tsx} pages/**/*.{ts,tsx}
 
 These tools directly enforce several of my core development principles:
 
-1. **Small files (<100 LOC)** - The LOC checker ensures files remain focused and maintainable.
+1. **Contextual file size limits** - The tiered LOC checker ensures files remain focused while acknowledging that different file types have different complexity characteristics. Pure data files can be larger without becoming unmaintainable.
 
 2. **Functional over abstract** - By limiting cyclomatic complexity, we prevent overly clever code that's hard to understand.
 
-3. **"6-Month Maintainability Index"** - Both tools help ensure code will be understandable six months from now.
+3. **"6-Month Maintainability Index"** - Both tools help ensure code will be understandable six months from now, with realistic expectations for different file types.
 
 4. **Flat schema over nested** - High cyclomatic complexity often indicates excessive nesting.
 
-Together, these automated enforcers create guardrails that protect code quality without requiring constant vigilance. They transform quality principles from guidelines into measurable, enforceable standards.
+5. **Game development pragmatism** - The tiered approach recognizes that game orchestration files and scene management require some additional complexity while maintaining strict standards for business logic.
+
+Together, these automated enforcers create guardrails that protect code quality without requiring constant vigilance. They transform quality principles from guidelines into measurable, enforceable standards that adapt to the realities of different file types.
 
 ## How To Use
 
 After implementing a feature or making changes:
 
-1. Run the LOC checker to identify any files that have grown too large
-2. Run the complexity checker to find functions that have become too complex
-3. Refactor identified files/functions before considering the work complete
+1. Run the tiered LOC checker to identify files violating their contextual size limits:
 
-This systematic approach helps ensure sustainable quality and easy long term maintenance.​​​​​​​​​​​​​​​​
+    - Critical violations: Core logic files >100 LOC
+    - High violations: Scene orchestrators >150 LOC
+    - Low violations: Data files >200 LOC
+
+2. Run the complexity checker to find functions that have become too complex (>7 cyclomatic complexity)
+
+3. Prioritize refactoring:
+
+    - **First**: Fix complexity violations (break down complex functions)
+    - **Second**: Address core logic LOC violations
+    - **Third**: Optimize scene orchestrators if needed
+    - **Last**: Review data files only if extremely large
+
+4. Refactor identified files/functions before considering the work complete
+
+This systematic, prioritized approach helps ensure sustainable quality while being pragmatic about game development realities.

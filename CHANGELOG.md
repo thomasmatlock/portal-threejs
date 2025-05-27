@@ -8,6 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Documentation
 
+-   **README**: Added emojis to features section for improved visual appeal
+
+    -   Added contextually appropriate emojis to each feature (🌀 portals, 🔐 auth, 💾 saves, 👥 multiplayer, 🤖 AI, 🔊 audio, 🎨 UI, 🥚 easter eggs)
+    -   Enhanced readability and scannability while maintaining professional tone
+
 -   **README**: Elevated changelog prominence with dedicated section
 
     -   Added "Development History" section immediately after Features for better visibility

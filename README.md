@@ -14,14 +14,14 @@ Experience the full game with player authentication, automatic progress saving, 
 
 ## Features
 
--   **Authentic Portal Mechanics**: Physics-based portal gun, momentum conservation, and spatial puzzles
--   **Player Authentication**: Google OAuth integration for seamless login and user management
--   **Progress Saving**: Automatic progress persistence with cloud synchronization via Supabase
--   **Co-op Multiplayer**: Seamless multiplayer experience with shared puzzle solving and friend invitations
--   **AI-Generated Dialog**: Dynamic GLaDOS and Wheatley voice lines using ElevenLabs integration
--   **Immersive Audio**: Spatial audio with contextual character interactions
--   **Professional UI**: Clean menu system with single player, multiplayer, and options
--   **Easter Eggs**: Hidden details and references for Portal fans to discover
+-   🌀 **Authentic Portal Mechanics**: Physics-based portal gun, momentum conservation, and spatial puzzles
+-   🔐 **Player Authentication**: Google OAuth integration for seamless login and user management
+-   💾 **Progress Saving**: Automatic progress persistence with cloud synchronization via Supabase
+-   👥 **Co-op Multiplayer**: Seamless multiplayer experience with shared puzzle solving and friend invitations
+-   🤖 **AI-Generated Dialog**: Dynamic GLaDOS and Wheatley voice lines using ElevenLabs integration
+-   🔊 **Immersive Audio**: Spatial audio with contextual character interactions
+-   🎨 **Professional UI**: Clean menu system with single player, multiplayer, and options
+-   🥚 **Easter Eggs**: Hidden details and references for Portal fans to discover
 
 ## Development History
 

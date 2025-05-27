@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Track } from '../GameMenu.props';
-import { getRandomSoundtrackIndex } from '../../../utils/soundtrackData';
+import { getRandomSoundtrackIndex } from '../../../utils/soundtrackHandlers';
 import InputContext from '../../../context/inputContext';
 
 interface UseAudioPlayerProps {

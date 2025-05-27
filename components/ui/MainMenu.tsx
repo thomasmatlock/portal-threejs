@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import styles from './GameMenu.module.scss';
 import AudioPlayer from './audio/AudioPlayer';
-import { portalSoundtracks } from '../../utils/soundtrackData';
+import { portalSoundtracks } from '../../utils/soundtrackHandlers';
 import { GameMenuProps } from './GameMenu.props';
 import { useBackgroundRotation } from '../../utils/backgroundUtils';
 import { useUIContext } from '../../context/uiContext';

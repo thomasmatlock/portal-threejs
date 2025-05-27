@@ -285,13 +285,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 -   Improved `test/enforce-loc.sh` output clarity and color-coding for LOC violations
     -   Output now shows compliant files in green for clarity, not just violations
 
-### UI
-
--   Added dedicated stylesheets for audio player UI components:
-    -   AudioPlayerControls.module.scss
-    -   AudioPlayerProgress.module.scss
-    -   AudioPlayerVolume.module.scss
-
 ---
 
 _For detailed change history, see git commit log with `git log --oneline`_

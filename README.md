@@ -75,7 +75,7 @@ portal-threejs/
 
 ✅ **Live Production**
 
--   **Deployed and playable** at [thomasmatlock-portal-threejs.vercel.app](https://thomasmatlock-portal-threejs.vercel.app/)
+-   **Deployed and playable** at [thomasmatlock.com/play/portal](https://thomasmatlock.com/play/portal)
 -   **Featured on portfolio** as award-winning project showcase
 -   Complete menu system with single player and multiplayer modes
 -   AI-generated character dialog with GLaDOS and Wheatley

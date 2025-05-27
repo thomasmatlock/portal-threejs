@@ -52,14 +52,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 		incrementSetting(optionId, settingsState, settingsActions);
 	};
 
-	// Handle volume changes from sliders to update AudioPlayer
-	const handleSliderVolumeChange = (volume: number) => {
-		// Find the audio element and update its volume directly
-		const audioElement = document.querySelector('audio');
-		if (audioElement) {
-			audioElement.volume = volume / 100; // Convert percentage to 0-1 range
-		}
-	};
+	// Note: Volume changes are now handled automatically by the global AudioVolumeContext
 
 	// Get current menu options
 	const currentMenuOptions = getCurrentMenuOptions(menuState.currentMenu, settingsState, {
@@ -96,7 +89,6 @@ const GameMenu: React.FC<GameMenuProps> = ({
 						settingsActions={settingsActions}
 						onOptionClick={handleOptionClick}
 						onOptionHover={setHoveredMenuOption}
-						onVolumeChange={handleSliderVolumeChange}
 					/>
 
 					{backButton && (

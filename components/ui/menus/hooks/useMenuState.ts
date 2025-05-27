@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { MenuId } from '../utils/menuOptions';
 import { SettingsState, SettingsActions } from '../utils/settingsHandlers';
+import { useAudioVolumeContext } from '../../../../context/audioVolumeContext';
 
 export interface MenuState {
 	selectedOption: string;
@@ -26,6 +27,9 @@ export interface MenuActions {
 }
 
 export const useMenuState = () => {
+	// Get global audio context
+	const audioContext = useAudioVolumeContext();
+
 	// Menu state
 	const [selectedOption, setSelectedOption] = useState<string>('singleplayer');
 	const [menuVisible, setMenuVisible] = useState<boolean>(true);
@@ -36,19 +40,14 @@ export const useMenuState = () => {
 	const [comingSoonMessage, setComingSoonMessage] = useState<string>('');
 	const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
 
-	// Settings state
+	// Non-audio settings state (keep local)
 	const [antiAliasing, setAntiAliasing] = useState<string>('Off');
 	const [shadowQuality, setShadowQuality] = useState<string>('High');
 	const [textureQuality, setTextureQuality] = useState<string>('High');
 	const [effectsQuality, setEffectsQuality] = useState<string>('High');
-	const [masterVolume, setMasterVolume] = useState<number>(100);
-	const [musicVolume, setMusicVolume] = useState<number>(10);
-	const [sfxVolume, setSfxVolume] = useState<number>(100);
-	const [voiceVolume, setVoiceVolume] = useState<number>(100);
 	const [audioQuality, setAudioQuality] = useState<string>('High');
 	const [mouseSensitivity, setMouseSensitivity] = useState<number>(5);
 	const [reverseMouse, setReverseMouse] = useState<boolean>(false);
-	const [showAudioPlayer, setShowAudioPlayer] = useState<boolean>(true);
 
 	// Initialize logo animation
 	useEffect(() => {
@@ -74,8 +73,8 @@ export const useMenuState = () => {
 			return Math.abs(curr - volume) < Math.abs(prev - volume) ? curr : prev;
 		});
 
-		if (closestOption !== musicVolume) {
-			setMusicVolume(closestOption);
+		if (closestOption !== audioContext.musicVolume) {
+			audioContext.setMusicVolume(closestOption);
 		}
 	};
 
@@ -107,14 +106,14 @@ export const useMenuState = () => {
 		shadowQuality,
 		textureQuality,
 		effectsQuality,
-		masterVolume,
-		musicVolume,
-		sfxVolume,
-		voiceVolume,
+		masterVolume: audioContext.masterVolume,
+		musicVolume: audioContext.musicVolume,
+		sfxVolume: audioContext.sfxVolume,
+		voiceVolume: audioContext.voiceVolume,
 		audioQuality,
 		mouseSensitivity,
 		reverseMouse,
-		showAudioPlayer,
+		showAudioPlayer: audioContext.showAudioPlayer,
 	};
 
 	const settingsActions: SettingsActions = {
@@ -122,14 +121,14 @@ export const useMenuState = () => {
 		setShadowQuality,
 		setTextureQuality,
 		setEffectsQuality,
-		setMasterVolume,
-		setMusicVolume,
-		setSfxVolume,
-		setVoiceVolume,
+		setMasterVolume: audioContext.setMasterVolume,
+		setMusicVolume: audioContext.setMusicVolume,
+		setSfxVolume: audioContext.setSfxVolume,
+		setVoiceVolume: audioContext.setVoiceVolume,
 		setAudioQuality,
 		setMouseSensitivity,
 		setReverseMouse,
-		setShowAudioPlayer,
+		setShowAudioPlayer: audioContext.setShowAudioPlayer,
 	};
 
 	return {

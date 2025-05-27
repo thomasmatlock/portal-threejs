@@ -12,14 +12,12 @@ interface SettingsControlsProps {
 	option: MenuOption;
 	settingsState: SettingsState;
 	settingsActions: SettingsActions;
-	onVolumeChange?: (volume: number) => void;
 }
 
 const SettingsControls: React.FC<SettingsControlsProps> = ({
 	option,
 	settingsState,
 	settingsActions,
-	onVolumeChange,
 }) => {
 	if (option.value === undefined) return null;
 
@@ -44,10 +42,7 @@ const SettingsControls: React.FC<SettingsControlsProps> = ({
 				break;
 			case 'music_volume':
 				settingsActions.setMusicVolume(newValue);
-				// Notify AudioPlayer of music volume change
-				if (onVolumeChange) {
-					onVolumeChange(newValue);
-				}
+				// Volume change handled automatically by global context
 				break;
 			case 'sfx_volume':
 				settingsActions.setSfxVolume(newValue);

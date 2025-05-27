@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useContext } from 'react';
 import { Track } from '../menus/GameMenu.props';
 import { getRandomSoundtrackIndex } from '../../../utils/soundtrackHandlers';
 import InputContext from '../../../context/inputContext';
+import { useAudioVolumeContext } from '../../../context/audioVolumeContext';
 
 interface UseAudioPlayerProps {
 	tracks: Track[];
@@ -19,6 +20,7 @@ export const useAudioPlayer = ({
 	onVolumeChange,
 }: UseAudioPlayerProps) => {
 	const { interacted, setInteracted } = useContext(InputContext);
+	const audioVolumeContext = useAudioVolumeContext();
 
 	// Audio refs
 	const audioRef = useRef<HTMLAudioElement>(null);
@@ -31,12 +33,14 @@ export const useAudioPlayer = ({
 	// State
 	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
 	const [isPlaying, setIsPlaying] = useState(false);
-	const [volume, setVolume] = useState(initialVolume);
 	const [progress, setProgress] = useState(0);
 	const [duration, setDuration] = useState(0);
 	const [isMuted, setIsMuted] = useState(false);
 	const [prevVolume, setPrevVolume] = useState(initialVolume);
 	const [audioLoaded, setAudioLoaded] = useState(false);
+
+	// Use global volume from context
+	const volume = audioVolumeContext.musicVolume;
 
 	const currentTrack = tracks[currentTrackIndex];
 
@@ -172,7 +176,8 @@ export const useAudioPlayer = ({
 		isUserAdjustingRef.current = true;
 		const newVolume = parseInt(e.target.value, 10);
 
-		setVolume(newVolume);
+		// Update global volume context
+		audioVolumeContext.setMusicVolume(newVolume);
 		setIsMuted(newVolume === 0);
 		lastVolumeRef.current = newVolume;
 

@@ -13,7 +13,6 @@ interface MenuOptionsListProps {
 	settingsActions: SettingsActions;
 	onOptionClick: (option: MenuOption) => void;
 	onOptionHover: (optionId: string | null) => void;
-	onVolumeChange?: (volume: number) => void;
 }
 
 const MenuOptionsList: React.FC<MenuOptionsListProps> = ({
@@ -25,7 +24,6 @@ const MenuOptionsList: React.FC<MenuOptionsListProps> = ({
 	settingsActions,
 	onOptionClick,
 	onOptionHover,
-	onVolumeChange,
 }) => {
 	return (
 		<div
@@ -49,7 +47,6 @@ const MenuOptionsList: React.FC<MenuOptionsListProps> = ({
 							option={option}
 							settingsState={settingsState}
 							settingsActions={settingsActions}
-							onVolumeChange={onVolumeChange}
 						/>
 					)}
 					{option.disabled && <div className={styles.comingSoonTag}>COMING SOON</div>}

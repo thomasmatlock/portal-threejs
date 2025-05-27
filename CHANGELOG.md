@@ -272,9 +272,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
     -   Improves enforcement process transparency for contributors
 
 -   Added `test/enforce-loc.sh` for unified, directory-aware LOC enforcement
+
     -   Replaces individual brevity scripts with a single, maintainable script
     -   Modularizes LOC checks by architecture (UI, models, maps, etc.)
     -   Updated enforcement process to run all checks in one command
+
+-   Improved `test/enforce-loc.sh` output clarity and color-coding for LOC violations
 
 ---
 

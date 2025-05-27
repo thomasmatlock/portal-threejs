@@ -8,6 +8,10 @@ For complete project documentation, including setup instructions, architecture d
 
 **[📖 docs/Portal/README.md](docs/Portal/README.md)**
 
+For detailed change history and development milestones:
+
+**[📝 CHANGELOG.md](CHANGELOG.md)**
+
 ## Quick Start
 
 ```bash

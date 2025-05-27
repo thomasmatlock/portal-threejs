@@ -63,9 +63,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
     -   Consolidated comprehensive project information from `docs/Portal/README.md` into root `README.md`
     -   Enhanced root README with complete tech stack, features, project structure, and development philosophy
-    -   Simplified docs README to serve as a navigation hub for technical specifications
+    -   Removed redundant docs README to eliminate duplication
     -   Improved project discoverability by making key information visible at repository root
-    -   Maintained clear separation between general documentation and technical specifications
+    -   Technical documentation remains organized in `docs/Portal/` folder for detailed specifications
 
 -   **Principles Enforcement**: Redesigned with directory-based approach for game architecture
 

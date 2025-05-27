@@ -92,7 +92,6 @@ This project follows clear, pragmatic development principles:
 For detailed documentation:
 
 -   **[📖 docs/Portal/](docs/Portal/)** - Game design, mechanics, and technical specifications
--   **[⚙️ docs/Portal/principles_enforcement.md](docs/Portal/principles_enforcement.md)** - Code quality guidelines and automated enforcement
 
 ## License
 

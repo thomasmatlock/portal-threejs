@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Documentation
+
+-   **README**: Cleaned up documentation section by removing outdated principles enforcement reference
+    -   Removed broken link to principles enforcement guidelines
+    -   Streamlined documentation references to focus on active game design docs
+
 ### Refactoring
 
 -   **Crosshair Component**: Extracted reticle system into dedicated HUD component

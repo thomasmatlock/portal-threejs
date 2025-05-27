@@ -13,6 +13,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Refactoring
 
+-   **WheatleyRig Animation System**: Decomposed 273-line monolithic component into focused modules
+
+    -   Split into 7 files: Main component (19 lines), Custom hook (76 lines), 4 utility modules (38-100 lines each), Re-export index (6 lines)
+    -   Extracted complex animation logic into pure utility functions: head shaking, distractions, mouse following
+    -   Created reusable `useWheatleyBehavior` hook following React patterns
+    -   Separated TypeScript interfaces into dedicated `wheatleyTypes.ts` for reusability
+    -   Eliminated cyclomatic complexity violation (complexity 15) through function decomposition
+    -   Achieved compliance with 100 LOC strict limit for all utility files
+    -   Main component now focused solely on rendering with clean separation of concerns
+
 -   **FirstPersonController Component**: Decomposed 144-line component into focused modules
 
     -   Split into 4 files: Main component (40 lines), Physics hook (68 lines), Movement utils (100 lines), Ground detection hook (28 lines)

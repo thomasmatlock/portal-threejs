@@ -1,5 +1,5 @@
 -   Scaffold project
--   add tip to press esc to bring up in game menu
+-   add tip to press esc to bring up in game menu, inputContext
 -   Wheatley threejs reference
 -   add in-game menu
 -   change gamemenu to main

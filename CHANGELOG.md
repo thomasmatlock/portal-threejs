@@ -261,6 +261,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 -   Created `test/enforce.sh` to run all checks with clean, actionable output
 -   Updated scripts to remove summary lines and focus on file-level violations
 
+-   Remove cyclomatic-detailed.sh script from test/simplify
+    -   Consolidate cyclomatic complexity checks to cyclomatic.sh
+    -   Simplifies test scripts and reduces redundancy
+
 ---
 
 _For detailed change history, see git commit log with `git log --oneline`_

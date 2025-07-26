@@ -10,6 +10,8 @@ import UserContext from '@/context/userContext';
 import { useMenuState } from './hooks/useMenuState';
 import { useMenuNavigation } from './hooks/useMenuNavigation';
 import { incrementSetting } from './utils/settingsHandlers';
+import ElevenLabsDebug from '@/components/audio/ElevenLabsDebug';
+
 import {
 	getCurrentMenuOptions,
 	getMenuOptionsWithoutBack,
@@ -119,6 +121,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 					randomizeTrack={true}
 				/>
 			)}
+			<ElevenLabsDebug />
 		</div>
 	);
 };

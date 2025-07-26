@@ -1,0 +1,647 @@
+{
+  "name": "Scene Collection",
+  "type": "COLLECTION",
+  "children": [
+    {
+      "name": "Collection",
+      "type": "COLLECTION",
+      "children": [
+        {
+          "name": "Camera",
+          "type": "CAMERA",
+          "camera_type": "PERSP"
+        }
+      ]
+    },
+    {
+      "name": "TestChamber01",
+      "type": "COLLECTION",
+      "children": [
+        {
+          "name": "Test Chamber 00-01",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Cube_0",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object4",
+          "type": "MESH",
+          "vertices": 24,
+          "polygons": 12
+        },
+        {
+          "name": "func_brush_395140_52",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object6",
+          "type": "MESH",
+          "vertices": 80,
+          "polygons": 40
+        },
+        {
+          "name": "exit_doorstate_a00_b_53",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object8",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object9",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object10",
+          "type": "MESH",
+          "vertices": 16,
+          "polygons": 8
+        },
+        {
+          "name": "exit_doorstate_a00_54",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object12",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object13",
+          "type": "MESH",
+          "vertices": 16,
+          "polygons": 8
+        },
+        {
+          "name": "func_brush_440645_55",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object15",
+          "type": "MESH",
+          "vertices": 80,
+          "polygons": 40
+        },
+        {
+          "name": "brush_clock_minutes_56",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object17",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object18",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "brush_clock_seconds_57",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object20",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object21",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "brush_clock_centiseconds_wall_58",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object23",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object24",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "brush_clock_milliseconds_wall_59",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object26",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object27",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "func_brush_409952_60",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object29",
+          "type": "MESH",
+          "vertices": 96,
+          "polygons": 48
+        },
+        {
+          "name": "brush_clock_minutes.001_65",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object31",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object32",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "brush_clock_seconds.001_66",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object34",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object35",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "brush_clock_centiseconds_cell_67",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object37",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object38",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "brush_clock_milliseconds_cell_68",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object40",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object41",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "func_brush_695277_69",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object43",
+          "type": "MESH",
+          "vertices": 12,
+          "polygons": 6
+        },
+        {
+          "name": "func_brush_695285_70",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object45",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695293_71",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object47",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695301_72",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object49",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "Object50",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695312_73",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object52",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "Object53",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "func_brush_695320_74",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object55",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "Object56",
+          "type": "MESH",
+          "vertices": 4,
+          "polygons": 2
+        },
+        {
+          "name": "func_brush_695328_75",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object58",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695336_76",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object60",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "Object61",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695420_77",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object63",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695428_78",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object65",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695436_79",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object67",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695444_80",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object69",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695452_81",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object71",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "func_brush_695460_82",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object73",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "world_geometry_234",
+          "type": "EMPTY"
+        },
+        {
+          "name": "Object75",
+          "type": "MESH",
+          "vertices": 449,
+          "polygons": 338
+        },
+        {
+          "name": "Object76",
+          "type": "MESH",
+          "vertices": 352,
+          "polygons": 235
+        },
+        {
+          "name": "Object77",
+          "type": "MESH",
+          "vertices": 992,
+          "polygons": 660
+        },
+        {
+          "name": "Object78",
+          "type": "MESH",
+          "vertices": 65,
+          "polygons": 41
+        },
+        {
+          "name": "Object79",
+          "type": "MESH",
+          "vertices": 551,
+          "polygons": 380
+        },
+        {
+          "name": "Object80",
+          "type": "MESH",
+          "vertices": 39,
+          "polygons": 27
+        },
+        {
+          "name": "Object81",
+          "type": "MESH",
+          "vertices": 94,
+          "polygons": 60
+        },
+        {
+          "name": "Object82",
+          "type": "MESH",
+          "vertices": 227,
+          "polygons": 153
+        },
+        {
+          "name": "Object83",
+          "type": "MESH",
+          "vertices": 10,
+          "polygons": 6
+        },
+        {
+          "name": "Object84",
+          "type": "MESH",
+          "vertices": 48,
+          "polygons": 36
+        },
+        {
+          "name": "Object85",
+          "type": "MESH",
+          "vertices": 31,
+          "polygons": 17
+        },
+        {
+          "name": "Object86",
+          "type": "MESH",
+          "vertices": 36,
+          "polygons": 30
+        },
+        {
+          "name": "Object87",
+          "type": "MESH",
+          "vertices": 65,
+          "polygons": 44
+        },
+        {
+          "name": "Object88",
+          "type": "MESH",
+          "vertices": 160,
+          "polygons": 80
+        },
+        {
+          "name": "Object89",
+          "type": "MESH",
+          "vertices": 12,
+          "polygons": 6
+        },
+        {
+          "name": "Object90",
+          "type": "MESH",
+          "vertices": 152,
+          "polygons": 99
+        },
+        {
+          "name": "Object91",
+          "type": "MESH",
+          "vertices": 285,
+          "polygons": 147
+        },
+        {
+          "name": "Object92",
+          "type": "MESH",
+          "vertices": 24,
+          "polygons": 12
+        },
+        {
+          "name": "Object93",
+          "type": "MESH",
+          "vertices": 363,
+          "polygons": 215
+        },
+        {
+          "name": "Object94",
+          "type": "MESH",
+          "vertices": 24,
+          "polygons": 26
+        },
+        {
+          "name": "Object95",
+          "type": "MESH",
+          "vertices": 117,
+          "polygons": 86
+        },
+        {
+          "name": "Object96",
+          "type": "MESH",
+          "vertices": 79,
+          "polygons": 45
+        },
+        {
+          "name": "Object97",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "Object98",
+          "type": "MESH",
+          "vertices": 48,
+          "polygons": 24
+        },
+        {
+          "name": "Object99",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "Object100",
+          "type": "MESH",
+          "vertices": 7,
+          "polygons": 4
+        },
+        {
+          "name": "Object101",
+          "type": "MESH",
+          "vertices": 24,
+          "polygons": 12
+        },
+        {
+          "name": "Object102",
+          "type": "MESH",
+          "vertices": 192,
+          "polygons": 96
+        },
+        {
+          "name": "Object103",
+          "type": "MESH",
+          "vertices": 102,
+          "polygons": 54
+        },
+        {
+          "name": "Object104",
+          "type": "MESH",
+          "vertices": 295,
+          "polygons": 193
+        },
+        {
+          "name": "Object105",
+          "type": "MESH",
+          "vertices": 95,
+          "polygons": 79
+        },
+        {
+          "name": "Object106",
+          "type": "MESH",
+          "vertices": 799,
+          "polygons": 443
+        },
+        {
+          "name": "Object107",
+          "type": "MESH",
+          "vertices": 3838,
+          "polygons": 2526
+        },
+        {
+          "name": "Object108",
+          "type": "MESH",
+          "vertices": 84,
+          "polygons": 52
+        },
+        {
+          "name": "Object109",
+          "type": "MESH",
+          "vertices": 34,
+          "polygons": 24
+        },
+        {
+          "name": "Object110",
+          "type": "MESH",
+          "vertices": 809,
+          "polygons": 513
+        },
+        {
+          "name": "Object111",
+          "type": "MESH",
+          "vertices": 262,
+          "polygons": 223
+        },
+        {
+          "name": "Object112",
+          "type": "MESH",
+          "vertices": 8,
+          "polygons": 4
+        },
+        {
+          "name": "Object113",
+          "type": "MESH",
+          "vertices": 42,
+          "polygons": 32
+        },
+        {
+          "name": "Object114",
+          "type": "MESH",
+          "vertices": 12,
+          "polygons": 8
+        },
+        {
+          "name": "Object115",
+          "type": "MESH",
+          "vertices": 288,
+          "polygons": 144
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_draco_mesh_compression",
+    "EXT_texture_webp"
+  ],
+  "extensionsRequired": [
+    "KHR_draco_mesh_compression"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Object103_LOD0"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "MapstestchmbA00metalmetalLift001Gradient",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_71.002",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2,
+                "TEXCOORD_1": 3
+              }
+            }
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "extensions": {
+        "EXT_texture_webp": {
+          "source": 0
+        }
+      },
+      "sampler": 0,
+      "source": 1
+    }
+  ],
+  "images": [
+    {
+      "mimeType": "image/webp",
+      "name": "mapstestchmb_a_00metalmetal_lift001_gradient_baseColor",
+      "uri": "../../textures/Object103/mapstestchmb_a_00metalmetal_lift001_gradient_baseColor.webp"
+    },
+    {
+      "mimeType": "image/png",
+      "name": "mapstestchmb_a_00metalmetal_lift001_gradient_baseColor",
+      "uri": "../../textures/Object103/mapstestchmb_a_00metalmetal_lift001_gradient_baseColor.png"
+    }
+  ],
+  "accessors": [
+    {
+      "componentType": 5126,
+      "count": 118,
+      "max": [
+        -9.067800521850586,
+        0,
+        6.477000713348389
+      ],
+      "min": [
+        -11.658604621887207,
+        -2.3812501430511475,
+        5.715000152587891
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 118,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 118,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5126,
+      "count": 118,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 162,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1122,
+      "byteOffset": 0
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1124,
+      "uri": "Object103.bin"
+    }
+  ]
+}

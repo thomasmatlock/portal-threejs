@@ -62,6 +62,11 @@ export default function Player({ position = [0, 1, 0] as Vector3Tuple }: PlayerP
 			console.error('Physics error:', error);
 		}
 	});
+	useFrame(() => {
+		if (!playerRef.current) return;
+		const playerPosition = playerRef.current.translation();
+		console.log(playerPosition);
+	});
 
 	return (
 		<>

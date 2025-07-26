@@ -1,0 +1,1351 @@
+{
+  "generated": "2025-07-13T18:16:23.132Z",
+  "totalMeshes": 96,
+  "repo": "portal-threejs",
+  "meshes": [
+    {
+      "loadOrder": 1,
+      "name": "PBody_Model",
+      "path": "PBody/PBody.gltf",
+      "volume": 75406.39901750017,
+      "maxDimension": 80.12007093429565,
+      "dimensions": {
+        "width": 63.42849159240723,
+        "height": 80.12007093429565,
+        "depth": 14.83824348449707
+      },
+      "triangles": 18032,
+      "score": 75414411.02459359
+    },
+    {
+      "loadOrder": 2,
+      "name": "turret_model",
+      "path": "Turret/Turret.gltf",
+      "volume": 35021.192226704086,
+      "maxDimension": 41.311710357666016,
+      "dimensions": {
+        "width": 27.4814510345459,
+        "height": 30.847366333007812,
+        "depth": 41.311710357666016
+      },
+      "triangles": 2990,
+      "score": 35025323.39773985
+    },
+    {
+      "loadOrder": 3,
+      "name": "Personality_Sphere_model",
+      "path": "Wheatley/Wheatley.gltf",
+      "volume": 33916.65514936581,
+      "maxDimension": 37.29949951171875,
+      "dimensions": {
+        "width": 29.822017669677734,
+        "height": 37.29949951171875,
+        "depth": 30.491092681884766
+      },
+      "triangles": 12898,
+      "score": 33920385.099316984
+    },
+    {
+      "loadOrder": 4,
+      "name": "bandZ_joint",
+      "path": "WheatleyAnimated/WheatleyAnimated.gltf",
+      "volume": 33916.65514936581,
+      "maxDimension": 37.29949951171875,
+      "dimensions": {
+        "width": 29.822017669677734,
+        "height": 37.29949951171875,
+        "depth": 30.491092681884766
+      },
+      "triangles": 12898,
+      "score": 33920385.099316984
+    },
+    {
+      "loadOrder": 5,
+      "name": "world_geometry",
+      "path": "TestChamber03/TestChamber03.gltf",
+      "volume": 22291.022807469573,
+      "maxDimension": 49.98720073699951,
+      "dimensions": {
+        "width": 36.57600021362305,
+        "height": 49.98720073699951,
+        "depth": 12.192000389099121
+      },
+      "triangles": 466,
+      "score": 22296021.527543273
+    },
+    {
+      "loadOrder": 6,
+      "name": "Object75_LOD0",
+      "path": "Object75/Object75.gltf",
+      "volume": 12120.53034793427,
+      "maxDimension": 25.60319948196411,
+      "dimensions": {
+        "width": 25.60319948196411,
+        "height": 23.621999979019165,
+        "depth": 20.040599942207336
+      },
+      "triangles": 338,
+      "score": 12123090.667882465
+    },
+    {
+      "loadOrder": 7,
+      "name": "Object77_LOD0",
+      "path": "Object77/Object77.gltf",
+      "volume": 12088.122563604576,
+      "maxDimension": 25.60319948196411,
+      "dimensions": {
+        "width": 25.60319948196411,
+        "height": 23.469600915908813,
+        "depth": 20.116800546646118
+      },
+      "triangles": 660,
+      "score": 12090682.883552773
+    },
+    {
+      "loadOrder": 8,
+      "name": "Object107_LOD0",
+      "path": "Object107/Object107.gltf",
+      "volume": 10789.398466599654,
+      "maxDimension": 25.603201031684875,
+      "dimensions": {
+        "width": 25.60319948196411,
+        "height": 25.603201031684875,
+        "depth": 16.459200143814087
+      },
+      "triangles": 2526,
+      "score": 10791958.786702823
+    },
+    {
+      "loadOrder": 9,
+      "name": "Object79_LOD0",
+      "path": "Object79/Object79.gltf",
+      "volume": 10634.788617941162,
+      "maxDimension": 25.60319948196411,
+      "dimensions": {
+        "width": 25.60319948196411,
+        "height": 20.72640085220337,
+        "depth": 20.040600419044495
+      },
+      "triangles": 380,
+      "score": 10637348.937889358
+    },
+    {
+      "loadOrder": 10,
+      "name": "Object104_LOD0",
+      "path": "Object104/Object104.gltf",
+      "volume": 9761.836686346262,
+      "maxDimension": 25.60319948196411,
+      "dimensions": {
+        "width": 25.60319948196411,
+        "height": 23.164800882339478,
+        "depth": 16.459200143814087
+      },
+      "triangles": 193,
+      "score": 9764397.006294457
+    },
+    {
+      "loadOrder": 11,
+      "name": "Object106_LOD0",
+      "path": "Object106/Object106.gltf",
+      "volume": 9704.446633445821,
+      "maxDimension": 25.965149402618408,
+      "dimensions": {
+        "width": 25.965149402618408,
+        "height": 22.707599401474,
+        "depth": 16.459200143814087
+      },
+      "triangles": 443,
+      "score": 9707043.148386084
+    },
+    {
+      "loadOrder": 12,
+      "name": "Object82_LOD0",
+      "path": "Object82/Object82.gltf",
+      "volume": 7670.014981825302,
+      "maxDimension": 23.164801120758057,
+      "dimensions": {
+        "width": 23.164801120758057,
+        "height": 16.459200143814087,
+        "depth": 20.116800546646118
+      },
+      "triangles": 153,
+      "score": 7672331.461937378
+    },
+    {
+      "loadOrder": 13,
+      "name": "Object78_LOD0",
+      "path": "Object78/Object78.gltf",
+      "volume": 6249.6416559853515,
+      "maxDimension": 23.164801120758057,
+      "dimensions": {
+        "width": 23.164801120758057,
+        "height": 13.411199808120728,
+        "depth": 20.11680042743683
+      },
+      "triangles": 41,
+      "score": 6251958.136097427
+    },
+    {
+      "loadOrder": 14,
+      "name": "Object76_LOD0",
+      "path": "Object76/Object76.gltf",
+      "volume": 5870.875498383313,
+      "maxDimension": 23.164801120758057,
+      "dimensions": {
+        "width": 23.164801120758057,
+        "height": 13.411199808120728,
+        "depth": 18.897600412368774
+      },
+      "triangles": 235,
+      "score": 5873191.978495389
+    },
+    {
+      "loadOrder": 15,
+      "name": "Object108_LOD0",
+      "path": "Object108/Object108.gltf",
+      "volume": 4354.9042713241315,
+      "maxDimension": 27.127199411392212,
+      "dimensions": {
+        "width": 27.127199411392212,
+        "height": 10.97279977798462,
+        "depth": 14.630399942398071
+      },
+      "triangles": 52,
+      "score": 4357616.991265271
+    },
+    {
+      "loadOrder": 16,
+      "name": "Object90_LOD0",
+      "path": "Object90/Object90.gltf",
+      "volume": 3871.0261451201027,
+      "maxDimension": 27.127199411392212,
+      "dimensions": {
+        "width": 27.127199411392212,
+        "height": 9.753600120544434,
+        "depth": 14.630399942398071
+      },
+      "triangles": 99,
+      "score": 3873738.865061242
+    },
+    {
+      "loadOrder": 17,
+      "name": "Object110_LOD0",
+      "path": "Object110/Object110.gltf",
+      "volume": 3672.8235556672066,
+      "maxDimension": 21.392827033996582,
+      "dimensions": {
+        "width": 21.392827033996582,
+        "height": 13.411199808120728,
+        "depth": 12.801599979400635
+      },
+      "triangles": 513,
+      "score": 3674962.8383706063
+    },
+    {
+      "loadOrder": 18,
+      "name": "Object115_LOD0",
+      "path": "Object115/Object115.gltf",
+      "volume": 3569.7068072322218,
+      "maxDimension": 26.517601251602173,
+      "dimensions": {
+        "width": 26.517601251602173,
+        "height": 9.601200103759766,
+        "depth": 14.0207998752594
+      },
+      "triangles": 144,
+      "score": 3572358.567357382
+    },
+    {
+      "loadOrder": 19,
+      "name": "Object96_LOD0",
+      "path": "Object96/Object96.gltf",
+      "volume": 3539.3843999116634,
+      "maxDimension": 18.89760112762451,
+      "dimensions": {
+        "width": 18.89760112762451,
+        "height": 10.972800493240356,
+        "depth": 17.068822860717773
+      },
+      "triangles": 45,
+      "score": 3541274.160024426
+    },
+    {
+      "loadOrder": 20,
+      "name": "Object111_LOD0",
+      "path": "Object111/Object111.gltf",
+      "volume": 3447.632619099596,
+      "maxDimension": 27.127199411392212,
+      "dimensions": {
+        "width": 27.127199411392212,
+        "height": 8.686800003051758,
+        "depth": 14.630399942398071
+      },
+      "triangles": 223,
+      "score": 3450345.3390407353
+    },
+    {
+      "loadOrder": 21,
+      "name": "Object109_LOD0",
+      "path": "Object109/Object109.gltf",
+      "volume": 3387.148018916074,
+      "maxDimension": 27.127199411392212,
+      "dimensions": {
+        "width": 27.127199411392212,
+        "height": 8.534400463104248,
+        "depth": 14.630399942398071
+      },
+      "triangles": 24,
+      "score": 3389860.738857213
+    },
+    {
+      "loadOrder": 22,
+      "name": "Object89_LOD0",
+      "path": "Object89/Object89.gltf",
+      "volume": 3369.704727627428,
+      "maxDimension": 25.9080011844635,
+      "dimensions": {
+        "width": 25.9080011844635,
+        "height": 10.667999744415283,
+        "depth": 12.191999673843384
+      },
+      "triangles": 6,
+      "score": 3372295.527745874
+    },
+    {
+      "loadOrder": 23,
+      "name": "Object80_LOD0",
+      "path": "Object80/Object80.gltf",
+      "volume": 2911.425166894137,
+      "maxDimension": 20.726401329040527,
+      "dimensions": {
+        "width": 20.726401329040527,
+        "height": 8.534400224685669,
+        "depth": 16.459200024604797
+      },
+      "triangles": 27,
+      "score": 2913497.807027041
+    },
+    {
+      "loadOrder": 24,
+      "name": "Object83_LOD0",
+      "path": "Object83/Object83.gltf",
+      "volume": 2042.4376127632163,
+      "maxDimension": 17.068800449371338,
+      "dimensions": {
+        "width": 8.53439998626709,
+        "height": 14.020800352096558,
+        "depth": 17.068800449371338
+      },
+      "triangles": 6,
+      "score": 2044144.4928081534
+    },
+    {
+      "loadOrder": 25,
+      "name": "Object84_LOD0",
+      "path": "Object84/Object84.gltf",
+      "volume": 2042.4376127632163,
+      "maxDimension": 17.068800449371338,
+      "dimensions": {
+        "width": 8.53439998626709,
+        "height": 14.020800352096558,
+        "depth": 17.068800449371338
+      },
+      "triangles": 36,
+      "score": 2044144.4928081534
+    },
+    {
+      "loadOrder": 26,
+      "name": "Object105_LOD0",
+      "path": "Object105/Object105.gltf",
+      "volume": 1332.024504392299,
+      "maxDimension": 17.068800449371338,
+      "dimensions": {
+        "width": 8.53439998626709,
+        "height": 9.144000053405762,
+        "depth": 17.068800449371338
+      },
+      "triangles": 79,
+      "score": 1333731.384437236
+    },
+    {
+      "loadOrder": 27,
+      "name": "Object81_LOD0",
+      "path": "Object81/Object81.gltf",
+      "volume": 777.8070992291265,
+      "maxDimension": 16.611599445343018,
+      "dimensions": {
+        "width": 8.53439998626709,
+        "height": 5.48639988899231,
+        "depth": 16.611599445343018
+      },
+      "triangles": 60,
+      "score": 779468.2591736608
+    },
+    {
+      "loadOrder": 28,
+      "name": "Object86_LOD0",
+      "path": "Object86/Object86.gltf",
+      "volume": 742.1279554914352,
+      "maxDimension": 17.068800926208496,
+      "dimensions": {
+        "width": 17.068800926208496,
+        "height": 7.924800157546997,
+        "depth": 5.48639988899231
+      },
+      "triangles": 30,
+      "score": 743834.835584056
+    },
+    {
+      "loadOrder": 29,
+      "name": "Object85_LOD0",
+      "path": "Object85/Object85.gltf",
+      "volume": 260.9681018898711,
+      "maxDimension": 14.630400657653809,
+      "dimensions": {
+        "width": 14.630400657653809,
+        "height": 2.4384002685546875,
+        "depth": 7.315200090408325
+      },
+      "triangles": 17,
+      "score": 262431.14195563644
+    },
+    {
+      "loadOrder": 30,
+      "name": "Object87_LOD0",
+      "path": "Object87/Object87.gltf",
+      "volume": 184.85241861801504,
+      "maxDimension": 10.363200187683105,
+      "dimensions": {
+        "width": 7.3152008056640625,
+        "height": 2.4384002685546875,
+        "depth": 10.363200187683105
+      },
+      "triangles": 44,
+      "score": 185888.73863678335
+    },
+    {
+      "loadOrder": 31,
+      "name": "Object98_LOD0",
+      "path": "Object98/Object98.gltf",
+      "volume": 143.3822094753675,
+      "maxDimension": 12.8881254196167,
+      "dimensions": {
+        "width": 1.2192001342773438,
+        "height": 9.124950408935547,
+        "depth": 12.8881254196167
+      },
+      "triangles": 24,
+      "score": 144671.02201732915
+    },
+    {
+      "loadOrder": 32,
+      "name": "Object97_LOD0",
+      "path": "Object97/Object97.gltf",
+      "volume": 125.45932113550401,
+      "maxDimension": 12.8881254196167,
+      "dimensions": {
+        "width": 1.0667991638183594,
+        "height": 9.124950408935547,
+        "depth": 12.8881254196167
+      },
+      "triangles": 4,
+      "score": 126748.13367746568
+    },
+    {
+      "loadOrder": 33,
+      "name": "GLADoS",
+      "path": "GladOS/GladOS.gltf",
+      "volume": 113.43855891587752,
+      "maxDimension": 8.064080238342285,
+      "dimensions": {
+        "width": 3.3645399808883667,
+        "height": 4.180999994277954,
+        "depth": 8.064080238342285
+      },
+      "triangles": 5375,
+      "score": 114244.96693971175
+    },
+    {
+      "loadOrder": 34,
+      "name": "Object99_LOD0",
+      "path": "Object99/Object99.gltf",
+      "volume": 112.1095362904089,
+      "maxDimension": 11.516735076904297,
+      "dimensions": {
+        "width": 1.0667991638183594,
+        "height": 9.124950408935547,
+        "depth": 11.516735076904297
+      },
+      "triangles": 4,
+      "score": 113261.20979809933
+    },
+    {
+      "loadOrder": 35,
+      "name": "Object101_LOD0",
+      "path": "Object101/Object101.gltf",
+      "volume": 7.7256884901555845,
+      "maxDimension": 4.743450164794922,
+      "dimensions": {
+        "width": 4.743450164794922,
+        "height": 0.8382000923156738,
+        "depth": 1.9430999755859375
+      },
+      "triangles": 12,
+      "score": 8200.033506635076
+    },
+    {
+      "loadOrder": 36,
+      "name": "Object4_LOD0",
+      "path": "Object4/Object4.gltf",
+      "volume": 8,
+      "maxDimension": 2,
+      "dimensions": {
+        "width": 2,
+        "height": 2,
+        "depth": 2
+      },
+      "triangles": 12,
+      "score": 8200
+    },
+    {
+      "loadOrder": 37,
+      "name": "Object93_LOD0",
+      "path": "Object93/Object93.gltf",
+      "volume": 5.71653994492895,
+      "maxDimension": 2.8956000804901123,
+      "dimensions": {
+        "width": 2.5908002853393555,
+        "height": 2.8956000804901123,
+        "depth": 0.7620100975036621
+      },
+      "triangles": 215,
+      "score": 6006.099952977961
+    },
+    {
+      "loadOrder": 38,
+      "name": "Object103_LOD0",
+      "path": "Object103/Object103.gltf",
+      "volume": 4.701050166507489,
+      "maxDimension": 2.590804100036621,
+      "dimensions": {
+        "width": 2.590804100036621,
+        "height": 2.3812501430511475,
+        "depth": 0.762000560760498
+      },
+      "triangles": 54,
+      "score": 4960.130576511151
+    },
+    {
+      "loadOrder": 39,
+      "name": "Object102_LOD0",
+      "path": "Object102/Object102.gltf",
+      "volume": 3.8511809413840803,
+      "maxDimension": 2.5908000618219376,
+      "dimensions": {
+        "width": 2.43839168548584,
+        "height": 2.5908000618219376,
+        "depth": 0.6096162796020508
+      },
+      "triangles": 96,
+      "score": 4110.260947566274
+    },
+    {
+      "loadOrder": 40,
+      "name": "Macbook_Pro_16_Display_Screen_Space-Black.001",
+      "path": "MacbookM4/MacbookM4.gltf",
+      "volume": 0.000022880243718058834,
+      "maxDimension": 34.45500183105469,
+      "dimensions": {
+        "width": 34.45500183105469,
+        "height": 22.282209873199463,
+        "depth": 2.9802322387695312e-8
+      },
+      "triangles": 52,
+      "score": 3445.523063349187
+    },
+    {
+      "loadOrder": 41,
+      "name": "Macbook_Pro_16_Display_Screen_Space-Black.001",
+      "path": "MacbookM4_ktx2/MacbookM4_ktx2.gltf",
+      "volume": 0.000022880243718058834,
+      "maxDimension": 34.45500183105469,
+      "dimensions": {
+        "width": 34.45500183105469,
+        "height": 22.282209873199463,
+        "depth": 2.9802322387695312e-8
+      },
+      "triangles": 52,
+      "score": 3445.523063349187
+    },
+    {
+      "loadOrder": 42,
+      "name": "Object112_LOD0",
+      "path": "Object112/Object112.gltf",
+      "volume": 1.132673949975658,
+      "maxDimension": 3.047999858856201,
+      "dimensions": {
+        "width": 2.4384000301361084,
+        "height": 0.15240001678466797,
+        "depth": 3.047999858856201
+      },
+      "triangles": 4,
+      "score": 1437.473935861278
+    },
+    {
+      "loadOrder": 43,
+      "name": "mixamorig1:HeadTop_End",
+      "path": "HappyIdle/HappyIdle.gltf",
+      "volume": 1.0397418254737258,
+      "maxDimension": 1.8497343377675861,
+      "dimensions": {
+        "width": 1.7871944904327393,
+        "height": 1.8497343377675861,
+        "depth": 0.31451715528964996
+      },
+      "triangles": 29012,
+      "score": 1224.7152592504845
+    },
+    {
+      "loadOrder": 44,
+      "name": "mixamorig1:HeadTop_End",
+      "path": "Mixamo/Mixamo.gltf",
+      "volume": 1.0397418254737258,
+      "maxDimension": 1.8497343377675861,
+      "dimensions": {
+        "width": 1.7871944904327393,
+        "height": 1.8497343377675861,
+        "depth": 0.31451715528964996
+      },
+      "triangles": 29012,
+      "score": 1224.7152592504845
+    },
+    {
+      "loadOrder": 45,
+      "name": "mixamorig1:HeadTop_End",
+      "path": "MixamoModel/MixamoModel.gltf",
+      "volume": 1.0397418254737258,
+      "maxDimension": 1.8497343377675861,
+      "dimensions": {
+        "width": 1.7871944904327393,
+        "height": 1.8497343377675861,
+        "depth": 0.31451715528964996
+      },
+      "triangles": 29012,
+      "score": 1224.7152592504845
+    },
+    {
+      "loadOrder": 46,
+      "name": "Object67_LOD0",
+      "path": "Object67/Object67.gltf",
+      "volume": 0.319725994148064,
+      "maxDimension": 7.162800312042236,
+      "dimensions": {
+        "width": 7.162800312042236,
+        "height": 2.3431501388549805,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 4,
+      "score": 1036.0060253522877
+    },
+    {
+      "loadOrder": 47,
+      "name": "Object69_LOD0",
+      "path": "Object69/Object69.gltf",
+      "volume": 0.319725994148064,
+      "maxDimension": 7.162800312042236,
+      "dimensions": {
+        "width": 7.162800312042236,
+        "height": 2.3431501388549805,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 4,
+      "score": 1036.0060253522877
+    },
+    {
+      "loadOrder": 48,
+      "name": "Object63_LOD0",
+      "path": "Object63/Object63.gltf",
+      "volume": 0.21088309527737487,
+      "maxDimension": 4.724400043487549,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 4.724400043487549
+      },
+      "triangles": 4,
+      "score": 683.3230996261298
+    },
+    {
+      "loadOrder": 49,
+      "name": "Object65_LOD0",
+      "path": "Object65/Object65.gltf",
+      "volume": 0.21088309527737487,
+      "maxDimension": 4.724400043487549,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 4.724400043487549
+      },
+      "triangles": 4,
+      "score": 683.3230996261298
+    },
+    {
+      "loadOrder": 50,
+      "name": "Object71_LOD0",
+      "path": "Object71/Object71.gltf",
+      "volume": 0.21088309527737487,
+      "maxDimension": 4.724400043487549,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 4.724400043487549
+      },
+      "triangles": 4,
+      "score": 683.3230996261298
+    },
+    {
+      "loadOrder": 51,
+      "name": "Object73_LOD0",
+      "path": "Object73/Object73.gltf",
+      "volume": 0.21088309527737487,
+      "maxDimension": 4.724400043487549,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 4.724400043487549
+      },
+      "triangles": 4,
+      "score": 683.3230996261298
+    },
+    {
+      "loadOrder": 52,
+      "name": "Object29_LOD0",
+      "path": "Object29/Object29.gltf",
+      "volume": 0.1858293088429768,
+      "maxDimension": 4.267199993133545,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.2860000133514404,
+        "depth": 4.267199993133545
+      },
+      "triangles": 48,
+      "score": 612.5493081563313
+    },
+    {
+      "loadOrder": 53,
+      "name": "Object43_LOD0",
+      "path": "Object43/Object43.gltf",
+      "volume": 0.15646165648432298,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 3.505200147628784,
+        "height": 2.3431501388549805,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 6,
+      "score": 506.9816712472014
+    },
+    {
+      "loadOrder": 54,
+      "name": "Object45_LOD0",
+      "path": "Object45/Object45.gltf",
+      "volume": 0.15646165648432298,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 3.505200147628784
+      },
+      "triangles": 4,
+      "score": 506.9816712472014
+    },
+    {
+      "loadOrder": 55,
+      "name": "Object52_LOD0",
+      "path": "Object52/Object52.gltf",
+      "volume": 0.15646165648432298,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 3.505200147628784
+      },
+      "triangles": 4,
+      "score": 506.9816712472014
+    },
+    {
+      "loadOrder": 56,
+      "name": "Object114_LOD0",
+      "path": "Object114/Object114.gltf",
+      "volume": 0,
+      "maxDimension": 4.876800060272217,
+      "dimensions": {
+        "width": 0,
+        "height": 2.4383997917175293,
+        "depth": 4.876800060272217
+      },
+      "triangles": 8,
+      "score": 487.6800060272217
+    },
+    {
+      "loadOrder": 57,
+      "name": "Object47_LOD0",
+      "path": "Object47/Object47.gltf",
+      "volume": 0.11575618280772806,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 1.7335500717163086,
+        "depth": 3.505200147628784
+      },
+      "triangles": 4,
+      "score": 466.2761975706065
+    },
+    {
+      "loadOrder": 58,
+      "name": "Object50_LOD0",
+      "path": "Object50/Object50.gltf",
+      "volume": 0.11575618280772806,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 3.505200147628784,
+        "height": 1.7335500717163086,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 4,
+      "score": 466.2761975706065
+    },
+    {
+      "loadOrder": 59,
+      "name": "Object55_LOD0",
+      "path": "Object55/Object55.gltf",
+      "volume": 0.11575618280772806,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 1.7335500717163086,
+        "depth": 3.505200147628784
+      },
+      "triangles": 4,
+      "score": 466.2761975706065
+    },
+    {
+      "loadOrder": 60,
+      "name": "Object58_LOD0",
+      "path": "Object58/Object58.gltf",
+      "volume": 0.11575618280772806,
+      "maxDimension": 3.505200147628784,
+      "dimensions": {
+        "width": 3.505200147628784,
+        "height": 1.7335500717163086,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 4,
+      "score": 466.2761975706065
+    },
+    {
+      "loadOrder": 61,
+      "name": "Object100_LOD0",
+      "path": "Object100/Object100.gltf",
+      "volume": 0,
+      "maxDimension": 3.657623291015625,
+      "dimensions": {
+        "width": 3.6576004028320312,
+        "height": 0,
+        "depth": 3.657623291015625
+      },
+      "triangles": 4,
+      "score": 365.7623291015625
+    },
+    {
+      "loadOrder": 62,
+      "name": "Object94_LOD0",
+      "path": "Object94/Object94.gltf",
+      "volume": 0,
+      "maxDimension": 3.6576004028320312,
+      "dimensions": {
+        "width": 3.6576004028320312,
+        "height": 0,
+        "depth": 3.657599925994873
+      },
+      "triangles": 26,
+      "score": 365.7600402832031
+    },
+    {
+      "loadOrder": 63,
+      "name": "Object60_LOD0",
+      "path": "Object60/Object60.gltf",
+      "volume": 0.07823082824216149,
+      "maxDimension": 2.3431501388549805,
+      "dimensions": {
+        "width": 1.752600073814392,
+        "height": 2.3431501388549805,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 4,
+      "score": 312.5458421276595
+    },
+    {
+      "loadOrder": 64,
+      "name": "Object61_LOD0",
+      "path": "Object61/Object61.gltf",
+      "volume": 0.07823082824216149,
+      "maxDimension": 2.3431501388549805,
+      "dimensions": {
+        "width": 1.752600073814392,
+        "height": 2.3431501388549805,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 4,
+      "score": 312.5458421276595
+    },
+    {
+      "loadOrder": 65,
+      "name": "Object95_LOD0",
+      "path": "Object95/Object95.gltf",
+      "volume": 0,
+      "maxDimension": 3.0480003356933594,
+      "dimensions": {
+        "width": 3.0480003356933594,
+        "height": 0,
+        "depth": 1.2192001342773438
+      },
+      "triangles": 86,
+      "score": 304.80003356933594
+    },
+    {
+      "loadOrder": 66,
+      "name": "Object15_LOD0",
+      "path": "Object15/Object15.gltf",
+      "volume": 0.05143489853954129,
+      "maxDimension": 2.3622000217437744,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3622000217437744,
+        "depth": 1.1430000066757202
+      },
+      "triangles": 40,
+      "score": 287.6549007139187
+    },
+    {
+      "loadOrder": 67,
+      "name": "Object6_LOD0",
+      "path": "Object6/Object6.gltf",
+      "volume": 0.05143489853954129,
+      "maxDimension": 2.3622000217437744,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3622000217437744,
+        "depth": 1.1430000066757202
+      },
+      "triangles": 40,
+      "score": 287.6549007139187
+    },
+    {
+      "loadOrder": 68,
+      "name": "Object113_LOD0",
+      "path": "Object113/Object113.gltf",
+      "volume": 0,
+      "maxDimension": 2.4384002685546875,
+      "dimensions": {
+        "width": 2.4384002685546875,
+        "height": 0,
+        "depth": 2.4384002685546875
+      },
+      "triangles": 32,
+      "score": 243.84002685546875
+    },
+    {
+      "loadOrder": 69,
+      "name": "Wall_LOD0",
+      "path": "Wall/Wall.gltf",
+      "volume": 0,
+      "maxDimension": 2.4384002685546875,
+      "dimensions": {
+        "width": 1.2192001342773438,
+        "height": 2.4384002685546875,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 243.84002685546875
+    },
+    {
+      "loadOrder": 70,
+      "name": "Object53_LOD0",
+      "path": "Object53/Object53.gltf",
+      "volume": 0,
+      "maxDimension": 2.3431501388549805,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 2.3431501388549805,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 234.31501388549805
+    },
+    {
+      "loadOrder": 71,
+      "name": "Floor_LOD0",
+      "path": "Floor/Floor.gltf",
+      "volume": 0,
+      "maxDimension": 2,
+      "dimensions": {
+        "width": 2,
+        "height": 0,
+        "depth": 2
+      },
+      "triangles": 2,
+      "score": 200
+    },
+    {
+      "loadOrder": 72,
+      "name": "Object49_LOD0",
+      "path": "Object49/Object49.gltf",
+      "volume": 0,
+      "maxDimension": 1.7335500717163086,
+      "dimensions": {
+        "width": 0,
+        "height": 1.7335500717163086,
+        "depth": 0.019050000235438347
+      },
+      "triangles": 2,
+      "score": 173.35500717163086
+    },
+    {
+      "loadOrder": 73,
+      "name": "Object56_LOD0",
+      "path": "Object56/Object56.gltf",
+      "volume": 0,
+      "maxDimension": 1.7335500717163086,
+      "dimensions": {
+        "width": 0.019050000235438347,
+        "height": 1.7335500717163086,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 173.35500717163086
+    },
+    {
+      "loadOrder": 74,
+      "name": "Object10_LOD0",
+      "path": "Object10/Object10.gltf",
+      "volume": 0.028316847641901045,
+      "maxDimension": 0.6096000075340271,
+      "dimensions": {
+        "width": 0.07620000094175339,
+        "height": 0.6096000075340271,
+        "depth": 0.6096000075340271
+      },
+      "triangles": 8,
+      "score": 89.27684839530376
+    },
+    {
+      "loadOrder": 75,
+      "name": "Object13_LOD0",
+      "path": "Object13/Object13.gltf",
+      "volume": 0.028316847641901045,
+      "maxDimension": 0.6096000075340271,
+      "dimensions": {
+        "width": 0.07620000094175339,
+        "height": 0.6096000075340271,
+        "depth": 0.6096000075340271
+      },
+      "triangles": 8,
+      "score": 89.27684839530376
+    },
+    {
+      "loadOrder": 76,
+      "name": "Object12_LOD0",
+      "path": "Object12/Object12.gltf",
+      "volume": 0,
+      "maxDimension": 0.6096000075340271,
+      "dimensions": {
+        "width": 0,
+        "height": 0.6096000075340271,
+        "depth": 0.6096000075340271
+      },
+      "triangles": 2,
+      "score": 60.96000075340271
+    },
+    {
+      "loadOrder": 77,
+      "name": "Object8_LOD0",
+      "path": "Object8/Object8.gltf",
+      "volume": 0,
+      "maxDimension": 0.6096000075340271,
+      "dimensions": {
+        "width": 0,
+        "height": 0.6096000075340271,
+        "depth": 0.6096000075340271
+      },
+      "triangles": 2,
+      "score": 60.96000075340271
+    },
+    {
+      "loadOrder": 78,
+      "name": "Object9_LOD0",
+      "path": "Object9/Object9.gltf",
+      "volume": 0,
+      "maxDimension": 0.6096000075340271,
+      "dimensions": {
+        "width": 0,
+        "height": 0.6096000075340271,
+        "depth": 0.6096000075340271
+      },
+      "triangles": 2,
+      "score": 60.96000075340271
+    },
+    {
+      "loadOrder": 79,
+      "name": "Object17_LOD0",
+      "path": "Object17/Object17.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 80,
+      "name": "Object18_LOD0",
+      "path": "Object18/Object18.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 81,
+      "name": "Object20_LOD0",
+      "path": "Object20/Object20.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 82,
+      "name": "Object21_LOD0",
+      "path": "Object21/Object21.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 83,
+      "name": "Object23_LOD0",
+      "path": "Object23/Object23.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 84,
+      "name": "Object24_LOD0",
+      "path": "Object24/Object24.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 85,
+      "name": "Object26_LOD0",
+      "path": "Object26/Object26.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 86,
+      "name": "Object27_LOD0",
+      "path": "Object27/Object27.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0,
+        "height": 0.19050000607967377,
+        "depth": 0.19050000607967377
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 87,
+      "name": "Object31_LOD0",
+      "path": "Object31/Object31.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 88,
+      "name": "Object32_LOD0",
+      "path": "Object32/Object32.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 89,
+      "name": "Object34_LOD0",
+      "path": "Object34/Object34.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 90,
+      "name": "Object35_LOD0",
+      "path": "Object35/Object35.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 91,
+      "name": "Object37_LOD0",
+      "path": "Object37/Object37.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 92,
+      "name": "Object38_LOD0",
+      "path": "Object38/Object38.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 93,
+      "name": "Object40_LOD0",
+      "path": "Object40/Object40.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 94,
+      "name": "Object41_LOD0",
+      "path": "Object41/Object41.gltf",
+      "volume": 0,
+      "maxDimension": 0.19050000607967377,
+      "dimensions": {
+        "width": 0.19050000607967377,
+        "height": 0.19050000607967377,
+        "depth": 0
+      },
+      "triangles": 2,
+      "score": 19.050000607967377
+    },
+    {
+      "loadOrder": 95,
+      "name": "Object92_LOD0",
+      "path": "Object92/Object92.gltf",
+      "volume": 0.00022122820583000535,
+      "maxDimension": 0.07620048522949219,
+      "dimensions": {
+        "width": 0.07620048522949219,
+        "height": 0.038100242614746094,
+        "depth": 0.07620000839233398
+      },
+      "triangles": 12,
+      "score": 7.841276728779224
+    },
+    {
+      "loadOrder": 96,
+      "name": "Atlas_Model_168",
+      "path": "Atlas/Atlas.gltf",
+      "volume": 1.474514954580286e-16,
+      "maxDimension": 0.000008106231689453125,
+      "dimensions": {
+        "width": 0.000008106231689453125,
+        "height": 0.00000762939453125,
+        "depth": 0.000002384185791015625
+      },
+      "triangles": 32,
+      "score": 0.000810623169092764
+    }
+  ]
+}

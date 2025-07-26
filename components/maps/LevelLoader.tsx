@@ -1,7 +1,7 @@
 // components/portal/environment/LevelLoader.tsx
 import { Suspense } from 'react';
 import { useLevelStore } from '../LevelManager';
-import TestChamber00 from './TestChamber00';
+import TestChamber00 from './Level01_TestChamber00';
 import TestChamber01 from './TestChamber01';
 
 // Define valid level IDs

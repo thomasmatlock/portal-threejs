@@ -284,7 +284,6 @@ export default function Home() {
 				setApiTestResult('Wheatley voice test successful!');
 				const audio = new Audio(`data:audio/mp3;base64,${result.audio}`);
 
-				// Wait for audio to finish playing before enabling button
 				audio.onended = () => {
 					console.log('Wheatley audio playback complete');
 					setIsTestingWheatley(false);
@@ -326,7 +325,6 @@ export default function Home() {
 					maxWidth: 300,
 				}}
 			>
-				{/* User Name Input */}
 				<div style={{ marginBottom: 10 }}>
 					<label
 						htmlFor="userName"
@@ -385,7 +383,6 @@ export default function Home() {
 						))}
 					</select>
 
-					{/* GLaDOS Subcategory dropdown */}
 					{getSubcategories(gladosVoiceLines, selectedGladosCategory).length > 0 && (
 						<>
 							<label
@@ -420,7 +417,6 @@ export default function Home() {
 					)}
 				</div>
 
-				{/* Wheatley Dialog Category Selection */}
 				<div style={{ marginBottom: 10 }}>
 					<label
 						htmlFor="wheatleyCategory"
@@ -454,7 +450,6 @@ export default function Home() {
 						))}
 					</select>
 
-					{/* Wheatley Subcategory dropdown */}
 					{getSubcategories(wheatleyVoiceLines, selectedWheatleyCategory).length > 0 && (
 						<>
 							<label
@@ -490,7 +485,6 @@ export default function Home() {
 				</div>
 
 				<div style={{ marginBottom: 10 }}>
-					{/* Test buttons */}
 					<button
 						onClick={testGladosVoice}
 						disabled={isTestingGlados}

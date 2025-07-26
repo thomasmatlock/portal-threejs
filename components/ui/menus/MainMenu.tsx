@@ -29,7 +29,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 	onLoadGame = () => console.log('Load game...'),
 	onContinueGame = () => console.log('Continue game...'),
 }) => {
-	const { mobile } = useContext(UserContext);
+	const { mobile, dev } = useContext(UserContext);
 
 	// State management
 	const {
@@ -121,7 +121,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 					randomizeTrack={true}
 				/>
 			)}
-			<ElevenLabsDebug />
+			{dev && <ElevenLabsDebug />}
 		</div>
 	);
 };

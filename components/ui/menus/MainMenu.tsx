@@ -121,7 +121,7 @@ const GameMenu: React.FC<GameMenuProps> = ({
 					randomizeTrack={true}
 				/>
 			)}
-			{dev && !mobile && <ElevenLabsDebug />}
+			{!mobile && <ElevenLabsDebug />}
 		</div>
 	);
 };

@@ -19,7 +19,7 @@ $breakpoint-mobile: 480px;
 	font-family: 'Arial', sans-serif;
 	padding: 0 60px 0 12rem;
 	z-index: 100;
-	pointer-events: none;
+	// pointer-events: none;
 
 	// Dark overlay for better text readability
 	&::after {

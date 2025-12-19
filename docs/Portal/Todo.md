@@ -1,8 +1,0 @@
--   Scaffold project
--   add tip to press esc to bring up in game menu, inputContext
--   Wheatley threejs reference, not sure what this means
--   add in-game menu
--   change gamemenu to main
--   Wheatley controllers
-    -   Have him look at camera sometimes
-    -   go to sleep after a few seconds
